@@ -6,15 +6,15 @@
 ===================================================================================================
 
 [] Réseau d'agences
-[] Caractéristiques d'une agence : ID de 5 caractères alphanumérique, DATE de création
-[] Un gérant par agence, il gère les conseillers
+[X] Caractéristiques d'une agence : ID de 5 caractères alphanumérique, DATE de création
+[X] Un gérant par agence, il gère les conseillers
 [] Un conseiller peut suivre au maximum 10 clients
-[] Caractéristiques d'un client : NOM, PRENOM, ADRESSE, CP, VILLE, TELEPHONE
-[] Un client peut avoir un COMPTE COURANT et un COMPTE EPARGNE
-[] Caractéristiques d'un compte : NO COMPTE, SOLDE, DATE d'ouverture
-[] Caractéristiques d'un compte courant : DECOUVERT par défaut de 1000 euros 
-[] Caractéristiques d'un compte épargne: TAUX de rémunération par défaut de 3%
-[] Un client peut posséder une carte Visa Electon et/ou une carte Visa Premier
+[X] Caractéristiques d'un client : NOM, PRENOM, ADRESSE, CP, VILLE, TELEPHONE
+[X] Un client peut avoir un COMPTE COURANT et un COMPTE EPARGNE
+[X] Caractéristiques d'un compte : NO COMPTE, SOLDE, DATE d'ouverture
+[/] Caractéristiques d'un compte courant : DECOUVERT par défaut de 1000 euros 
+[/] Caractéristiques d'un compte épargne: TAUX de rémunération par défaut de 3%
+[/] Un client peut posséder une carte Visa Electon et/ou une carte Visa Premier
 [] La suppression d'un client du système implique la suppression de tous les comptes associés et la désactivation des cartes
 
 [] Le système d'information s'appelle ProxiBanqueSI
@@ -79,9 +79,9 @@
 
 [] Maquettes obligatoires -> Balsamiq Mockups
 [] Diagrammes de :        -> Visual Paradigm ou Argo Uml
-	+[] Classes
-	+[] Cas d'Utilisation
-	+[] Déploiement
+	+[/] Classes
+	+[/] Cas d'Utilisation
+	+[/] Déploiement
 	+[] Séquence
 [] Front Office 		  -> Angular ou JSP
 [] Back Office :
