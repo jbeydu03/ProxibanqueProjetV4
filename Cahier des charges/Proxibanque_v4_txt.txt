@@ -1,0 +1,110 @@
+
+===================================================================================================
+									CAHIER DES CHARGES
+									  ProxiBanque v4
+							Angular / JSP / Spring / JPA / WS
+===================================================================================================
+
+[] Réseau d'agences
+[] Caractéristiques d'une agence : ID de 5 caractères alphanumérique, DATE de création
+[] Un gérant par agence, il gère les conseillers
+[] Un conseiller peut suivre au maximum 10 clients
+[] Caractéristiques d'un client : NOM, PRENOM, ADRESSE, CP, VILLE, TELEPHONE
+[] Un client peut avoir un COMPTE COURANT et un COMPTE EPARGNE
+[] Caractéristiques d'un compte : NO COMPTE, SOLDE, DATE d'ouverture
+[] Caractéristiques d'un compte courant : DECOUVERT par défaut de 1000 euros 
+[] Caractéristiques d'un compte épargne: TAUX de rémunération par défaut de 3%
+[] Un client peut posséder une carte Visa Electon et/ou une carte Visa Premier
+[] La suppression d'un client du système implique la suppression de tous les comptes associés et la désactivation des cartes
+
+[] Le système d'information s'appelle ProxiBanqueSI
+[] Un conseiller peut :
+	+[] Créer un client
+	+[] Modifier les informations d'un client
+	+[] Lire les informations d'un client
+	+[] Supprimer un client
+[] Un conseiller peut : 
+	+[] Faire des virements de compte à compte
+	+[] Faire des simulations de crédit (plafond prêt, durée prêt, taux d'interet, taux d'assurance saont propres au client et définis par le conseiller)
+[] Le système d'information peut auditer chaque agence : aucun compte client inférieur à 5000 euros, aucun compte entreprise inférieur à 50 000 euros
+ 
+ 
+ *** ECRANS ***
+ 
+ 
+[] Ecran n°1 - Authentification :
+	+[] Champs 'login' et 'password'
+	+[] Profils de connection :
+		++[] Conseiller
+		++[] Directeur d'agence
+		
+[] Ecran n°2 - Liste des clients :
+	+[] Conseiller peut :
+		++[] Visualiser ses clients
+		++[] Interface de mise à jour des informations clients
+		++[] Lister les comptes d'un clients
+		++[] Effectuer un virement
+		
+[] Ecran n°3 - Liste des conseillers :
+	+[] Un Gérant peut visualiser la liste des conseillers
+	+[] Un Conseiller ne peut PAS voir la liste des conseillers
+	
+[] Ecran n°4 - Edition d'un client :
+	+[] Un conseiller peut :
+		++[] Modifier les informations d'un client (NOM, PRENOM, EMAIL, ADRESSE)
+		++[] Créer un nouveau client 
+		
+[] Ecran n°5 - Liste des comptes d'un client :
+	+[] Un Conseiller peut : 
+		++[] Voir la liste des comptes d'un client
+		++[] Faire des simulations de crédit 
+	
+[] Ecran n°6 - Virement Compte à Compte :
+	+[] Un conseiller peut :
+		++[] Effectuer un virement de compte à compte UNIQUEMENT pour les comptes domiciliés dans la banque
+		++[] Calculer les mensualités d'un prêt
+	
+[] Ecran n°7 - Rapport sur les transactions :
+	+[] Un gérant peut voir graphiquement (histogramme ou camembert) les transactions clients réalisées :
+		++[] Les derniers mois
+		++[] La semaine précédente
+	+[] Un gérant ET un conseiller peuvent être alertés par les clients à découvert
+
+[] Ecran n°8 - Erreur :
+	+[] Un message personalisé pour chaque erreur
+
+	
+*** CHOIX TECHNIQUES ***
+
+
+[] Maquettes obligatoires -> Balsamiq Mockups
+[] Diagrammes de :        -> Visual Paradigm ou Argo Uml
+	+[] Classes
+	+[] Cas d'Utilisation
+	+[] Déploiement
+	+[] Séquence
+[] Front Office 		  -> Angular ou JSP
+[] Back Office :
+	+[] Conteneur 		  -> Spring
+	+[] Virements : Traçage AOP
+	+[] Virements : Fichier log
+	+[] WebService REST obligatoire -> JAX-RS 2
+	+[] Livrable WebService différent de l'application Web
+	+[] JPA 2.1 -> Hibernate
+	+[] Authentification JAAS login/pwd en BDD possible
+[] Gestion du code source, utiliser :
+	+[] Collections, Interfaces, Classe Abstraite
+	+[] GIT
+	+[] Log4J ou LogBack
+	+[] Maven
+	+[] Au moins un test unitaire
+[] Serveur d'application Tomcat ou Pivotal
+	
+	
+	
+	
+	
+	
+	
+	
+	
