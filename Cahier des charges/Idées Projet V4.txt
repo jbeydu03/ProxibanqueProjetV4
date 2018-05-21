@@ -1,0 +1,11 @@
+Cahier des charges : 2 types de comptes (particulier ou entreprise)
+Proposition : faire un enum typeCompte avec ces deux options et modifier dans ce cas en dur avec un if le montant du découvert autorisé.
+
+Sur les écrans d'opérations (partie Angular), comment afficher si l'opération est bien faite ?
+Proposition : soit faire un alert('') ou une autre page : Opération réaliser avec succés et les informations relatives dessus.
+
+Messages d'erreur : pour le moment, j'en vois trois :
+- Mauvaise combinaison identifiant/mot de passe
+- Même compte débiteur/créditeur lors du virement
+- Opération impossible car découvert maximum dépassé si virement
+Vous voyez d'autres messages d'erreur à afficher dans l'écran 8 ? Le reste peut se gérer via Angular pour les champs je pense.
