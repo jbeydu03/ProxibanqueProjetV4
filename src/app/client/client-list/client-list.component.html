@@ -1,0 +1,27 @@
+<h1>Liste des Clients de l'agence Proxibanque d'Aurillac ({{listeClients.length}})</h1>
+
+
+<div class="row">
+
+  <!-- Ajout de boutons pour dynamiser le tableau -->
+  <p>
+    <button class="btn btn-default" (click)="addClient()" [disabled]="listeClients.length>=10">Ajouter</button>
+    <!-- Methode quick & dirty 
+      <button class="btn btn-default" (click)="quizList.push({title:'Dummy Quiz'})">Ajouter</button>-->
+    <button class="btn btn-default" (click)="deleteClient()">Supprimer</button>
+    <!-- Methode quick & dirty 
+        <button class="btn btn-default" (click)="quizList.pop()">Ajouter</button>-->
+  </p>
+
+  <!-- Affichage dynamique si aucun quiz est affiché -->
+  <h2 *ngIf="listeClients.length === 0">
+    Aucun client affecté à ce conseiller
+  </h2>
+
+  <!-- Boucle sur la liste des quizzes en appelant une boucle sur la variable quizList -->
+  <div class="col-sm-4" *ngFor="let currentClient of listeClients">
+    <!-- {{currentClient.nom}} -->
+    <app-client-item [client]="currentClient"></app-client-item>
+    <!-- <app-quiz-item [quiz]="currentQuiz"></app-quiz-item> -->
+  </div>
+</div>
