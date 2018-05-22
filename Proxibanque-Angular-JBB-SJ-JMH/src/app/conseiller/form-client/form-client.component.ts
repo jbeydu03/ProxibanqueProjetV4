@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConseillerService } from '../conseiller.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
+import { Client } from '../../model/client';
+
 @Component({
   selector: 'app-form-client',
   templateUrl: './form-client.component.html',
@@ -13,7 +15,7 @@ export class FormClientComponent implements OnInit {
   clientForm: FormGroup;
   clientId;
 
-  constructor(private fb: FormBuilder, conseillerService: ConseillerService, route: ActivatedRoute, router: Router) { }
+  constructor(private fb: FormBuilder, private conseillerService: ConseillerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.clientForm = this.fb.group({
@@ -29,7 +31,7 @@ export class FormClientComponent implements OnInit {
       this.clientId = Number(param.get('clientId'));
       //Remise des valeurs des champs dans le formulaire 
       if (this.clientId) {
-        this.conseillerService.loadClient(clientId).subscribe(client => {
+        this.conseillerService.loadClient(this.clientId).subscribe(client => {
           this.clientForm.get('clientNom').setValue(client.nom);
           this.clientForm.get('clientPrenom').setValue(client.prenom);
           this.clientForm.get('clientAdresse').setValue(client.adresse);
@@ -41,6 +43,24 @@ export class FormClientComponent implements OnInit {
       }
     });
   }
+
+  saveClient(){
+    const client = new Client({
+      id: this.clientId,
+      nom : this.clientForm.get('clientNom').value,
+      prenom: this.clientForm.get('clientPrenom').value,
+      adresse: this.clientForm.get('clientAdresse').value,
+      ville: this.clientForm.get('clientVille').value,
+      codePostal: this.clientForm.get('clientCodePostal').value,
+      telephone: this.clientForm.get('clientTelephone').value
+    });
+    this.conseillerService.saveClient(client).subscribe(() => {
+      //Confirmation de modification ou de création
+      this.clientId? alert('Client édité avec succés') : alert('Client ajouté à la banque');
+      //Redirection
+      this.router.navigate(['clients']);
+    });
+}
 
 
 }
