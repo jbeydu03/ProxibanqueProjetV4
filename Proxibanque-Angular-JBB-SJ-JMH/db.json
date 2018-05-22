@@ -1,98 +1,28 @@
 {
-  "conseillers": [
-    {
-      "id": "bob",
-      "nom": "Super Bob"
+    "id": 1,
+    "nom": "AVCI",
+    "prenom": "Ozlem",
+    "adresse": "1 rue du soleil",
+    "codePostal": "1000",
+    "ville": "BOURG EN BRESSE",
+    "telephone": "01 53 82 74 10",
+    "compteCourant": {
+        "id": 1,
+        "numero": "1234567890",
+        "solde": 1000,
+        "date": "01/01/2018",
+        "decouvert": -2600,
+        "carte": {
+            "id": 1,
+            "numero": "123456789",
+            "active": false
+        }
     },
-    {
-      "id": "laura",
-      "nom": "Laura Maravillosa"
-    },
-    {
-      "id": "cindy",
-      "nom": "Cindy Lee"
+    "compteEpargne": {
+        "id": 11,
+        "numero": "0000000001",
+        "solde": 1000,
+        "date": "01/01/2018",
+        "taux": 0.01
     }
-  ],
-  "clients": [
-    {
-      "id": 1,
-      "prenom": "Jean-Michel",
-      "nom": "Hiltbrunner",
-      "login": "jmhiltbrunner",
-      "password": "1234",
-      "conseiller": "bob"
-    },
-    {
-      "id": 2,
-      "prenom": "Anthony",
-      "nom": "Le Cigne",
-      "login": "alecigne",
-      "password": "1234",
-      "conseiller": "bob"
-    },
-    {
-      "id": 3,
-      "prenom": "Morane",
-      "nom": "Musa",
-      "login": "mmusa",
-      "password": "1234",
-      "conseiller": "bob"
-    },
-    {
-      "id": 4,
-      "prenom": "Sandrine",
-      "nom": "Le Mentec",
-      "login": "slementec",
-      "password": "1234",
-      "conseiller": "bob"
-    },
-    {
-      "id": 5,
-      "prenom": "Clothilde",
-      "nom": "Szymezak",
-      "login": "cszymezak",
-      "password": "1234",
-      "conseiller": "bob"
-    },
-    {
-      "id": 6,
-      "prenom": "Jean-Baptiste",
-      "nom": "Blanc",
-      "login": "jbblanc",
-      "password": "1234",
-      "conseiller": "laura"
-    },
-    {
-      "id": 7,
-      "prenom": "Sébastien",
-      "nom": "Joumard",
-      "login": "sjoumard",
-      "password": "1234",
-      "conseiller": "laura"
-    },
-    {
-      "id": 8,
-      "prenom": "Arnaud",
-      "nom": "Renard",
-      "login": "arenard",
-      "password": "1234",
-      "conseiller": "laura"
-    },
-    {
-      "id": 9,
-      "prenom": "Etienne",
-      "nom": "Savary",
-      "login": "esavary",
-      "password": "1234",
-      "conseiller": "laura"
-    },
-    {
-      "id": 10,
-      "prenom": "Ozlem",
-      "nom": "Avci",
-      "login": "oavci",
-      "password": "1234",
-      "conseiller": "cindy"
-    }
-  ]
 }
