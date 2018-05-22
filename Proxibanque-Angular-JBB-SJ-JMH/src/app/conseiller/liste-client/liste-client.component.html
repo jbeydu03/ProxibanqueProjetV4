@@ -1,0 +1,51 @@
+<h1>Liste des Clients de l'agence Proxibanque d'Aurillac ({{listeClients.length}})</h1>
+
+
+<div class="row">
+
+  
+  <!-- Affichage dynamique si aucun quiz est affiché -->
+  <h2 *ngIf="listeClients.length === 0">
+    Aucun client affecté à ce conseiller
+  </h2>
+  
+  <!-- Boucle sur la liste des clients en appelant une boucle sur la variable listeClients -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID Client</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Opérations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let currentClient of listeClients">
+        <td><a [routerLink]="['/listeClients', currentClient.id]">{{ currentClient.id }}</a></td>
+        <td>{{ currentClient.prenom }}</td>
+        <td>{{ currentClient.nom }}</td>
+        <td>
+          <a [routerLink]="[currentClient.id]" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Éditer
+          </a>
+          <a [routerLink]="['/listeClients', currentClient.id]" class="btn btn-default btn-sm" target="_blank">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Liste des comptes
+          </a>
+          <a [routerLink]="['/virement']" class="btn btn-default btn-sm" target="_blank">
+            <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Virement
+          </a>
+          <button class="btn btn-danger btn-sm" (click)="deleteClient(idClient)">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Ajout de boutons pour dynamiser le tableau -->
+  <p>
+    <button class="btn btn-default" (click)="addClient()" [disabled]="listeClients.length>=10">Ajouter</button>
+    <!-- Methode quick & dirty 
+      <button class="btn btn-default" (click)="quizList.push({title:'Dummy Quiz'})">Ajouter</button>-->
+  </p>
+</div>

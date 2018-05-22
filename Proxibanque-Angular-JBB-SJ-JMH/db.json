@@ -1,0 +1,98 @@
+{
+  "conseillers": [
+    {
+      "id": "bob",
+      "nom": "Super Bob"
+    },
+    {
+      "id": "laura",
+      "nom": "Laura Maravillosa"
+    },
+    {
+      "id": "cindy",
+      "nom": "Cindy Lee"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "prenom": "Jean-Michel",
+      "nom": "Hiltbrunner",
+      "login": "jmhiltbrunner",
+      "password": "1234",
+      "conseiller": "bob"
+    },
+    {
+      "id": 2,
+      "prenom": "Anthony",
+      "nom": "Le Cigne",
+      "login": "alecigne",
+      "password": "1234",
+      "conseiller": "bob"
+    },
+    {
+      "id": 3,
+      "prenom": "Morane",
+      "nom": "Musa",
+      "login": "mmusa",
+      "password": "1234",
+      "conseiller": "bob"
+    },
+    {
+      "id": 4,
+      "prenom": "Sandrine",
+      "nom": "Le Mentec",
+      "login": "slementec",
+      "password": "1234",
+      "conseiller": "bob"
+    },
+    {
+      "id": 5,
+      "prenom": "Clothilde",
+      "nom": "Szymezak",
+      "login": "cszymezak",
+      "password": "1234",
+      "conseiller": "bob"
+    },
+    {
+      "id": 6,
+      "prenom": "Jean-Baptiste",
+      "nom": "Blanc",
+      "login": "jbblanc",
+      "password": "1234",
+      "conseiller": "laura"
+    },
+    {
+      "id": 7,
+      "prenom": "Sébastien",
+      "nom": "Joumard",
+      "login": "sjoumard",
+      "password": "1234",
+      "conseiller": "laura"
+    },
+    {
+      "id": 8,
+      "prenom": "Arnaud",
+      "nom": "Renard",
+      "login": "arenard",
+      "password": "1234",
+      "conseiller": "laura"
+    },
+    {
+      "id": 9,
+      "prenom": "Etienne",
+      "nom": "Savary",
+      "login": "esavary",
+      "password": "1234",
+      "conseiller": "laura"
+    },
+    {
+      "id": 10,
+      "prenom": "Ozlem",
+      "nom": "Avci",
+      "login": "oavci",
+      "password": "1234",
+      "conseiller": "cindy"
+    }
+  ]
+}
