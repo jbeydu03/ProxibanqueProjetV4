@@ -1,3 +1,18 @@
-<p>
-  client-form works!
-</p>
+<form novalidate [formGroup]="clientForm" (ngSubmit)="saveClient()">
+
+  <!-- Cette forme générique remplace le bout de code commenté ci dessous -->
+  <app-field label="Titre" [control]="clientForm.get('id')">
+    <input type="text" class="form-control" placeholder="Titre" formControlName="clientId">
+  </app-field>
+  <app-field label="Titre" [control]="clientForm.get('prenom')">
+    <input type="text" class="form-control" placeholder="Titre" formControlName="clientPrenom">
+  </app-field>
+  <app-field label="Titre" [control]="clientForm.get('nom')">
+    <input type="text" class="form-control" placeholder="Titre" formControlName="clientNom">
+  </app-field>
+
+  <!-- Si une erreur apparait, afficher un message d'erreur -->
+  <button type="submit" class="btn btn-primary" [disabled]="quizForm.invalid">Enregistrer</button>
+  <a routerLink="..">Annuler</a>
+
+</form>
