@@ -28,8 +28,8 @@ public class Conseiller {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String login;
-	private String password;
+	private String prenom;
+	private String nom;
 
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	@JsonManagedReference
@@ -40,8 +40,8 @@ public class Conseiller {
 	}
 
 	public Conseiller(String login, String password) {
-		this.login = login;
-		this.password = password;
+		this.prenom = login;
+		this.nom = password;
 	}
 
 	// *** Getters & Setters
@@ -54,19 +54,19 @@ public class Conseiller {
 	}
 
 	public String getLogin() {
-		return login;
+		return prenom;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.prenom = login;
 	}
 
 	public String getPassword() {
-		return password;
+		return nom;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.nom = password;
 	}
 
 	public Set<Client> getListeClient() {
@@ -80,7 +80,7 @@ public class Conseiller {
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "(" + id + ") " + " [" + login + "]" + "(" + password + ") " + listeClient.toString();
+		return "(" + id + ") " + " [" + prenom + "]" + "(" + nom + ") " + listeClient.toString();
 	}
 
 }

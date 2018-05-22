@@ -33,8 +33,8 @@ public class Gerant {
 	@JoinColumn(name = "agence_id")
 	private Agence agence;
 
-	private String login;
-	private String password;
+	private String prenom;
+	private String nom;
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "gerant_id")
@@ -45,8 +45,8 @@ public class Gerant {
 	}
 
 	public Gerant(String login, String password) {
-		this.login = login;
-		this.password = password;
+		this.prenom = login;
+		this.nom = password;
 	}
 
 	// *** Getters & Setters
@@ -67,19 +67,19 @@ public class Gerant {
 	}
 
 	public String getLogin() {
-		return login;
+		return prenom;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.prenom = login;
 	}
 
 	public String getPassword() {
-		return password;
+		return nom;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.nom = password;
 	}
 
 	public Set<Conseiller> getListeConseiller() {
@@ -93,7 +93,7 @@ public class Gerant {
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "(" + id + ") " + agence + " [" + login + "]" + "(" + password + ") " + listeConseiller.toString();
+		return "(" + id + ") " + agence + " [" + prenom + "]" + "(" + nom + ") " + listeConseiller.toString();
 	}
 
 }
