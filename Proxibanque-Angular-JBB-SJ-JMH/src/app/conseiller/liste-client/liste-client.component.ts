@@ -14,11 +14,17 @@ export class ListeClientComponent implements OnInit {
 
   ngOnInit() {
     this.conseillerService.loadClients().subscribe(data => this.listeClients = data);
+    alert(document.cookie);
   }
 
   deleteClient(idClient){
     this.conseillerService.deleteClient(idClient).subscribe();
 
   }
+
+
+  private cookiesId= document.cookie;
+
+  
 
 }

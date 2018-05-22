@@ -9,6 +9,8 @@ import { FooterComponent } from './common/footer/footer.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { HomeComponent } from './common/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './authentification/login/login.component';
+import { AuthentificationModule } from './authentification/authentification.module';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -20,11 +22,13 @@ const routes: Routes= [
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     ConseillerModule,
+    AuthentificationModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
