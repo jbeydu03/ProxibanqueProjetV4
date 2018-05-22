@@ -8,12 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Classe représentant les conseillers de la société Proxibanque
@@ -32,16 +29,16 @@ public class Conseiller {
 	private String nom;
 
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
-	@JsonManagedReference
+	@JsonBackReference
 	private Set<Client> listeClient = new HashSet<>();;
 
 	// *** Constructor ***
 	public Conseiller() {
 	}
 
-	public Conseiller(String login, String password) {
-		this.prenom = login;
-		this.nom = password;
+	public Conseiller(String prenom, String nom) {
+		this.prenom = prenom;
+		this.nom = nom;
 	}
 
 	// *** Getters & Setters
@@ -53,20 +50,20 @@ public class Conseiller {
 		this.id = id;
 	}
 
-	public String getLogin() {
+	public String getPrenom() {
 		return prenom;
 	}
 
-	public void setLogin(String login) {
-		this.prenom = login;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
-	public String getPassword() {
+	public String getNom() {
 		return nom;
 	}
 
-	public void setPassword(String password) {
-		this.nom = password;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public Set<Client> getListeClient() {

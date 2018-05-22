@@ -17,4 +17,5 @@ public interface DaoClient extends JpaRepository<Client, Long> {
 	
 	public List<Client> findByConseiller_idIs(long idConseiller);
 	
+	
 }

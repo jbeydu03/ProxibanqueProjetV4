@@ -41,7 +41,7 @@ public class Client {
 
 	@ManyToOne
 	@JoinColumn(name = "conseiller_id")
-	@JsonBackReference
+	@JsonManagedReference
 	private Conseiller conseiller;
 
 	// *** Constructor ***
