@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img [src]="logo">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <!-- Mettre routerLink à la place de href permet le cote Single Page Application contrairement à href qui rafraichit -->
+          <li *ngFor="let item of navItems">
+            <a [routerLink]="item.path">{{item.text}}</a>
+          </li>
+        </ul>
+        <!--<p class="navbar-text navbar-right">Identifié comme <a href="#" class="navbar-link">{{user.name}}</a></p>  variante classique avec interpolation-->
+        <!-- Autre possibilité si on passe par le DOM -->
+        <p class="navbar-text navbar-right">Identifié comme
+          <a href="#" class="navbar-link">Conseiller</a><!-- Ne pas oublier [textContent]="conseiller.nom + conseiller.prenom"-->
+        </p>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>

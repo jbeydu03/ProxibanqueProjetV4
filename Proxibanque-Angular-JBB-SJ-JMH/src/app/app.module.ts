@@ -5,14 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ConseillerModule } from './conseiller/conseiller.module';
+import { FooterComponent } from './common/footer/footer.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
+import { HomeComponent } from './common/home/home.component';
 
 const routes: Routes= [
+  {path: 'home', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
