@@ -10,9 +10,12 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 
-//= WEB.XML 
-
-
+/**
+ * Classe assurant la configuration de Spring - Web - Servlet
+ * 
+ * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
+ *
+ */
 public class WebAppInitializer implements WebApplicationInitializer {
 
 	@Override

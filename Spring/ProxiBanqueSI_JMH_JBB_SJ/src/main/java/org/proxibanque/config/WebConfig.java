@@ -13,7 +13,12 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-
+/**
+ * Classe assurant la configuration de Spring - Web - Controller
+ * 
+ * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
+ *
+ */
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages= {"org.proxibanque"})
@@ -23,7 +28,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**");
+		registry.addMapping("/**").allowedMethods("GET", "POST", "DELETE", "PUT"); // POURQUOI ?
 	}
 	
 	@Bean
