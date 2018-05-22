@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeClientComponent } from './liste-client/liste-client.component';
 import { ConseillerService } from './conseiller.service';
+import { FormClientComponent } from './form-client/form-client.component';
 
 const routes: Routes = [
   {path: 'clients', component: ListeClientComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    ListeClientComponent
+    ListeClientComponent,
+    FormClientComponent
   ],
   providers: [
     ConseillerService
