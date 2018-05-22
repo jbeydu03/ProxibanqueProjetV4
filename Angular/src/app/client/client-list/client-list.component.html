@@ -24,4 +24,32 @@
     <app-client-item [client]="currentClient"></app-client-item>
     <!-- <app-quiz-item [quiz]="currentQuiz"></app-quiz-item> -->
   </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID Client</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Opérations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let currentClient of listeClients">
+      <td><a [routerLink]="['/quiz', quiz.id]">{{ currentClient.idClient }}</a></td>
+      <td>{{ currentClient.prenom }}</td>
+      <td>{{ currentClient.nom }}</td>
+      <td>
+        <a [routerLink]="['/quiz', quiz.id]" class="btn btn-default btn-sm" target="_blank">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Voir
+        </a>
+        <a [routerLink]="[quiz.id]" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Éditer
+        </a>
+        <button class="btn btn-danger btn-sm" (click)="deleteQuiz(quiz)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
