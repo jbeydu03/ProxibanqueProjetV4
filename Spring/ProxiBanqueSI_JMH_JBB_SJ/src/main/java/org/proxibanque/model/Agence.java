@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Classe représentant les agences de la société Proxibanque
  * 
@@ -21,9 +24,6 @@ public class Agence {
 	private long id;
 	private String numero;
 	private String date;
-
-	@OneToOne(mappedBy = "agence")
-	private Gerant gerant;
 
 	// *** Constructor ***
 	public Agence() {
@@ -59,18 +59,10 @@ public class Agence {
 		this.date = date;
 	}
 
-	public Gerant getGerant() {
-		return gerant;
-	}
-
-	public void setGerant(Gerant gerant) {
-		this.gerant = gerant;
-	}
-
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "(" + id + ") " + numero + " (" + date + ") " + gerant.toString();
+		return "(" + id + ") " + numero + " (" + date + ") ";
 	}
 
 }

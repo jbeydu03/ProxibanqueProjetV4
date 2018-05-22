@@ -1,6 +1,5 @@
 package org.proxibanque.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Classe représentant les clients de la société Proxibanque
@@ -39,6 +41,7 @@ public class Client {
 
 	@ManyToOne
 	@JoinColumn(name = "conseiller_id")
+	@JsonBackReference
 	private Conseiller conseiller;
 
 	// *** Constructor ***

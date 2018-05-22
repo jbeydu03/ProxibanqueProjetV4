@@ -1,14 +1,20 @@
 package org.proxibanque.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Classe représentant les gérants de la société Proxibanque
@@ -30,8 +36,9 @@ public class Gerant {
 	private String login;
 	private String password;
 
-	@OneToMany(mappedBy = "gerant")
-	private List<Conseiller> listeConseiller;
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "gerant_id")
+	private Set<Conseiller> listeConseiller = new HashSet<>();
 
 	// *** Constructor ***
 	public Gerant() {
@@ -75,11 +82,11 @@ public class Gerant {
 		this.password = password;
 	}
 
-	public List<Conseiller> getListeConseiller() {
+	public Set<Conseiller> getListeConseiller() {
 		return listeConseiller;
 	}
 
-	public void setListeConseiller(List<Conseiller> listeConseiller) {
+	public void setListeConseiller(Set<Conseiller> listeConseiller) {
 		this.listeConseiller = listeConseiller;
 	}
 

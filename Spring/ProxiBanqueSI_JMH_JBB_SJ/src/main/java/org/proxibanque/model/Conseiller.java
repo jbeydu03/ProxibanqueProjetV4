@@ -1,8 +1,10 @@
 package org.proxibanque.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Classe représentant les conseillers de la société Proxibanque
@@ -27,12 +31,9 @@ public class Conseiller {
 	private String login;
 	private String password;
 
-	@ManyToOne
-	@JoinColumn(name = "gerant_id")
-	private Gerant gerant;
-
-	@OneToMany(mappedBy = "conseiller")
-	private List<Client> listeClient;
+	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
+	@JsonManagedReference
+	private Set<Client> listeClient = new HashSet<>();;
 
 	// *** Constructor ***
 	public Conseiller() {
@@ -68,26 +69,18 @@ public class Conseiller {
 		this.password = password;
 	}
 
-	public Gerant getGerant() {
-		return gerant;
-	}
-
-	public void setGerant(Gerant gerant) {
-		this.gerant = gerant;
-	}
-
-	public List<Client> getListeClient() {
+	public Set<Client> getListeClient() {
 		return listeClient;
 	}
 
-	public void setListeClient(List<Client> listeClient) {
+	public void setListeClient(Set<Client> listeClient) {
 		this.listeClient = listeClient;
 	}
 
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "(" + id + ") " + gerant + " [" + login + "]" + "(" + password + ") " + listeClient.toString();
+		return "(" + id + ") " + " [" + login + "]" + "(" + password + ") " + listeClient.toString();
 	}
 
 }

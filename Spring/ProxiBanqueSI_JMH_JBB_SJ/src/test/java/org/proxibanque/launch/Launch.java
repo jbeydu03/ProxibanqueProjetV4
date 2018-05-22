@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class Launch {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(Launch.class);
-	
 	@Test
 	public void main() {
 

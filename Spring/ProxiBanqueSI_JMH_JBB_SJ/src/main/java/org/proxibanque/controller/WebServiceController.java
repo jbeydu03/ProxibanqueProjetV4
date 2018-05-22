@@ -1,13 +1,14 @@
 package org.proxibanque.controller;
 
+import java.util.List;
+
+import org.proxibanque.model.Client;
+import org.proxibanque.service.ServiceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,35 +22,53 @@ public class WebServiceController {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(WebServiceController.class);
 
-	@Secured("ROLE_USER")
-	@GetMapping(value = "/test/", produces = "application/json")
-	public void testWebServiceGET() {
+	// @Secured("ROLE_USER")
+	// @GetMapping(value = "/test/", produces = "application/json")
+	// public void testWebServiceGET() {
+	//
+	// LOGGER.warn(" ******** testWebServiceGET() ******** ");
+	// }
+	//
+	// @GetMapping(value = "/test/{id}", produces = "application/json")
+	// public void testWebServiceGET(@PathVariable("id") String id) {
+	//
+	// LOGGER.warn(" ******** testWebServiceGET() ******** ");
+	// }
+	//
+	// @PostMapping(value = "/test/", produces = "application/json")
+	// public void testWebServicePOST(/*@RequestBody Object obj*/) {
+	//
+	// LOGGER.warn(" ******** testWebServicePOST() ******** ");
+	// }
+	//
+	// @DeleteMapping(value = "/test/{id}", produces = "application/json")
+	// public void testWebServiceDelete(@PathVariable("id") String id) {
+	//
+	// LOGGER.warn(" ******** testWebServiceDelete() ******** ");
+	// }
+	//
+	// @PutMapping(value = "/test/", produces = "application/json")
+	// public void testWebServicePUT(/*@RequestBody Object obj*/) {
+	//
+	// LOGGER.warn(" ******** testWebServicePUT() ******** ");
+	// }
 
-		LOGGER.warn(" ******** testWebServiceGET() ******** ");
+	@Autowired
+	ServiceClient serviceClient;
+
+	// @Secured("ROLE_USER")
+	@GetMapping(value = "/clients/all", produces = "application/json")
+	public List<Client> selectAllClient() {
+		
+		return serviceClient.selectAllClient();
 	}
-
-	@GetMapping(value = "/test/{id}", produces = "application/json")
-	public void testWebServiceGET(@PathVariable("id") String id) {
-
-		LOGGER.warn(" ******** testWebServiceGET() ******** ");
+	
+	@GetMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
+	public List<Client> selectAllClientByIdConseiller(@PathVariable("idConseiller") long idConseiller) {
+		
+		return serviceClient.selectAllClientByIdConseiller(idConseiller);
 	}
-
-	@PostMapping(value = "/test/", produces = "application/json")
-	public void testWebServicePOST(/*@RequestBody Object obj*/) {
-
-		LOGGER.warn(" ******** testWebServicePOST() ******** ");
-	}
-
-	@DeleteMapping(value = "/test/{id}", produces = "application/json")
-	public void testWebServiceDelete(@PathVariable("id") String id) {
-
-		LOGGER.warn(" ******** testWebServiceDelete() ******** ");
-	}
-
-	@PutMapping(value = "/test/", produces = "application/json")
-	public void testWebServicePUT(/*@RequestBody Object obj*/) {
-
-		LOGGER.warn(" ******** testWebServicePUT() ******** ");
-	}
+	
+	
 
 }
