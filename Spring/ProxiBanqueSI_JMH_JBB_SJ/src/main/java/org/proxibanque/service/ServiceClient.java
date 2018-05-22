@@ -18,7 +18,12 @@ public interface ServiceClient {
 	
 	public List<Client> selectAllClient();
 	
-	public List<Client> selectAllClientByIdConseiller(long idConseiller);
-
-//	public List<Client> selectAllClientByNomConseiller(String nomConseiller);
+	public List<Client> selectAllClientByNomConseiller(String nomConseiller);
+	
+	public Client selectOneClientByIdClient(long idClient);
+	
+	public void deleteOneClientByIdClient(long idClient);
+	
+	public Client createClient(Client client);
+	
 }

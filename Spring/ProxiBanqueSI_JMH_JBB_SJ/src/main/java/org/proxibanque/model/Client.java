@@ -41,20 +41,33 @@ public class Client {
 
 	@ManyToOne
 	@JoinColumn(name = "conseiller_id")
-	@JsonManagedReference
+	@JsonBackReference
 	private Conseiller conseiller;
 
 	// *** Constructor ***
 	public Client() {
 	}
 
-	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
+	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone, Conseiller conseiller) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
+		this.conseiller = conseiller;
+	}
+	
+	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone, Conseiller conseiller,CompteCourant compteCourant, CompteEpargne compteEpargne) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.conseiller = conseiller;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
 	}
 
 	// *** Getters & Setters

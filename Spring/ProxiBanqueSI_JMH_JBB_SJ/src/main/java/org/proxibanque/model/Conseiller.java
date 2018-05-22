@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Classe représentant les conseillers de la société Proxibanque
@@ -29,7 +29,7 @@ public class Conseiller {
 	private String nom;
 
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
-	@JsonBackReference
+	@JsonManagedReference
 	private Set<Client> listeClient = new HashSet<>();;
 
 	// *** Constructor ***
