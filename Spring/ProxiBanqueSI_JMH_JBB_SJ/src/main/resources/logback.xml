@@ -16,21 +16,28 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
         </encoder>
     </appender>
 
-<!-- 	<appender> -->
-<!--     <File name="fout" fileName="virements.log" append="true"> -->
-<!--         <PatternLayout> -->
-<!--             <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%nw</Pattern> -->
-<!--         </PatternLayout> -->
-<!--     </File> -->
-<!-- 	</appender> -->
+<appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    		<File>c:/proxibanqueData/virements.log</File>
+    		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		    <!-- daily rollover -->
+    			<FileNamePattern>rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+
+    			<!-- keep 30 days' worth of history -->
+    			<maxHistory>30</maxHistory>			
+    		</rollingPolicy>
+
+    		<encoder>
+    			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+    		</encoder> 	    
+      	</appender>
 	
 	
 	<!--<logger name="org.hibernate" level="debug"/> -->
-   <!-- Uncomment and add your logger here:
-    <logger name="org.springframework.samples.service.service" level="debug"/> -->
+   Uncomment and add your logger here:
+    <logger name="org.proxibanque.aspect.Audience" level="warn"/>
          
     <root level="warn">
         <appender-ref ref="console"/>
-<!--         <AppenderRef ref="fout"/> -->
+        <appender-ref ref="dailyRollingFileAppender" />
     </root>
 </configuration>
