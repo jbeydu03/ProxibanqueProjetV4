@@ -1,6 +1,7 @@
 package org.proxibanque.config;
 
 import java.util.Properties;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -81,7 +82,7 @@ public class Config {
 		entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter());
 		entityManagerFactory.setPackagesToScan("org.proxibanque");
 		Properties jpaProperties = new Properties();
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		entityManagerFactory.setJpaProperties(jpaProperties);
 
 		return entityManagerFactory;

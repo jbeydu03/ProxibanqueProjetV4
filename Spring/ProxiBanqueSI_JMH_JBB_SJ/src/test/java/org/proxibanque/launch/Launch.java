@@ -20,5 +20,4 @@ public class Launch {
 		LOGGER.warn(" ******** Test Logger ******** ");
 		
 	}
-
 }
