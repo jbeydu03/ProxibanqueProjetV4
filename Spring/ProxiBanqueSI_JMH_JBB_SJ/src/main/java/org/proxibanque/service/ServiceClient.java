@@ -3,7 +3,9 @@ package org.proxibanque.service;
 import java.util.List;
 import java.util.Set;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.proxibanque.model.Client;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +14,6 @@ import org.springframework.stereotype.Service;
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *
  */
-@Service
 public interface ServiceClient {
 	
 	public List<Client> selectAllClient();

@@ -2,9 +2,11 @@ package org.proxibanque.service;
 
 import java.util.List;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.proxibanque.model.Client;
 import org.proxibanque.persistence.DaoClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**

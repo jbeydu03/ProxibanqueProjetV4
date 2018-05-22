@@ -16,11 +16,21 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
         </encoder>
     </appender>
 
+<!-- 	<appender> -->
+<!--     <File name="fout" fileName="virements.log" append="true"> -->
+<!--         <PatternLayout> -->
+<!--             <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%nw</Pattern> -->
+<!--         </PatternLayout> -->
+<!--     </File> -->
+<!-- 	</appender> -->
+	
+	
 	<!--<logger name="org.hibernate" level="debug"/> -->
    <!-- Uncomment and add your logger here:
     <logger name="org.springframework.samples.service.service" level="debug"/> -->
          
     <root level="warn">
         <appender-ref ref="console"/>
+<!--         <AppenderRef ref="fout"/> -->
     </root>
 </configuration>
