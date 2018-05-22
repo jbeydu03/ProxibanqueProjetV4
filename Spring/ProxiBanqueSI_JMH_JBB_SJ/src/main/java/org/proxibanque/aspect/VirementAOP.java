@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class Audience {
+public class VirementAOP {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(Audience.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(VirementAOP.class);
 	
 	
 	@Pointcut("execution(* org.proxibanque.service.ServiceClient.selectAllClient())") // Raccourci
