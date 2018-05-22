@@ -32,4 +32,11 @@ public class ServiceImpl implements ServiceClient {
 
 		return daoClient.findByConseiller_idIs(idConseiller);
 	}
+
+//	@Override
+//	public List<Client> selectConseillerByNomConseiller(String nomConseiller) {
+//
+//		return daoClient.findByConseiller_idIs(nomConseiller);
+//	}
+	
 }

@@ -20,4 +20,5 @@ public interface ServiceClient {
 	
 	public List<Client> selectAllClientByIdConseiller(long idConseiller);
 
+//	public List<Client> selectAllClientByNomConseiller(String nomConseiller);
 }

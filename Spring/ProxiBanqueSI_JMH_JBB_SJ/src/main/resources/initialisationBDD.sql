@@ -7,14 +7,14 @@ INSERT INTO AGENCE (id, numero, date) VALUES ('1', 'AG001', '01/01/2018');
 
 -- ================= 2°) Création des gérants ================= 
 
-INSERT INTO GERANT (id, login, password, agence_id) VALUES ('1', 'login_gerant', 'password_gerant', '1');
+INSERT INTO GERANT (id, nom, prenom, agence_id) VALUES ('1', 'nom_gerant', 'prenom_gerant', '1');
 
 
 
 -- ================= 3°) Création des conseillers ================= 
 
-INSERT INTO CONSEILLER (id, login, password, gerant_id) VALUES ('1', 'login_conseiller1', 'password_conseiller1', '1');
-INSERT INTO CONSEILLER (id, login, password, gerant_id) VALUES ('2', 'login_conseiller2', 'password_conseiller2', '1');
+INSERT INTO CONSEILLER (id, nom, prenom, gerant_id) VALUES ('1', 'nom_conseiller1', 'prenom_conseiller1', '1');
+INSERT INTO CONSEILLER (id, nom, prenom, gerant_id) VALUES ('2', 'nom_conseiller2', 'prenom_conseiller2', '1');
 
 
 

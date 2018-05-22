@@ -63,11 +63,21 @@ public class WebServiceController {
 		return serviceClient.selectAllClient();
 	}
 	
+	// @Secured("ROLE_USER")
 	@GetMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
 	public List<Client> selectAllClientByIdConseiller(@PathVariable("idConseiller") long idConseiller) {
 		
 		return serviceClient.selectAllClientByIdConseiller(idConseiller);
 	}
+	
+	
+	// ------------------------------
+	// @Secured("ROLE_USER")
+//	@GetMapping(value = "/test/{nomConseiller}", produces = "application/json")
+//	public List<Client> selectAllClientByNomConseiller(@PathVariable("nomConseiller") String nomConseiller) {
+//		
+//		return serviceClient.selectAllClientByNomConseiller(nomConseiller);
+//	}
 	
 	
 
