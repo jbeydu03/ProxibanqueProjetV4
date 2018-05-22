@@ -1,0 +1,15 @@
+<div class="form-group" [class.has-error]="control.dirty && control.invalid">
+    <label class="control-label">{{label}}</label>
+    <!-- Sera remplacé par le contenu de app-field-->
+    <ng-content></ng-content>
+    <div class="help-block" *ngIf="control.dirty && control.invalid">
+      <div *ngIf="control.hasError('required')">
+        Ce champ doit être renseigné
+      </div>
+      <!-- Si le champ fait plus de 20 caractères affichage de ce message d'erreur -->
+      <div *ngIf="control.hasError('maxlength')">
+        Ce champ doit faire au plus {{control.getError('maxlength').requiredLength}} caractères (espaces compris).
+        <br> Actuellement, cette chaîne fait {{control.getError('maxlength').actualLength}} caractères.
+      </div>
+    </div>
+  </div>

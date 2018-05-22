@@ -1,3 +1,33 @@
-<p>
-  form-client works!
-</p>
+<form novalidate [formGroup]="clientForm" (ngSubmit)="saveClient()">
+
+  <!-- Cette forme générique remplace le bout de code commenté ci dessous -->
+  <app-field label="Nom" [control]="clientForm.get('clientNom')">
+    <input type="text" class="form-control" placeholder="Nom" formControlName="clientNom">
+  </app-field>
+
+  <app-field label="Prenom" [control]="clientForm.get('clientPrenom')">
+    <input type="text" class="form-control" placeholder="Prénom" formControlName="clientPrenom">
+  </app-field>
+
+  <app-field label="Adresse" [control]="clientForm.get('clientAdresse')">
+    <input type="text" class="form-control" placeholder="Adresse" formControlName="clientAdresse">
+  </app-field>
+
+  <app-field label="Ville" [control]="clientForm.get('clientVille')">
+    <input type="text" class="form-control" placeholder="Ville" formControlName="clientVille">
+  </app-field>
+
+  <app-field label="CodePostal" [control]="clientForm.get('clientCodePostal')">
+    <input type="text" class="form-control" placeholder="Code Postal" formControlName="clientCodePostal">
+  </app-field>
+
+  <app-field label="Telephone" [control]="clientForm.get('clientTelephone')">
+    <input type="text" class="form-control" placeholder="Code Postal" formControlName="clientTelephone">
+  </app-field>
+
+
+  <!-- Si une erreur apparait, afficher un message d'erreur -->
+  <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
+  <a routerLink="..">Annuler</a>
+
+</form>
