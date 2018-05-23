@@ -13,8 +13,8 @@ INSERT INTO GERANT (id, nom, prenom, agence_id) VALUES ('1', 'nom_gerant', 'pren
 
 -- ================= 3°) Création des conseillers ================= 
 
-INSERT INTO CONSEILLER (id, nom, prenom, login, password, gerant_id) VALUES ('1', 'nom_conseiller1', 'prenom_conseiller1','login_conseiller1', 'password_conseiller1', '1');
-INSERT INTO CONSEILLER (id, nom, prenom, login, password, gerant_id) VALUES ('2', 'nom_conseiller2', 'prenom_conseiller2','login_conseiller2', 'password_conseiller2', '1');
+INSERT INTO CONSEILLER (id, nom, prenom, login, password, gerant_id) VALUES ('1', 'nom_conseiller1', 'prenom_conseiller1','c1', 'pwd', '1');
+INSERT INTO CONSEILLER (id, nom, prenom, login, password, gerant_id) VALUES ('2', 'nom_conseiller2', 'prenom_conseiller2','c2', 'pwd', '1');
 
 
 

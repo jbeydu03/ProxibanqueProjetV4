@@ -34,7 +34,6 @@ export class ConseillerService {
   }
 
   deleteClient(clientId: number): Observable<any> {
-    console.log('Client effacé :', clientId)
     return this.http.delete('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + clientId);
   }
 

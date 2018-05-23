@@ -3,14 +3,15 @@ package org.proxibanque.controller;
 import java.util.List;
 
 import org.proxibanque.model.Client;
-import org.proxibanque.model.CompteCourant;
-import org.proxibanque.model.CompteEpargne;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.service.ServiceClient;
+import org.proxibanque.service.ServiceConseiller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,22 +69,28 @@ public class WebServiceController {
 	@Autowired
 	ServiceClient serviceClient;
 
+	@Autowired
+	ServiceConseiller serviceConseiller;
+
 	// ==============================================================================
 	// AUTHENTIFICATION
 	// ==============================================================================
 	// URL =>
 	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/login_conseiller1/password_conseiller1
 	// @Secured("ROLE_USER")
+
 	@CrossOrigin(origins = "*")
-	@GetMapping(value = "/auth/conseiller/{login}/{password}", produces = "application/json")
-	public Client authentification(@PathVariable("login") String login, @PathVariable("password") String password) {
+	@GetMapping(value = "/auth/conseiller/{loginConseiller}/{passwordConseiller}", produces = "application/json")
+	public ResponseEntity<Conseiller> authentification(@PathVariable("loginConseiller") String loginConseiller,
+			@PathVariable("passwordConseiller") String passwordConseiller) {
 
-		if (login.equals("bob")) {
-
-			return serviceClient.selectClient(1);
+		Conseiller conseiller = serviceConseiller.connectionConseiller(loginConseiller, passwordConseiller);
+		if (conseiller != null) {
+			return new ResponseEntity(conseiller, HttpStatus.ACCEPTED);
 		} else {
-			return null;
+			return new ResponseEntity(HttpStatus.FORBIDDEN);
 		}
+
 	}
 
 	// ==============================================================================
@@ -157,40 +164,39 @@ public class WebServiceController {
 		return serviceClient.createClient(client, idConseiller);
 	}
 
-	
 	// ==============================================================================
 	// MODIFIER UN CLIENT A PARTIR D'UN ID CLIENT ET D'UN ID CONSEILLER
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
 	// BODY =>
-//	{
-//	    "id": 1,
-//	    "nom": "gergerg",
-//	    "prenom": "Ozlem",
-//	    "adresse": "1 rue du soleil",
-//	    "codePostal": "1000",
-//	    "ville": "BOURG EN BRESSE",
-//	    "telephone": "01 53 82 74 10",
-//	    "compteCourant": {
-//	        "id": 1,
-//	        "numero": "1234567890",
-//	        "solde": 1000,
-//	        "date": "2018-01-01",
-//	        "decouvert": -2600,
-//	        "carte": {
-//	        
-//	            "numero": "123456789",
-//	            "active": false
-//	        }
-//	    },
-//	    "compteEpargne": {
-//	        "id": 11,
-//	        "numero": "0000000001",
-//	        "solde": 1000,
-//	        "date": "2018-01-01",
-//	        "taux": 0.01
-//	    }
-//	}
+	// {
+	// "id": 1,
+	// "nom": "gergerg",
+	// "prenom": "Ozlem",
+	// "adresse": "1 rue du soleil",
+	// "codePostal": "1000",
+	// "ville": "BOURG EN BRESSE",
+	// "telephone": "01 53 82 74 10",
+	// "compteCourant": {
+	// "id": 1,
+	// "numero": "1234567890",
+	// "solde": 1000,
+	// "date": "2018-01-01",
+	// "decouvert": -2600,
+	// "carte": {
+	//
+	// "numero": "123456789",
+	// "active": false
+	// }
+	// },
+	// "compteEpargne": {
+	// "id": 11,
+	// "numero": "0000000001",
+	// "solde": 1000,
+	// "date": "2018-01-01",
+	// "taux": 0.01
+	// }
+	// }
 	// @Secured("ROLE_USER")
 	@CrossOrigin(origins = "*")
 	@PutMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")

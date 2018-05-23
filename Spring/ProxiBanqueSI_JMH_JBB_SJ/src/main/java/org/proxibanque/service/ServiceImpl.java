@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class ServiceImpl implements ServiceClient {
+public class ServiceImpl implements ServiceClient, ServiceConseiller {
 
 	@Autowired
 	private DaoClient daoClient;
@@ -72,12 +72,37 @@ public class ServiceImpl implements ServiceClient {
 
 	@Override
 	public Client updateClient(Client client, long idConseiller) {
-		
+
 		Conseiller conseiller = daoConseiller.findOne(idConseiller);
 
 		client.setConseiller(conseiller);
-		
+
 		return daoClient.save(client);
+	}
+
+	// ----------------------------------------------------
+	@Override
+	public Conseiller selectConseillerById(long idConseiller) {
+
+		return daoConseiller.findOne(idConseiller);
+	}
+
+	@Override
+	public Conseiller selectConseillerByLogin(String loginConseiller) {
+
+		return daoConseiller.findByLoginIs(loginConseiller);
+	}
+
+	@Override
+	public Conseiller connectionConseiller(String loginConseiller, String passwordConseiller) {
+
+		Conseiller conseiller = selectConseillerByLogin(loginConseiller);
+
+		if (passwordConseiller.equals(conseiller.getPassword())) {
+			return conseiller;
+		} else {
+			return null;
+		}
 	}
 
 }
