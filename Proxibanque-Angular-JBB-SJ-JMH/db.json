@@ -17,7 +17,7 @@
     }
   ],
   "clients": [
-    {
+    { 
       "id": 1,
       "nom": "AVCI",
       "prenom": "Ozlem",
@@ -25,21 +25,10 @@
       "codePostal": "1000",
       "ville": "BOURG EN BRESSE",
       "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 1,
-        "numero": "1234567890",
-        "solde": 1000,
-        "date": "2018-01-01",
-        "decouvert": -2600,
-        "carte": {
-          "id": 1,
-          "numero": "123456789",
-          "active": false
-        }
-      },
+      "compteCourant": null,
       "compteEpargne": {
         "id": 11,
-        "numero": "0000000001",
+        "numero": "1000000001",
         "solde": 1000,
         "date": "2018-01-01",
         "taux": 0.01
