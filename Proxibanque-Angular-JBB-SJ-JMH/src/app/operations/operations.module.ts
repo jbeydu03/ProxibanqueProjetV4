@@ -6,6 +6,7 @@ import { SimulationCreditComponent } from './simulation-credit/simulation-credit
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OperationsService } from './operations.service';
+import { FieldComponent } from '../operations/field/field.component';
 
 const routes: Routes = [
   { path: 'operations', component: ListeOperationsComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   ],
   declarations: [
     ListeOperationsComponent,
-    SimulationCreditComponent],
+    SimulationCreditComponent,
+    FieldComponent],
   exports: [
     ReactiveFormsModule,
    
