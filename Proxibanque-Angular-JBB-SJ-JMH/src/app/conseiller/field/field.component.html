@@ -4,7 +4,7 @@
     <ng-content></ng-content>
     <div class="help-block" *ngIf="control.dirty && control.invalid">
       <div *ngIf="control.hasError('required')">
-        Ce champ doit être renseigné
+        Ce champ ne peut pas être vide
       </div>
       <!-- Si le champ fait plus de 20 caractères affichage de ce message d'erreur -->
       <div *ngIf="control.hasError('maxlength')">
