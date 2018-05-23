@@ -1,5 +1,6 @@
 package org.proxibanque.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.proxibanque.model.Client;
@@ -40,7 +41,7 @@ public class WebServiceController {
 	// AUTHENTIFICATION
 	// ==============================================================================
 	// URL =>
-	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/login_conseiller1/password_conseiller1
+	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/c2/pwd
 	// @Secured("ROLE_USER")
 	@GetMapping(value = "/auth/conseiller/{loginConseiller}/{passwordConseiller}", produces = "application/json")
 	public ResponseEntity<Conseiller> authentification(@PathVariable("loginConseiller") String loginConseiller,
@@ -61,9 +62,16 @@ public class WebServiceController {
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all
 	// @Secured("ROLE_USER")
 	@GetMapping(value = "/clients/all", produces = "application/json")
-	public List<Client> selectAllClient() {
+	public ResponseEntity<List<Client>> selectAllClient() {
 
-		return serviceClient.selectAllClient();
+		List<Client> listeClient = new ArrayList<>();
+		listeClient = serviceClient.selectAllClient();
+
+		if (listeClient != null) {
+			return new ResponseEntity(listeClient, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	// ==============================================================================
@@ -73,9 +81,15 @@ public class WebServiceController {
 	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
 	// @Secured("ROLE_USER")
 	@GetMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
-	public List<Client> selectAllClientByConseiller(@PathVariable("idConseiller") long idConseiller) {
+	public ResponseEntity<List<Client>> selectAllClientByConseiller(@PathVariable("idConseiller") long idConseiller) {
 
-		return serviceClient.selectAllClientByConseiller(idConseiller);
+		Conseiller conseiller = serviceConseiller.selectConseillerById(idConseiller);
+
+		if (conseiller != null) {
+			return new ResponseEntity(serviceConseiller.selectConseillerById(idConseiller), HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
 
 	}
 
@@ -85,9 +99,15 @@ public class WebServiceController {
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
 	// @Secured("ROLE_USER")
 	@GetMapping(value = "/clients/{idClient}", produces = "application/json")
-	public Client selectClientByIdClient(@PathVariable("idClient") long idClient) {
+	public ResponseEntity<Client> selectClientByIdClient(@PathVariable("idClient") long idClient) {
 
-		return serviceClient.selectClient(idClient);
+		// return
+		Client client = serviceClient.selectClient(idClient);
+		if (client != null) {
+			return new ResponseEntity(client, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	// ==============================================================================
@@ -96,69 +116,49 @@ public class WebServiceController {
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
 	// @Secured("ROLE_USER")
 	@DeleteMapping(value = "/clients/{idClient}", produces = "application/json")
-	public void deleteClient(@PathVariable("idClient") long idClient) {
+	public ResponseEntity deleteClient(@PathVariable("idClient") long idClient) {
 
-		serviceClient.deleteClient(idClient);
+		try {
+			serviceClient.deleteClient(idClient);
+			return new ResponseEntity(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
 	}
 
 	// ==============================================================================
 	// CREER UN CLIENT A PARTIR D'UN CLIENT ET D'UN ID CONSEILLER
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
-	// BODY =>
-	// {
-	// "nom": "TEST",
-	// "prenom": "TEST",
-	// "adresse": "1 rue du soleil",
-	// "codePostal": "1000",
-	// "ville": "BOURG EN BRESSE",
-	// "telephone": "01 53 82 74 10"
-	// }
 	// @Secured("ROLE_USER")
 	@PostMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
-	public Client createClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
+	public ResponseEntity<Client> createClient(@RequestBody Client client,
+			@PathVariable("idConseiller") long idConseiller) {
 
-		return serviceClient.createClient(client, idConseiller);
+		Conseiller conseiller = serviceConseiller.selectConseillerById(idConseiller);
+		if (conseiller != null) {
+			return new ResponseEntity(serviceClient.createClient(client, idConseiller), HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
+
 	}
 
 	// ==============================================================================
 	// MODIFIER UN CLIENT A PARTIR D'UN ID CLIENT ET D'UN ID CONSEILLER
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
-	// BODY =>
-	// {
-	// "id": 1,
-	// "nom": "gergerg",
-	// "prenom": "Ozlem",
-	// "adresse": "1 rue du soleil",
-	// "codePostal": "1000",
-	// "ville": "BOURG EN BRESSE",
-	// "telephone": "01 53 82 74 10",
-	// "compteCourant": {
-	// "id": 1,
-	// "numero": "1234567890",
-	// "solde": 1000,
-	// "date": "2018-01-01",
-	// "decouvert": -2600,
-	// "carte": {
-	//
-	// "numero": "123456789",
-	// "active": false
-	// }
-	// },
-	// "compteEpargne": {
-	// "id": 11,
-	// "numero": "0000000001",
-	// "solde": 1000,
-	// "date": "2018-01-01",
-	// "taux": 0.01
-	// }
-	// }
 	// @Secured("ROLE_USER")
 	@PutMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
-	public Client updateClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
+	public ResponseEntity<Client> updateClient(@RequestBody Client client,
+			@PathVariable("idConseiller") long idConseiller) {
 
-		return serviceClient.updateClient(client, idConseiller);
+		Conseiller conseiller = serviceConseiller.selectConseillerById(idConseiller);
+		if (conseiller != null) {
+			return new ResponseEntity(serviceClient.updateClient(client, idConseiller), HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
 	}
 
 }
