@@ -1,12 +1,9 @@
 package org.proxibanque.service;
 
 import java.util.List;
-import java.util.Set;
 
-import org.aspectj.lang.annotation.Aspect;
 import org.proxibanque.model.Client;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.proxibanque.model.Compte;
 
 /**
  * Interface imposant les méthodes à implémenter pour les actions sur les clients en base de données
@@ -27,5 +24,7 @@ public interface ServiceClient {
 	public Client createClient(Client client, long idConseiller);
 	
 	public Client updateClient(Client client, long idConseiller);
+	
+	public List<Compte> selectAllCompte();
 	
 }

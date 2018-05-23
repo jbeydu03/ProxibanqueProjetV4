@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './authentification/login/login.component';
 import { AuthentificationModule } from './authentification/authentification.module';
 import { VirementModule } from './virement/virement.module';
+import { OperationsModule } from './operations/operations.module';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -24,17 +25,18 @@ const routes: Routes= [
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     ConseillerModule,
+    OperationsModule,
     AuthentificationModule,
     HttpClientModule,
     VirementModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [{provide: 'JSON_SERVER_URL', useValue: 'http://localhost:3004'}],
+  providers: [{provide: 'JSON_SERVER_URL', useValue: 'http://localhost:8080'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
