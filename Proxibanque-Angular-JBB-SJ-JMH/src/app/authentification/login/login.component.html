@@ -1,0 +1,15 @@
+
+ <form  [formGroup]="loginForm" (ngSubmit)="validForm()">
+
+    <div class="form-group">
+        <input  class="form-control"  aria-describedby="basic-addon1" formControlName="login">
+    </div>
+      
+    <div class="form-group">
+        <input  class="form-control"  aria-describedby="basic-addon1" formControlName="mdp">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.get('login').invalid">Valider</button>
+     
+  
+</form>

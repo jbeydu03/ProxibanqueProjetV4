@@ -1,0 +1,330 @@
+{
+  "conseillers": [
+    {
+      "id": 1000,
+      "nom": "Vador",
+      "prenom": "Dark"
+    },
+    {
+      "id": 1001,
+      "nom": "Palpatine",
+      "prenom": "Chancelier"
+    },
+    {
+      "id": 1002,
+      "nom": "Dokku",
+      "prenom": "Compte"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "nom": "AVCI",
+      "prenom": "Ozlem",
+      "adresse": "1 rue du soleil",
+      "codePostal": "1000",
+      "ville": "BOURG EN BRESSE",
+      "telephone": "01 53 82 74 10",
+      "compteCourant": {
+        "id": 1,
+        "numero": "1234567890",
+        "solde": 1000,
+        "date": "2018-01-01",
+        "decouvert": -2600,
+        "carte": {
+          "id": 1,
+          "numero": "123456789",
+          "active": false
+        }
+      },
+      "compteEpargne": {
+        "id": 11,
+        "numero": "0000000001",
+        "solde": 1000,
+        "date": "2018-01-01",
+        "taux": 0.01
+      },
+      "conseiller": 1000
+    },
+    {
+      "id": 2,
+      "nom": "BLANC",
+      "prenom": "Jean-Baptiste",
+      "adresse": "2 rue du nuage",
+      "codePostal": "2000",
+      "ville": "AULNOIS SOUS LAON",
+      "telephone": "01 53 82 74 11",
+      "compteCourant": {
+        "id": 2,
+        "numero": "2345678901",
+        "solde": 2000,
+        "date": "2018-01-02",
+        "decouvert": -1000,
+        "carte": {
+          "id": 2,
+          "numero": "234567891",
+          "active": true
+        }
+      },
+      "compteEpargne": null,
+      "conseiller": 1000
+    },
+    {
+      "id": 3,
+      "nom": "HILTBRUNNER",
+      "prenom": "Jean-Michel",
+      "adresse": "3 rue du ciel",
+      "codePostal": "3000",
+      "ville": "AVERMES",
+      "telephone": "01 53 82 74 15",
+      "compteCourant": {
+        "id": 3,
+        "numero": "3456789012",
+        "solde": 3000,
+        "date": "2018-01-03",
+        "decouvert": -1000,
+        "carte": {
+          "id": 3,
+          "numero": "345678912",
+          "active": true
+        }
+      },
+      "compteEpargne": {
+        "id": 13,
+        "numero": "0000000003",
+        "solde": 3000,
+        "date": "2018-02-01",
+        "taux": 0.03
+      },
+      "conseiller": 1001
+    },
+    {
+      "id": 4,
+      "nom": "JOUMARD",
+      "prenom": "Sebastien",
+      "adresse": "4 rue de l etoile",
+      "codePostal": "4000",
+      "ville": "DIGNE LES BAINS",
+      "telephone": "01 53 82 74 17",
+      "compteCourant": {
+        "id": 4,
+        "numero": "4567890123",
+        "solde": 4000,
+        "date": "2018-01-04",
+        "decouvert": -1000,
+        "carte": {
+          "id": 4,
+          "numero": "456789123",
+          "active": true
+        }
+      },
+      "compteEpargne": null,
+      "conseiller": 1002
+    },
+    {
+      "id": 5,
+      "nom": "LE CIGNE",
+      "prenom": "Anthony",
+      "adresse": "5 rue de l espace",
+      "codePostal": "5000",
+      "ville": "GAP",
+      "telephone": "01 53 82 74 42",
+      "compteCourant": {
+        "id": 5,
+        "numero": "5678901234",
+        "solde": 5000,
+        "date": "2018-01-05",
+        "decouvert": -1000,
+        "carte": {
+          "id": 5,
+          "numero": "567891234",
+          "active": true
+        }
+      },
+      "compteEpargne": {
+        "id": 15,
+        "numero": "0000000005",
+        "solde": 5000,
+        "date": "2018-03-01",
+        "taux": 0.05
+      },
+      "conseiller": 1000
+    },
+    {
+      "id": 6,
+      "nom": "LE MENTEC",
+      "prenom": "Sandrine",
+      "adresse": "6 rue de la constellation",
+      "codePostal": "6000",
+      "ville": "NICE",
+      "telephone": "01 53 82 74 21",
+      "compteCourant": {
+        "id": 6,
+        "numero": "6789012345",
+        "solde": -6000,
+        "date": "2018-01-06",
+        "decouvert": -10000,
+        "carte": {
+          "id": 6,
+          "numero": "678912345",
+          "active": true
+        }
+      },
+      "compteEpargne": null,
+      "conseiller": 1001
+    },
+    {
+      "id": 7,
+      "nom": "MUSA",
+      "prenom": "Morane",
+      "adresse": "7 rue de la naine blanche",
+      "codePostal": "7000",
+      "ville": "AJOUX",
+      "telephone": "01 53 82 74 22",
+      "compteCourant": {
+        "id": 7,
+        "numero": "7890123456",
+        "solde": 7000,
+        "date": "2018-01-07",
+        "decouvert": -1000,
+        "carte": {
+          "id": 7,
+          "numero": "789123456",
+          "active": true
+        }
+      },
+      "compteEpargne": {
+        "id": 17,
+        "numero": "0000000007",
+        "solde": 7000,
+        "date": "2018-04-01",
+        "taux": 0.07
+      },
+      "conseiller": 1002
+    },
+    {
+      "id": 8,
+      "nom": "RENARD",
+      "prenom": "Arnaud",
+      "adresse": "8 rue de la naine rouge",
+      "codePostal": "8000",
+      "ville": "LA FRANCHEVILLE",
+      "telephone": "01 53 82 74 27",
+      "compteCourant": {
+        "id": 8,
+        "numero": "8901234567",
+        "solde": 8000,
+        "date": "2018-01-08",
+        "decouvert": -1000,
+        "carte": {
+          "id": 8,
+          "numero": "891234567",
+          "active": true
+        }
+      },
+      "compteEpargne": null,
+      "conseiller": 1002
+    },
+    {
+      "id": 9,
+      "nom": "SAVARY",
+      "prenom": "Etienne",
+      "adresse": "9 rue du big bang",
+      "codePostal": "9000",
+      "ville": "FOIX",
+      "telephone": "01 53 82 74 25",
+      "compteCourant": {
+        "id": 9,
+        "numero": "9012345678",
+        "solde": 9000,
+        "date": "2018-01-09",
+        "decouvert": -1000,
+        "carte": {
+          "id": 9,
+          "numero": "912345678",
+          "active": true
+        }
+      },
+      "compteEpargne": {
+        "id": 19,
+        "numero": "0000000009",
+        "solde": 9000,
+        "date": "2018-05-01",
+        "taux": 0.09
+      },
+      "conseiller": 1002
+    },
+    {
+      "id": 10,
+      "nom": "SZYMEZAK",
+      "prenom": "Clothilde",
+      "adresse": "10 rue du satellite",
+      "codePostal": "10000",
+      "ville": "TROYES",
+      "telephone": "01 53 82 74 31",
+      "compteCourant": {
+        "id": 10,
+        "numero": "0123456789",
+        "solde": -10000,
+        "date": "2018-01-10",
+        "decouvert": -10000,
+        "carte": {
+          "id": 10,
+          "numero": "012345678",
+          "active": true
+        }
+      },
+      "compteEpargne": null,
+      "conseiller": 1002
+    },
+    {
+      "id": 11,
+      "nom": "fzefezfze",
+      "prenom": "Ozlem",
+      "adresse": "1 rue du soleil",
+      "codePostal": "1000",
+      "ville": "BOURG EN BRESSE",
+      "telephone": "01 53 82 74 10",
+      "compteCourant": {
+        "id": 20,
+        "numero": " 8258993790",
+        "solde": 0,
+        "date": "2018-05-22",
+        "decouvert": -1000,
+        "carte": null
+      },
+      "compteEpargne": null,
+      "conseiller": 1000
+    },
+    {
+      "id": 12,
+      "nom": "fzefezfze",
+      "prenom": "Ozlem",
+      "adresse": "1 rue du soleil",
+      "codePostal": "1000",
+      "ville": "BOURG EN BRESSE",
+      "telephone": "01 53 82 74 10",
+      "compteCourant": {
+        "id": 21,
+        "numero": " 4548840100",
+        "solde": 0,
+        "date": "2018-05-22",
+        "decouvert": -1000,
+        "carte": null
+      },
+      "compteEpargne": null,
+      "conseiller": 1001
+    },
+    {
+      "id": 13,
+      "nom": "Frédéric",
+      "prenom": "Péan",
+      "adresse": "Rue de la Caserne",
+      "ville": "69100",
+      "codePostal": "Villeurbanne",
+      "telephone": "Villeurbanne",
+      "compteCourant": null,
+      "compteEpargne": null
+    }
+  ]
+}
