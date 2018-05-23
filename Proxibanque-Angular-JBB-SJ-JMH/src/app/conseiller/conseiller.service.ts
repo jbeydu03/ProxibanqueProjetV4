@@ -19,6 +19,13 @@ export class ConseillerService {
     return this.http.get<Client[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all');
   }
 
+  loadClientsConseiller(): Observable<Client[]> {
+    const idConseiller = this.getCookie();
+    // TODO: afficher la liste de tous les clients
+    return this.http.get<Client[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/' + idConseiller );
+  }
+
+
   loadClient(clientId: number): Observable<Client> {
     // TODO: afficher un client à partir de son Id
     return this.http.get<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + clientId);

@@ -17,6 +17,7 @@ export class VirementComponent implements OnInit {
   listeCompteDebiteur: Compte[] = [];
   clientId: number;
   clientNom: string;
+  
   constructor(private fb: FormBuilder, private conseillerService: ConseillerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {

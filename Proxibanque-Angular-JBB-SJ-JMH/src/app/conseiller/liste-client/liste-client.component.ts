@@ -28,7 +28,7 @@ export class ListeClientComponent implements OnInit {
 
 
   loadClients(): void {
-    this.conseillerService.loadClients().subscribe(clients => this.listeClients = clients)
+    this.conseillerService.loadClientsConseiller().subscribe(clients => this.listeClients = clients)
 
 
   }

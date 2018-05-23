@@ -13,6 +13,7 @@ import { LoginComponent } from './authentification/login/login.component';
 import { AuthentificationModule } from './authentification/authentification.module';
 import { VirementModule } from './virement/virement.module';
 import { OperationsModule } from './operations/operations.module';
+import { AuditComponent } from './operations/audit/audit.component';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes= [
     NavbarComponent,
     HomeComponent,
     LoginComponent,
+    AuditComponent,
   ],
   imports: [
     BrowserModule,
