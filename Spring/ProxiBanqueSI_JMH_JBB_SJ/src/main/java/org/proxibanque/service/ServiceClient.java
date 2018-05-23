@@ -18,6 +18,14 @@ public interface ServiceClient {
 	
 	public List<Client> selectAllClient();
 	
-	public List<Client> selectAllClientByIdConseiller(long idConseiller);
-
+	public List<Client> selectAllClientByConseiller(long idConseiller);
+	
+	public Client selectClient(long idClient);
+	
+	public void deleteClient(long idClient);
+	
+	public Client createClient(Client client, long idConseiller);
+	
+	public Client updateClient(Client client, long idConseiller);
+	
 }

@@ -1,6 +1,8 @@
 package org.proxibanque.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,15 +33,15 @@ public class Client {
 	private String ville;
 	private String telephone;
 
-	@OneToOne
+	@OneToOne(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteCourant_id")
 	private CompteCourant compteCourant;
 
-	@OneToOne
+	@OneToOne(cascade ={ CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteEpargne_id")
 	private CompteEpargne compteEpargne;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "conseiller_id")
 	@JsonBackReference
 	private Conseiller conseiller;
@@ -48,13 +50,28 @@ public class Client {
 	public Client() {
 	}
 
-	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
+	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+			Conseiller conseiller) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
+		this.conseiller = conseiller;
+	}
+
+	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+			Conseiller conseiller, CompteCourant compteCourant, CompteEpargne compteEpargne) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.conseiller = conseiller;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
 	}
 
 	// *** Getters & Setters
@@ -134,11 +151,12 @@ public class Client {
 		return conseiller;
 	}
 
+
+	// *** Methods ***
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
-
-	// *** Methods ***
+	
 	@Override
 	public String toString() {
 		return "(" + id + ") " + nom + prenom + adresse + codePostal + ville + compteCourant.toString()

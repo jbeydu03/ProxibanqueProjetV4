@@ -17,14 +17,14 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Carte {
+public class Carte {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String numero;
-	private boolean active = false;
+	private boolean active = true;
 
 	// *** Constructor ***
 	public Carte() {
@@ -32,6 +32,13 @@ public abstract class Carte {
 
 	public Carte(String numero) {
 		this.numero = numero;
+	}
+
+	public Carte(long id, String numero, boolean active) {
+		super();
+		this.id = id;
+		this.numero = numero;
+		this.active = active;
 	}
 
 	// *** Getters & Setters

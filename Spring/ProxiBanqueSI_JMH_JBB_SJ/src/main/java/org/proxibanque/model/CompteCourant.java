@@ -1,7 +1,9 @@
 package org.proxibanque.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -16,13 +18,17 @@ public class CompteCourant extends Compte {
 
 	private double decouvert = -1000;
 
-	@OneToOne
+	@OneToOne(cascade = { CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "carte_id")
 	private Carte carte;
 
 	// *** Constructor ***
 	public CompteCourant() {
 		super();
+	}
+
+	public CompteCourant(String numero, String date) {
+		super(numero, date);
 	}
 
 	// *** Getters & Setters

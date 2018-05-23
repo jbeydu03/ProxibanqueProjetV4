@@ -19,16 +19,16 @@ export class FormClientComponent implements OnInit {
 
   ngOnInit() {
     this.clientForm = this.fb.group({
-      clientNom: [''],
-      clientPrenom: [''],
-      clientAdresse: [''],
-      clientVille: [''],
-      clientCodePostal: [''],
-      clientTelephone: ['']
+      clientNom: ['',[Validators.required, Validators.maxLength(20)]],
+      clientPrenom: ['', [Validators.required, Validators.maxLength(20)]],
+      clientAdresse: ['', [Validators.required, Validators.maxLength(60)]],
+      clientVille: ['', [Validators.required, Validators.maxLength(30)]],
+      clientCodePostal: ['', [Validators.maxLength(5)]],
+      clientTelephone: ['', [Validators.maxLength(10)]]
     });
 
     this.route.paramMap.subscribe((param: ParamMap) => {
-      this.clientId = Number(param.get('clientId'));
+      this.clientId = Number(param.get('clientid'));
       //Remise des valeurs des champs dans le formulaire 
       if (this.clientId) {
         this.conseillerService.loadClient(this.clientId).subscribe(client => {

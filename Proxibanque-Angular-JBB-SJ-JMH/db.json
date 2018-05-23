@@ -22,18 +22,11 @@
       "nom": "AVCI",
       "prenom": "Ozlem",
       "adresse": "1 rue du soleil",
-      "codePostal": "1000",
       "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
+      "codePostal": "01000",
+      "telephone": "01000",
       "compteCourant": null,
-      "compteEpargne": {
-        "id": 11,
-        "numero": "1000000001",
-        "solde": 1000,
-        "date": "2018-01-01",
-        "taux": 0.01
-      },
-      "conseiller": 1000
+      "compteEpargne": null
     },
     {
       "id": 2,
@@ -215,35 +208,6 @@
       "conseiller": 1002
     },
     {
-      "id": 9,
-      "nom": "SAVARY",
-      "prenom": "Etienne",
-      "adresse": "9 rue du big bang",
-      "codePostal": "9000",
-      "ville": "FOIX",
-      "telephone": "01 53 82 74 25",
-      "compteCourant": {
-        "id": 9,
-        "numero": "9012345678",
-        "solde": 9000,
-        "date": "2018-01-09",
-        "decouvert": -1000,
-        "carte": {
-          "id": 9,
-          "numero": "912345678",
-          "active": true
-        }
-      },
-      "compteEpargne": {
-        "id": 19,
-        "numero": "0000000009",
-        "solde": 9000,
-        "date": "2018-05-01",
-        "taux": 0.09
-      },
-      "conseiller": 1002
-    },
-    {
       "id": 10,
       "nom": "SZYMEZAK",
       "prenom": "Clothilde",
@@ -265,44 +229,6 @@
       },
       "compteEpargne": null,
       "conseiller": 1002
-    },
-    {
-      "id": 11,
-      "nom": "fzefezfze",
-      "prenom": "Ozlem",
-      "adresse": "1 rue du soleil",
-      "codePostal": "1000",
-      "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 20,
-        "numero": " 8258993790",
-        "solde": 0,
-        "date": "2018-05-22",
-        "decouvert": -1000,
-        "carte": null
-      },
-      "compteEpargne": null,
-      "conseiller": 1000
-    },
-    {
-      "id": 12,
-      "nom": "fzefezfze",
-      "prenom": "Ozlem",
-      "adresse": "1 rue du soleil",
-      "codePostal": "1000",
-      "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 21,
-        "numero": " 4548840100",
-        "solde": 0,
-        "date": "2018-05-22",
-        "decouvert": -1000,
-        "carte": null
-      },
-      "compteEpargne": null,
-      "conseiller": 1001
     }
   ]
 }

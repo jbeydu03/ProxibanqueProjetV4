@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'clients', component: ListeClientComponent },
+  { path: 'clients/new', component: FormClientComponent },
   { path: 'clients/:clientid', component: FormClientComponent }
 ];
 
