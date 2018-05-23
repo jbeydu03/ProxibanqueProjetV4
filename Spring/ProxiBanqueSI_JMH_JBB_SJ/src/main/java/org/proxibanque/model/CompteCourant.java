@@ -25,6 +25,10 @@ public class CompteCourant extends Compte {
 		super();
 	}
 
+	public CompteCourant(String numero, String date) {
+		super(numero, date);
+	}
+
 	// *** Getters & Setters
 	public double getDecouvert() {
 		return decouvert;

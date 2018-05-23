@@ -24,7 +24,7 @@ public abstract class Carte {
 	private long id;
 
 	private String numero;
-	private boolean active = false;
+	private boolean active = true;
 
 	// *** Constructor ***
 	public Carte() {

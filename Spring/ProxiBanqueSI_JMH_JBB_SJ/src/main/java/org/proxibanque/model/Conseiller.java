@@ -28,6 +28,9 @@ public class Conseiller {
 	private String prenom;
 	private String nom;
 
+	private String login;
+	private String password;
+
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	@JsonManagedReference
 	private Set<Client> listeClient = new HashSet<>();;
@@ -36,9 +39,11 @@ public class Conseiller {
 	public Conseiller() {
 	}
 
-	public Conseiller(String prenom, String nom) {
+	public Conseiller(String prenom, String nom, String login, String password) {
 		this.prenom = prenom;
 		this.nom = nom;
+		this.login = login;
+		this.password = password;
 	}
 
 	// *** Getters & Setters
@@ -64,6 +69,22 @@ public class Conseiller {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Set<Client> getListeClient() {

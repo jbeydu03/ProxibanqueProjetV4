@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface DaoConseiller extends JpaRepository<Conseiller, Long>  {
 
-	public Conseiller findByNomIs(String nomConseiller);
+	public Conseiller findByLoginIs(String loginConseiller);
 }

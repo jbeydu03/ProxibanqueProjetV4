@@ -1,8 +1,11 @@
 package org.proxibanque.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.proxibanque.model.Client;
+import org.proxibanque.model.CompteCourant;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.persistence.DaoClient;
 import org.proxibanque.persistence.DaoConseiller;
@@ -30,35 +33,39 @@ public class ServiceImpl implements ServiceClient {
 		return daoClient.findAll();
 	}
 
-	private Conseiller selectIdConseillerByNomConseiller(String nomConseiller) {
+	@Override
+	public List<Client> selectAllClientByConseiller(long idConseiller) {
 
-		Conseiller conseiller = daoConseiller.findByNomIs(nomConseiller);
-
-		return conseiller;
+		return daoClient.findByConseiller_idIs(idConseiller);
 	}
 
 	@Override
-	public List<Client> selectAllClientByNomConseiller(String nomConseiller) {
-
-		long id = selectIdConseillerByNomConseiller(nomConseiller).getId();
-
-		return daoClient.findByConseiller_idIs(id);
-	}
-
-	@Override
-	public Client selectOneClientByIdClient(long idClient) {
+	public Client selectClient(long idClient) {
 
 		return daoClient.findOne(idClient);
 	}
 
 	@Override
-	public void deleteOneClientByIdClient(long idClient) {
+	public void deleteClient(long idClient) {
 
 		daoClient.delete(idClient);
 	}
 
 	@Override
-	public Client createClient(Client client) {
+	public Client createClient(Client client, long idConseiller) {
+
+		String str = "";
+		int randomNumber = (int) (Math.random() * 1_000_000_000);
+		str = str + String.format("%10d", randomNumber) + "0";
+
+		LocalDateTime dateHeureNow = LocalDateTime.now();
+		LocalDate date = dateHeureNow.toLocalDate();
+
+		client.setCompteCourant(new CompteCourant(str, date.toString()));
+
+		Conseiller conseiller = daoConseiller.findOne(idConseiller);
+
+		client.setConseiller(conseiller);
 
 		return daoClient.save(client);
 	}
