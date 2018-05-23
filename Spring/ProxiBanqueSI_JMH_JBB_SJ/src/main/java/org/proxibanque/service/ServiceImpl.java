@@ -33,6 +33,14 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 	@Autowired
 	private DaoCompte daoCompte;
 
+	public DaoClient getDaoClient() {
+		return daoClient;
+	}
+
+	public void setDaoClient(DaoClient daoClient) {
+		this.daoClient = daoClient;
+	}
+
 	@Override
 	public List<Client> selectAllClient() {
 
@@ -135,9 +143,9 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 			client.setCompteEpargne(null);
 			daoClient.save(client);
 			daoCompte.delete(idCompte);
-			
+
 			return true;
-			
+
 		} else {
 
 			return false;
