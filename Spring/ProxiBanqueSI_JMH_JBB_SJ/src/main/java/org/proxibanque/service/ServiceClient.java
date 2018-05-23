@@ -26,4 +26,6 @@ public interface ServiceClient {
 	
 	public Client createClient(Client client, long idConseiller);
 	
+	public Client updateClient(Client client, long idConseiller);
+	
 }

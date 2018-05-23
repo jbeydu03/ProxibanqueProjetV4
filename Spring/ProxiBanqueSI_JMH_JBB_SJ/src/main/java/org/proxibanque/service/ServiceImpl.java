@@ -70,4 +70,14 @@ public class ServiceImpl implements ServiceClient {
 		return daoClient.save(client);
 	}
 
+	@Override
+	public Client updateClient(Client client, long idConseiller) {
+		
+		Conseiller conseiller = daoConseiller.findOne(idConseiller);
+
+		client.setConseiller(conseiller);
+		
+		return daoClient.save(client);
+	}
+
 }

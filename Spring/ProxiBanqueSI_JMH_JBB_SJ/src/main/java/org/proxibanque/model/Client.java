@@ -33,11 +33,11 @@ public class Client {
 	private String ville;
 	private String telephone;
 
-	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteCourant_id")
 	private CompteCourant compteCourant;
 
-	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OneToOne(cascade ={ CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteEpargne_id")
 	private CompteEpargne compteEpargne;
 

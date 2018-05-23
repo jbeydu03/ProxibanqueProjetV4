@@ -130,19 +130,60 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
 	// BODY =>
-//	 {
-//	 "nom": "TEST",
-//	 "prenom": "TEST",
-//	 "adresse": "1 rue du soleil",
-//	 "codePostal": "1000",
-//	 "ville": "BOURG EN BRESSE",
-//	 "telephone": "01 53 82 74 10"
-//	 }
+	// {
+	// "nom": "TEST",
+	// "prenom": "TEST",
+	// "adresse": "1 rue du soleil",
+	// "codePostal": "1000",
+	// "ville": "BOURG EN BRESSE",
+	// "telephone": "01 53 82 74 10"
+	// }
 	// @Secured("ROLE_USER")
 	@PostMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
-	public void createClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
+	public Client createClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
 
-		serviceClient.createClient(client, idConseiller);
+		return serviceClient.createClient(client, idConseiller);
+	}
+
+	
+	// ==============================================================================
+	// MODIFIER UN CLIENT A PARTIR D'UN ID CLIENT ET D'UN ID CONSEILLER
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
+	// BODY =>
+//	{
+//	    "id": 1,
+//	    "nom": "gergerg",
+//	    "prenom": "Ozlem",
+//	    "adresse": "1 rue du soleil",
+//	    "codePostal": "1000",
+//	    "ville": "BOURG EN BRESSE",
+//	    "telephone": "01 53 82 74 10",
+//	    "compteCourant": {
+//	        "id": 1,
+//	        "numero": "1234567890",
+//	        "solde": 1000,
+//	        "date": "2018-01-01",
+//	        "decouvert": -2600,
+//	        "carte": {
+//	        
+//	            "numero": "123456789",
+//	            "active": false
+//	        }
+//	    },
+//	    "compteEpargne": {
+//	        "id": 11,
+//	        "numero": "0000000001",
+//	        "solde": 1000,
+//	        "date": "2018-01-01",
+//	        "taux": 0.01
+//	    }
+//	}
+	// @Secured("ROLE_USER")
+	@PutMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
+	public Client updateClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
+
+		return serviceClient.updateClient(client, idConseiller);
 	}
 
 }
