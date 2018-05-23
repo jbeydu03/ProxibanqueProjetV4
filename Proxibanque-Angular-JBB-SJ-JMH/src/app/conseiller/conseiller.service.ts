@@ -15,25 +15,25 @@ export class ConseillerService {
 
   loadClients(): Observable<Client[]> {
     // TODO: afficher la liste de tous les clients
-    return this.http.get<Client[]>('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all');
+    return this.http.get<Client[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all');
   }
 
   loadClient(clientId: number): Observable<Client> {
     // TODO: afficher un client à partir de son Id
-    return this.http.get<Client>('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + clientId);
+    return this.http.get<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + clientId);
   }
 
   saveClient(client: Client): Observable<Client> {
     // Si le client existe => Update et sinon => Create
     if (client.id) { // UPDATE
-      return this.http.put<Client>('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + client.id, client);
+      return this.http.put<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/' + client.id, client);
     } else { // INSERT
-      return this.http.post<Client>('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/', client);
+      return this.http.post<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/', client);
     }
   }
 
   deleteClient(clientId: number): Observable<any> {
-    return this.http.delete('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/' + clientId);
+    return this.http.delete('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/' + clientId);
   }
 
 }
