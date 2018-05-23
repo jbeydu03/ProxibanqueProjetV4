@@ -10,6 +10,7 @@ import org.proxibanque.service.ServiceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,30 +30,35 @@ public class WebServiceController {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(WebServiceController.class);
 
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/test/", produces = "application/json")
 	public void testWebServiceGET() {
 
 		LOGGER.warn(" ******** testWebServiceGET() ******** ");
 	}
 
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/test/{id}", produces = "application/json")
 	public void testWebServiceGET(@PathVariable("id") String id) {
 
 		LOGGER.warn(" ******** testWebServiceGET() ******** ");
 	}
 
+	@CrossOrigin(origins = "*")
 	@PostMapping(value = "/test/", produces = "application/json")
 	public void testWebServicePOST(/* @RequestBody Object obj */) {
 
 		LOGGER.warn(" ******** testWebServicePOST() ******** ");
 	}
 
+	@CrossOrigin(origins = "*")
 	@DeleteMapping(value = "/test/{id}", produces = "application/json")
 	public void testWebServiceDelete(@PathVariable("id") String id) {
 
 		LOGGER.warn(" ******** testWebServiceDelete() ******** ");
 	}
 
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "/test/", produces = "application/json")
 	public void testWebServicePUT(/* @RequestBody Object obj */) {
 
@@ -68,6 +74,7 @@ public class WebServiceController {
 	// URL =>
 	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/login_conseiller1/password_conseiller1
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/auth/conseiller/{login}/{password}", produces = "application/json")
 	public Client authentification(@PathVariable("login") String login, @PathVariable("password") String password) {
 
@@ -84,6 +91,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/clients/all", produces = "application/json")
 	public List<Client> selectAllClient() {
 
@@ -96,6 +104,7 @@ public class WebServiceController {
 	// URL =>
 	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
 	public List<Client> selectAllClientByConseiller(@PathVariable("idConseiller") long idConseiller) {
 
@@ -108,6 +117,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/clients/{idClient}", produces = "application/json")
 	public Client selectClientByIdClient(@PathVariable("idClient") long idClient) {
 
@@ -119,6 +129,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@DeleteMapping(value = "/clients/{idClient}", produces = "application/json")
 	public void deleteClient(@PathVariable("idClient") long idClient) {
 
@@ -139,6 +150,7 @@ public class WebServiceController {
 	// "telephone": "01 53 82 74 10"
 	// }
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@PostMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
 	public Client createClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
 
@@ -180,6 +192,7 @@ public class WebServiceController {
 //	    }
 //	}
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "/clients/conseiller/{idConseiller}", produces = "application/json")
 	public Client updateClient(@RequestBody Client client, @PathVariable("idConseiller") long idConseiller) {
 

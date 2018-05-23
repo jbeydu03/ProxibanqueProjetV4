@@ -26,14 +26,16 @@ export class ConseillerService {
   saveClient(client: Client): Observable<Client> {
     // Si le client existe => Update et sinon => Create
     if (client.id) { // UPDATE
-      return this.http.put<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/' + client.id, client);
+      // TODO: Ne pas oublier de modifier l'Id conseiller
+      return this.http.put<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2/' , client);
     } else { // INSERT
-      return this.http.post<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/', client);
+      return this.http.post<Client>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/2/', client);
     }
   }
 
   deleteClient(clientId: number): Observable<any> {
-    return this.http.delete('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2/' + clientId);
+    console.log('Client effacé :', clientId)
+    return this.http.delete('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/' + clientId);
   }
 
 }
