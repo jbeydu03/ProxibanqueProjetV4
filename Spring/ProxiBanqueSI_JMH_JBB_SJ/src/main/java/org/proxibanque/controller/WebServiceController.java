@@ -1,19 +1,20 @@
 package org.proxibanque.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.model.Conseiller;
+import org.proxibanque.model.Virement;
 import org.proxibanque.service.ServiceClient;
 import org.proxibanque.service.ServiceConseiller;
+import org.proxibanque.service.ServiceOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,46 +34,14 @@ public class WebServiceController {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(WebServiceController.class);
 
-	@CrossOrigin(origins = "*")
-	@GetMapping(value = "/test/", produces = "application/json")
-	public void testWebServiceGET() {
-
-		LOGGER.warn(" ******** testWebServiceGET() ******** ");
-	}
-
-	@CrossOrigin(origins = "*")
-	@GetMapping(value = "/test/{id}", produces = "application/json")
-	public void testWebServiceGET(@PathVariable("id") String id) {
-
-		LOGGER.warn(" ******** testWebServiceGET() ******** ");
-	}
-
-	@CrossOrigin(origins = "*")
-	@PostMapping(value = "/test/", produces = "application/json")
-	public void testWebServicePOST(/* @RequestBody Object obj */) {
-
-		LOGGER.warn(" ******** testWebServicePOST() ******** ");
-	}
-
-	@CrossOrigin(origins = "*")
-	@DeleteMapping(value = "/test/{id}", produces = "application/json")
-	public void testWebServiceDelete(@PathVariable("id") String id) {
-
-		LOGGER.warn(" ******** testWebServiceDelete() ******** ");
-	}
-
-	@CrossOrigin(origins = "*")
-	@PutMapping(value = "/test/", produces = "application/json")
-	public void testWebServicePUT(/* @RequestBody Object obj */) {
-
-		LOGGER.warn(" ******** testWebServicePUT() ******** ");
-	}
-
 	@Autowired
 	ServiceClient serviceClient;
 
 	@Autowired
 	ServiceConseiller serviceConseiller;
+
+	@Autowired
+	ServiceOperation serviceOperation;
 
 	// ==============================================================================
 	// AUTHENTIFICATION
@@ -234,17 +203,18 @@ public class WebServiceController {
 
 		Client client = serviceClient.selectClient(idClient);
 		if (client != null) {
-			
+
 			Compte compte = serviceClient.createCompteEpargne(client);
 			if (compte != null) {
 				return new ResponseEntity(compte, HttpStatus.OK);
-			}else {
+			} else {
 				return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 			}
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 		}
 	}
+
 	// ==============================================================================
 	// SUPPRESSION COMPTE EPARGNE A PARTIR D'UN ID CLIENT
 	// ==============================================================================
@@ -257,11 +227,29 @@ public class WebServiceController {
 		if (client != null) {
 			if (serviceClient.deleteCompteEpargne(client)) {
 				return new ResponseEntity(HttpStatus.OK);
-			}else {
+			} else {
 				return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 			}
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
+	}
+
+	// ==============================================================================
+	// FAIRE UN VIREMENT
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/1/2/10
+	// @Secured("ROLE_USER")
+	@PostMapping(value = "/comptes/virement/{idCompteDebit}/{idCompteCredit}/{montant}", produces = "application/json")
+	public ResponseEntity<Virement> addCompteEpargne(@PathVariable("idCompteDebit") long idCompteDebit,
+			@PathVariable("idCompteCredit") long idCompteCredit, @PathVariable("montant") double montant) {
+
+		Virement virement = serviceOperation.faireVirement(idCompteDebit, idCompteCredit, montant);
+
+		if (virement != null) {
+			return new ResponseEntity(virement, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.FORBIDDEN);
 		}
 	}
 

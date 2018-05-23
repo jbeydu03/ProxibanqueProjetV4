@@ -122,4 +122,4 @@ INSERT INTO CLIENT (id, nom, prenom, adresse, codePostal, ville, telephone, comp
 
 -- ================= 7°) Création des virements ================= 
 
-INSERT INTO VIREMENT (id, date, comptedebit_id, comptecredit_id, montant) VALUES ('1', '2018-08-01', '1', '11', '4000');
+-- INSERT INTO VIREMENT (id, date, comptedebit_id, comptecredit_id, montant) VALUES ('1', '2018-08-01', '1', '11', '4000');

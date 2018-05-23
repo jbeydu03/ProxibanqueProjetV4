@@ -9,9 +9,11 @@ import org.proxibanque.model.Compte;
 import org.proxibanque.model.CompteCourant;
 import org.proxibanque.model.CompteEpargne;
 import org.proxibanque.model.Conseiller;
+import org.proxibanque.model.Virement;
 import org.proxibanque.persistence.DaoClient;
 import org.proxibanque.persistence.DaoCompte;
 import org.proxibanque.persistence.DaoConseiller;
+import org.proxibanque.persistence.DaoVirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class ServiceImpl implements ServiceClient, ServiceConseiller {
+public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOperation {
 
 	@Autowired
 	private DaoClient daoClient;
@@ -32,6 +34,9 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 
 	@Autowired
 	private DaoCompte daoCompte;
+
+	@Autowired
+	private DaoVirement daoVirement;
 
 	public DaoClient getDaoClient() {
 		return daoClient;
@@ -152,6 +157,35 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 		}
 	}
 
+	@Override
+	public Compte selectCompte(long idCompte) {
+
+		return daoCompte.findOne(idCompte);
+	}
+
+	@Override
+	public Virement faireVirement(long idCompteDebit, long idCompteCredit, double montant) {
+
+		Compte compteDebit = selectCompte(idCompteDebit);
+		Compte compteCredit = selectCompte(idCompteCredit);
+
+		if (compteDebit != null && compteCredit != null && (compteDebit.getSolde() - montant) >= 0) {
+
+			compteDebit.setSolde(compteDebit.getSolde() - montant);
+			daoCompte.save(compteDebit);
+
+			compteCredit.setSolde(compteCredit.getSolde() + montant);
+			daoCompte.save(compteCredit);
+
+			Virement virement = new Virement(generateDate(), idCompteDebit, idCompteCredit, montant);
+			daoVirement.save(virement);
+			return virement;
+
+		} else {
+
+			return null;
+		}
+	}
 	// ----------------------------------------------------
 
 	private String generateNumero() {

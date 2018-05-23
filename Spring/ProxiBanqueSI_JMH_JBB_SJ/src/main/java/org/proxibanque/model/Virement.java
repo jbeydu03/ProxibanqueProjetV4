@@ -1,5 +1,6 @@
 package org.proxibanque.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +23,9 @@ public class Virement {
 
 	private String date;
 
-	@OneToOne
-	@JoinColumn(name = "compteDebit_id")
-	private Compte compteDebit;
+	private long compteDebitId;
 
-	@OneToOne
-	@JoinColumn(name = "compteCredit_id")
-	private Compte compteCredit;
+	private long compteCreditId;
 
 	private double montant;
 
@@ -36,10 +33,10 @@ public class Virement {
 	public Virement() {
 	}
 
-	public Virement(String date, Compte compteDebit, Compte compteCredit, double montant) {
+	public Virement(String date, long compteDebitId, long compteCreditId, double montant) {
 		this.date = date;
-		this.compteDebit = compteDebit;
-		this.compteCredit = compteCredit;
+		this.compteDebitId = compteDebitId;
+		this.compteCreditId = compteCreditId;
 		this.montant = montant;
 	}
 
@@ -60,21 +57,7 @@ public class Virement {
 		this.date = date;
 	}
 
-	public Compte getCompteDebit() {
-		return compteDebit;
-	}
-
-	public void setCompteDebit(Compte compteDebit) {
-		this.compteDebit = compteDebit;
-	}
-
-	public Compte getCompteCredit() {
-		return compteCredit;
-	}
-
-	public void setCompteCredit(Compte compteCredit) {
-		this.compteCredit = compteCredit;
-	}
+	
 
 	public double getMontant() {
 		return montant;
@@ -84,10 +67,26 @@ public class Virement {
 		this.montant = montant;
 	}
 
+	public long getCompteDebitId() {
+		return compteDebitId;
+	}
+
+	public void setCompteDebitId(long compteDebitId) {
+		this.compteDebitId = compteDebitId;
+	}
+
+	public long getCompteCreditId() {
+		return compteCreditId;
+	}
+
+	public void setCompteCreditId(long compteCreditId) {
+		this.compteCreditId = compteCreditId;
+	}
+
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "  (" + id + ") " + date + compteDebit.toString() + compteCredit.toString() + "  (" + montant + ") ";
+		return "  (" + id + ") " + date + compteDebitId + compteCreditId+ "  (" + montant + ") ";
 	}
 
 }
