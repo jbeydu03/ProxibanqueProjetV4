@@ -7,6 +7,7 @@ import java.util.List;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.model.CompteCourant;
+import org.proxibanque.model.CompteEpargne;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.persistence.DaoClient;
 import org.proxibanque.persistence.DaoCompte;
@@ -28,7 +29,7 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 
 	@Autowired
 	private DaoConseiller daoConseiller;
-	
+
 	@Autowired
 	private DaoCompte daoCompte;
 
@@ -59,14 +60,7 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 	@Override
 	public Client createClient(Client client, long idConseiller) {
 
-		String str = "";
-		int randomNumber = (int) (Math.random() * 1_000_000_000);
-		str = str + String.format("%10d", randomNumber) + "0";
-
-		LocalDateTime dateHeureNow = LocalDateTime.now();
-		LocalDate date = dateHeureNow.toLocalDate();
-
-		client.setCompteCourant(new CompteCourant(str, date.toString()));
+		client.setCompteCourant(new CompteCourant(generateNumero(), generateDate()));
 
 		Conseiller conseiller = daoConseiller.findOne(idConseiller);
 
@@ -115,8 +109,58 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 
 	@Override
 	public List<Compte> selectAllCompte() {
-		
+
 		return daoCompte.findAll();
+	}
+
+	@Override
+	public Compte createCompteEpargne(Client client) {
+
+		if (client.getCompteEpargne() == null) {
+
+			client.setCompteEpargne(new CompteEpargne(generateNumero(), generateDate()));
+			daoClient.save(client);
+			return daoCompte.findOne(daoClient.findOne(client.getId()).getCompteEpargne().getId());
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean deleteCompteEpargne(Client client) {
+
+		if (client.getCompteEpargne() != null && client.getCompteEpargne().getSolde() == 0) {
+
+			long idCompte = client.getCompteEpargne().getId();
+			client.setCompteEpargne(null);
+			daoClient.save(client);
+			daoCompte.delete(idCompte);
+			
+			return true;
+			
+		} else {
+
+			return false;
+		}
+	}
+
+	// ----------------------------------------------------
+
+	private String generateNumero() {
+
+		String str = "";
+		int randomNumber = (int) (Math.random() * 1_000_000_000);
+		str = str + String.format("%10d", randomNumber) + "0";
+
+		return str;
+	}
+
+	private String generateDate() {
+
+		LocalDateTime dateHeureNow = LocalDateTime.now();
+		LocalDate date = dateHeureNow.toLocalDate();
+
+		return date.toString();
 	}
 
 }

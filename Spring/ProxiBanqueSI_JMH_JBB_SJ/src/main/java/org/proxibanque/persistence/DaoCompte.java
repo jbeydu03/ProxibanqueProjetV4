@@ -10,5 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  */
 public interface DaoCompte extends JpaRepository<Compte, Long> {
+	
+	public Compte findByNumero(String numero);
 
 }
