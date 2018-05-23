@@ -11,8 +11,8 @@ import { HomeComponent } from './common/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './authentification/login/login.component';
 import { AuthentificationModule } from './authentification/authentification.module';
-import { OperationModule } from './operations/operation.module';
 import { VirementModule } from './virement/virement.module';
+import { OperationsModule } from './operations/operations.module';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -30,7 +30,7 @@ const routes: Routes= [
   imports: [
     BrowserModule,
     ConseillerModule,
-    OperationModule,
+    OperationsModule,
     AuthentificationModule,
     HttpClientModule,
     VirementModule,

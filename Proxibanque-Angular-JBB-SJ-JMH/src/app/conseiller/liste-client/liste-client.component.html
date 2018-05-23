@@ -17,7 +17,6 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID Client</th>
         <th>Prénom</th>
         <th>Nom</th>
         <th>Opérations</th>
@@ -25,7 +24,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let currentClient of listeClients">
-        <td><a [routerLink]="['/clients', currentClient.id]">{{ currentClient.id}}</a></td>
         <td>{{ currentClient.prenom}}</td>
         <td>{{ currentClient.nom}}</td>
         <td>
