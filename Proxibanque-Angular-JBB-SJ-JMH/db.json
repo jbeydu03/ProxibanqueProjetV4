@@ -22,29 +22,11 @@
       "nom": "AVCI",
       "prenom": "Ozlem",
       "adresse": "1 rue du soleil",
-      "codePostal": "1000",
       "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 1,
-        "numero": "1234567890",
-        "solde": 1000,
-        "date": "2018-01-01",
-        "decouvert": -2600,
-        "carte": {
-          "id": 1,
-          "numero": "123456789",
-          "active": false
-        }
-      },
-      "compteEpargne": {
-        "id": 11,
-        "numero": "0000000001",
-        "solde": 1000,
-        "date": "2018-01-01",
-        "taux": 0.01
-      },
-      "conseiller": 1000
+      "codePostal": "01000",
+      "telephone": "01000",
+      "compteCourant": null,
+      "compteEpargne": null
     },
     {
       "id": 2,
