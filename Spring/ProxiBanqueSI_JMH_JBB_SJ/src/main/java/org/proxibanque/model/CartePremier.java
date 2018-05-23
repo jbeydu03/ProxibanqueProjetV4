@@ -16,6 +16,16 @@ public class CartePremier extends Carte {
 		super();
 	}
 
+	public CartePremier(long id, String numero, boolean active) {
+		super(id, numero, active);
+		// TODO Auto-generated constructor stub
+	}
+
+	public CartePremier(String numero) {
+		super(numero);
+		// TODO Auto-generated constructor stub
+	}
+
 	// *** Methods ***
 	@Override
 	public String toString() {

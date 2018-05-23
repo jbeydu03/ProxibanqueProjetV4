@@ -8,11 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
@@ -31,6 +28,9 @@ public class Conseiller {
 	private String prenom;
 	private String nom;
 
+	private String login;
+	private String password;
+
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	@JsonManagedReference
 	private Set<Client> listeClient = new HashSet<>();;
@@ -39,9 +39,11 @@ public class Conseiller {
 	public Conseiller() {
 	}
 
-	public Conseiller(String login, String password) {
-		this.prenom = login;
-		this.nom = password;
+	public Conseiller(String prenom, String nom, String login, String password) {
+		this.prenom = prenom;
+		this.nom = nom;
+		this.login = login;
+		this.password = password;
 	}
 
 	// *** Getters & Setters
@@ -53,20 +55,36 @@ public class Conseiller {
 		this.id = id;
 	}
 
-	public String getLogin() {
+	public String getPrenom() {
 		return prenom;
 	}
 
-	public void setLogin(String login) {
-		this.prenom = login;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
-	public String getPassword() {
+	public String getNom() {
 		return nom;
 	}
 
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
 	public void setPassword(String password) {
-		this.nom = password;
+		this.password = password;
 	}
 
 	public Set<Client> getListeClient() {
