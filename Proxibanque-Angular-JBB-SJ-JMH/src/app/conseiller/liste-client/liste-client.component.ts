@@ -23,7 +23,7 @@ export class ListeClientComponent implements OnInit {
     this.loadClients();
     const userCookie = this.authService.getCookie();
     this.user = new IdentificationCookie(JSON.parse(userCookie));
-    alert(this.user._name);
+
   }
 
 

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Operation } from '../../model/operation';
+import { operations } from '../../model/operations';
 
 @Component({
   selector: 'app-liste-operations',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeOperationsComponent implements OnInit {
 
+  operationsList = operations;
+  
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

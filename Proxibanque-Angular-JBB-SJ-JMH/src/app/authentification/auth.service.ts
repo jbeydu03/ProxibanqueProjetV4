@@ -13,15 +13,15 @@ export class AuthService {
   constructor(private http: HttpClient,
     @Inject('JSON_SERVER_URL') private baseUrl: string, @Inject(DOCUMENT) private document) { }
 
-  loadClient(userLog: string, userMDP: string): Observable<Conseiller> {
+    login(userLog: string, userMDP: string): Observable<Conseiller> {
     // TODO: afficher un client à partir de son Id
     //http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all
-    const userData =  userLog ;
-    this.setCookie('user', JSON.stringify(userData));
-    return this.http.get<Conseiller>('http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/' + userLog + "/" + userMDP);
+    //const userData =  userLog ;
+    //this.setCookie('user', JSON.stringify(userData));
+    return this.http.get<Conseiller>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/' + userLog + "/" + userMDP);
   }
 
-  private setCookie(name: string, value: string) {
+  setCookie(name: string, value: string) {
     this.document.cookie = `${name}=${value}`;
   }
 

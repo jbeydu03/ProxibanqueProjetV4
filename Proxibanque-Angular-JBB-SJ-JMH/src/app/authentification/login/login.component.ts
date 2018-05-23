@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
   private formBuilder: FormBuilder;
   private loginForm: FormGroup;
   private router: Router;
-  
+  private conseiller : Conseiller;
+  user: IdentificationCookie;
 
 
 
@@ -49,10 +50,20 @@ export class LoginComponent implements OnInit {
     // Envoie le flux dans le backEnd
     const log = this.loginForm.get('login').value;
     const mdp = this.loginForm.get('mdp').value;
-    this.authService.loadClient(log, mdp);
-    this.router.navigate(['/clients/']);
+    this.authService.login(log, mdp).subscribe(conseiller => 
+       {this.conseiller = conseiller;
+        this.authService.setCookie('user', JSON.stringify(this.conseiller.id));
+        const userCookie = this.authService.getCookie();
+        this.user = new IdentificationCookie(JSON.parse(userCookie));
+       });
+ 
 
-  }
+       this.router.navigate(['/clients']);
+    }
+    
+
+    
+
 
 }
 

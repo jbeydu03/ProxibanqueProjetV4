@@ -13,11 +13,10 @@
 
 
 
-{{user.name}}
+
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID Client</th>
         <th>Prénom</th>
         <th>Nom</th>
         <th>Opérations</th>
@@ -25,7 +24,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let currentClient of listeClients">
-        <td><a [routerLink]="['/clients', currentClient.id]">{{ currentClient.id}}</a></td>
         <td>{{ currentClient.prenom}}</td>
         <td>{{ currentClient.nom}}</td>
         <td>
@@ -35,7 +33,7 @@
           <a [routerLink]="['/clients', currentClient.id]" class="btn btn-default btn-sm" target="_blank">
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Liste des comptes
           </a>
-          <a [routerLink]="['/virement']" class="btn btn-default btn-sm" target="_blank">
+          <a [routerLink]="['/clients', currentClient.id, 'virement']" class="btn btn-default btn-sm" target="_blank">
             <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Virement
           </a>
           <button class="btn btn-danger btn-sm" (click)="deleteClient(currentClient)">

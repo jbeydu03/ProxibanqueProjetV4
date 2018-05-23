@@ -19,8 +19,6 @@
             <a [routerLink]="item.path">{{item.text}}</a>
           </li>
         </ul>
-        <!--<p class="navbar-text navbar-right">Identifié comme <a href="#" class="navbar-link">{{user.name}}</a></p>  variante classique avec interpolation-->
-        <!-- Autre possibilité si on passe par le DOM -->
         <p class="navbar-text navbar-right">Identifié comme
           <a href="#" class="navbar-link">Conseiller</a><!-- Ne pas oublier [textContent]="conseiller.nom + conseiller.prenom"-->
         </p>
