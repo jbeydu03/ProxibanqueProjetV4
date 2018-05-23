@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './authentification/login/login.component';
 import { AuthentificationModule } from './authentification/authentification.module';
 import { OperationModule } from './operations/operation.module';
-
+import { VirementModule } from './virement/virement.module';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -33,6 +33,7 @@ const routes: Routes= [
     OperationModule,
     AuthentificationModule,
     HttpClientModule,
+    VirementModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{provide: 'JSON_SERVER_URL', useValue: 'http://localhost:8080'}],

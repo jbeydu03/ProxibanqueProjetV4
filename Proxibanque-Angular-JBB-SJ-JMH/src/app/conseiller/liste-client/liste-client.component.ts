@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Client } from '../../model/client';
 import { ConseillerService } from '../conseiller.service';
+import { DOCUMENT } from '@angular/common';
+import { IdentificationCookie } from '../../model/identificationCookie';
+import { Cookie } from '../../model/cookie';
+import { AuthService } from '../../authentification/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
@@ -10,18 +14,25 @@ import { Router } from '@angular/router';
 })
 export class ListeClientComponent implements OnInit {
 
-  constructor(private conseillerService: ConseillerService, private router: Router) { }
+  constructor(private conseillerService: ConseillerService, private router: Router, private authService: AuthService) { }
 
   listeClients: Client[] = [];
+  user: IdentificationCookie;
 
   ngOnInit() {
     this.loadClients();
+    const userCookie = this.authService.getCookie();
+    this.user = new IdentificationCookie(JSON.parse(userCookie));
+    alert(this.user._name);
   }
 
+
   loadClients(): void {
-    this.conseillerService.loadClients()
-      .subscribe(clients => this.listeClients = clients);
+    this.conseillerService.loadClients().subscribe(clients => this.listeClients = clients)
+
+
   }
+
 
   addClient() {
     this.router.navigate(['new']);
@@ -34,8 +45,7 @@ export class ListeClientComponent implements OnInit {
         complete: () => this.conseillerService.deleteClient(client.id).subscribe(() => this.loadClients()),
         error: () => { }
       });
-
-    return false;  // Pas d'action sur le bouton
+    return false;
   }
 
   // Affichage de la confirmation de la suppression du client
