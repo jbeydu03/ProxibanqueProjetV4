@@ -80,14 +80,13 @@ public class WebServiceController {
 	// URL =>
 	// http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/auth/conseiller/c2/pwd
 	// @Secured("ROLE_USER")
-
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/auth/conseiller/{loginConseiller}/{passwordConseiller}", produces = "application/json")
 	public ResponseEntity<Conseiller> authentification(@PathVariable("loginConseiller") String loginConseiller,
 			@PathVariable("passwordConseiller") String passwordConseiller) {
 
 		try {
-			
+
 			Conseiller conseiller = serviceConseiller.connectionConseiller(loginConseiller, passwordConseiller);
 			if (conseiller != null) {
 				return new ResponseEntity(conseiller, HttpStatus.ACCEPTED);
@@ -222,6 +221,47 @@ public class WebServiceController {
 			return new ResponseEntity(listeCompte, HttpStatus.OK);
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	// ==============================================================================
+	// AJOUT COMPTE EPARGNE A PARTIR D'UN ID CLIENT
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
+	// @Secured("ROLE_USER")
+	@PostMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
+	public ResponseEntity<Compte> addCompteEpargne(@PathVariable("idClient") long idClient) {
+
+		Client client = serviceClient.selectClient(idClient);
+		if (client != null) {
+			
+			Compte compte = serviceClient.createCompteEpargne(client);
+			if (compte != null) {
+				return new ResponseEntity(compte, HttpStatus.OK);
+			}else {
+				return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+			}
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
+	}
+	// ==============================================================================
+	// SUPPRESSION COMPTE EPARGNE A PARTIR D'UN ID CLIENT
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
+	// @Secured("ROLE_USER")
+	@DeleteMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
+	public ResponseEntity deleteCompteEpargne(@PathVariable("idClient") long idClient) {
+
+		Client client = serviceClient.selectClient(idClient);
+		if (client != null) {
+			if (serviceClient.deleteCompteEpargne(client)) {
+				return new ResponseEntity(HttpStatus.OK);
+			}else {
+				return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+			}
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 		}
 	}
 

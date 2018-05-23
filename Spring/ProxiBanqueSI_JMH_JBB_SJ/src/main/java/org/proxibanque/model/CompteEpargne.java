@@ -18,6 +18,10 @@ public class CompteEpargne extends Compte {
 		super();
 	}
 
+	public CompteEpargne(String numero, String date) {
+		super(numero, date);
+	}
+
 	// *** Getters & Setters
 	public double getTaux() {
 		return taux;

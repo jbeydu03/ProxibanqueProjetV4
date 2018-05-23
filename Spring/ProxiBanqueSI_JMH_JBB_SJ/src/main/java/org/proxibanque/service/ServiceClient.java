@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
+import org.proxibanque.model.CompteEpargne;
 
 /**
  * Interface imposant les méthodes à implémenter pour les actions sur les clients en base de données
@@ -26,5 +27,9 @@ public interface ServiceClient {
 	public Client updateClient(Client client, long idConseiller);
 	
 	public List<Compte> selectAllCompte();
+	
+	public Compte createCompteEpargne(Client client);
+	
+	public boolean deleteCompteEpargne(Client client);
 	
 }
