@@ -258,55 +258,6 @@
       },
       "compteEpargne": null,
       "conseiller": 1002
-    },
-    {
-      "id": 11,
-      "nom": "fzefezfze",
-      "prenom": "Ozlem",
-      "adresse": "1 rue du soleil",
-      "codePostal": "1000",
-      "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 20,
-        "numero": " 8258993790",
-        "solde": 0,
-        "date": "2018-05-22",
-        "decouvert": -1000,
-        "carte": null
-      },
-      "compteEpargne": null,
-      "conseiller": 1000
-    },
-    {
-      "id": 12,
-      "nom": "fzefezfze",
-      "prenom": "Ozlem",
-      "adresse": "1 rue du soleil",
-      "codePostal": "1000",
-      "ville": "BOURG EN BRESSE",
-      "telephone": "01 53 82 74 10",
-      "compteCourant": {
-        "id": 21,
-        "numero": " 4548840100",
-        "solde": 0,
-        "date": "2018-05-22",
-        "decouvert": -1000,
-        "carte": null
-      },
-      "compteEpargne": null,
-      "conseiller": 1001
-    },
-    {
-      "id": 13,
-      "nom": "Frédéric",
-      "prenom": "Péan",
-      "adresse": "Rue de la Caserne",
-      "ville": "69100",
-      "codePostal": "Villeurbanne",
-      "telephone": "Villeurbanne",
-      "compteCourant": null,
-      "compteEpargne": null
     }
   ]
 }

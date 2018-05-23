@@ -1,6 +1,5 @@
 <form novalidate [formGroup]="clientForm" (ngSubmit)="saveClient()">
 
-  <!-- Cette forme générique remplace le bout de code commenté ci dessous -->
   <app-field label="Nom" [control]="clientForm.get('clientNom')">
     <input type="text" class="form-control" placeholder="Nom" formControlName="clientNom">
   </app-field>
@@ -22,11 +21,9 @@
   </app-field>
 
   <app-field label="Telephone" [control]="clientForm.get('clientTelephone')">
-    <input type="text" class="form-control" placeholder="Code Postal" formControlName="clientTelephone">
+    <input type="text" class="form-control" placeholder="Telephone" formControlName="clientTelephone">
   </app-field>
 
-
-  <!-- Si une erreur apparait, afficher un message d'erreur -->
   <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
   <a routerLink="..">Annuler</a>
 
