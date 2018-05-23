@@ -5,9 +5,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.proxibanque.model.Client;
+import org.proxibanque.model.Compte;
 import org.proxibanque.model.CompteCourant;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.persistence.DaoClient;
+import org.proxibanque.persistence.DaoCompte;
 import org.proxibanque.persistence.DaoConseiller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,9 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 
 	@Autowired
 	private DaoConseiller daoConseiller;
+	
+	@Autowired
+	private DaoCompte daoCompte;
 
 	@Override
 	public List<Client> selectAllClient() {
@@ -81,6 +86,7 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 	}
 
 	// ----------------------------------------------------
+
 	@Override
 	public Conseiller selectConseillerById(long idConseiller) {
 
@@ -103,6 +109,14 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller {
 		} else {
 			return null;
 		}
+	}
+
+	// ----------------------------------------------------
+
+	@Override
+	public List<Compte> selectAllCompte() {
+		
+		return daoCompte.findAll();
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.proxibanque.model.Client;
+import org.proxibanque.model.Compte;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.service.ServiceClient;
 import org.proxibanque.service.ServiceConseiller;
@@ -47,10 +48,15 @@ public class WebServiceController {
 	public ResponseEntity<Conseiller> authentification(@PathVariable("loginConseiller") String loginConseiller,
 			@PathVariable("passwordConseiller") String passwordConseiller) {
 
-		Conseiller conseiller = serviceConseiller.connectionConseiller(loginConseiller, passwordConseiller);
-		if (conseiller != null) {
-			return new ResponseEntity(conseiller, HttpStatus.ACCEPTED);
-		} else {
+		try {
+			
+			Conseiller conseiller = serviceConseiller.connectionConseiller(loginConseiller, passwordConseiller);
+			if (conseiller != null) {
+				return new ResponseEntity(conseiller, HttpStatus.ACCEPTED);
+			} else {
+				throw new Exception();
+			}
+		} catch (Exception e) {
 			return new ResponseEntity(HttpStatus.FORBIDDEN);
 		}
 
@@ -64,8 +70,7 @@ public class WebServiceController {
 	@GetMapping(value = "/clients/all", produces = "application/json")
 	public ResponseEntity<List<Client>> selectAllClient() {
 
-		List<Client> listeClient = new ArrayList<>();
-		listeClient = serviceClient.selectAllClient();
+		List<Client> listeClient = serviceClient.selectAllClient();
 
 		if (listeClient != null) {
 			return new ResponseEntity(listeClient, HttpStatus.OK);
@@ -86,7 +91,7 @@ public class WebServiceController {
 		Conseiller conseiller = serviceConseiller.selectConseillerById(idConseiller);
 
 		if (conseiller != null) {
-			return new ResponseEntity(serviceConseiller.selectConseillerById(idConseiller), HttpStatus.OK);
+			return new ResponseEntity(serviceClient.selectAllClientByConseiller(idConseiller), HttpStatus.OK);
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
@@ -101,7 +106,6 @@ public class WebServiceController {
 	@GetMapping(value = "/clients/{idClient}", produces = "application/json")
 	public ResponseEntity<Client> selectClientByIdClient(@PathVariable("idClient") long idClient) {
 
-		// return
 		Client client = serviceClient.selectClient(idClient);
 		if (client != null) {
 			return new ResponseEntity(client, HttpStatus.OK);
@@ -158,6 +162,22 @@ public class WebServiceController {
 			return new ResponseEntity(serviceClient.updateClient(client, idConseiller), HttpStatus.OK);
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+		}
+	}
+
+	// ==============================================================================
+	// RENVOI LA LISTE DE TOUS LES COMPTES
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
+	// @Secured("ROLE_USER")
+	@GetMapping(value = "/comptes/all", produces = "application/json")
+	public ResponseEntity<List<Compte>> selectAllCompte() {
+
+		List<Compte> listeCompte = serviceClient.selectAllCompte();
+		if (listeCompte != null) {
+			return new ResponseEntity(listeCompte, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 	}
 
