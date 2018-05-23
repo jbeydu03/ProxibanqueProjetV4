@@ -314,6 +314,17 @@
       },
       "compteEpargne": null,
       "conseiller": 1001
+    },
+    {
+      "id": 13,
+      "nom": "Frédéric",
+      "prenom": "Péan",
+      "adresse": "Rue de la Caserne",
+      "ville": "69100",
+      "codePostal": "Villeurbanne",
+      "telephone": "Villeurbanne",
+      "compteCourant": null,
+      "compteEpargne": null
     }
   ]
 }
