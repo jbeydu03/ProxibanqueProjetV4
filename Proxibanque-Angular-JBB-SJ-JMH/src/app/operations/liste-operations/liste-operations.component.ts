@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Operation } from '../../model/operation';
-import { OperationsService } from '../operations.service';
 import { operations } from '../../model/operations';
 
 @Component({
@@ -10,14 +9,12 @@ import { operations } from '../../model/operations';
 })
 export class ListeOperationsComponent implements OnInit {
 
-  @Input() operation: Operation;
-
   operationsList = operations;
   
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }
