@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../../model/client';
 import { ConseillerService } from '../conseiller.service';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-client',
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ListeClientComponent implements OnInit {
 
-  constructor(private conseillerService: ConseillerService) { }
+  constructor(private conseillerService: ConseillerService, private router: Router) { }
 
   listeClients: Client[] = [];
 
@@ -20,14 +21,18 @@ export class ListeClientComponent implements OnInit {
   loadClients(): void {
     this.conseillerService.loadClients()
       .subscribe(clients => this.listeClients = clients);
-}
-  
+  }
+
+  addClient() {
+    this.router.navigate(['new']);
+  }
+
   deleteClient(client: Client): boolean {
     // Supprime le client après confirmation
     this.showConfirmationModal()
       .subscribe({
         complete: () => this.conseillerService.deleteClient(client.id).subscribe(() => this.loadClients()),
-        error: () => {}
+        error: () => { }
       });
 
     return false;  // Pas d'action sur le bouton
@@ -42,6 +47,6 @@ export class ListeClientComponent implements OnInit {
         observer.error();
       }
     });
-}
+  }
 
 }
