@@ -1,16 +1,30 @@
 <p>coucoucoucoucoucou</p><p>coucoucoucoucoucou</p><p>coucoucoucoucoucou</p>
 
-<form  [formGroup]="auditForm" (ngSubmit)="lancerForm()">
+<form  [formGroup]="auditForm">
 
   <div class="form-group">
       <input  class="form-control"  aria-describedby="basic-addon1" formControlName="montant">
   </div>
 
+  <h2>Audit des comptes epargnes </h2>
   <ul>
-    <li *ngFor="let current of compteAll" [ngClass]="submitClass(current)">{{current.numero}} - {{current.solde}}</li>
+    <li *ngFor="let epargne of tabAllEpargne" [ngClass]="submitClass(epargne.compteEpargne)"> 
+ 
+       {{epargne.nom}} - {{epargne.compteEpargne.numero}} - {{epargne.compteEpargne.solde}}€ 
+    </li>
+  </ul>
+
+  <h2>Audit des comptes courants </h2>
+  <ul>
+  <li *ngFor="let courant of tabAllCourant" [ngClass]="submitClass(courant.compteCourant)"> 
+ 
+      {{courant.nom}} - {{courant.compteCourant.numero}} - {{courant.compteCourant.solde}}€ 
+   </li>
   </ul>
  
-  <button type="submit" class="btn btn-primary"> Lancer</button> 
+  <button class="btn btn-primary" (click)="lancerFormCourant()"> Audit des comptes courants</button> 
+  <button class="btn btn-primary" (click)="lancerFormEpargne()"> Audit des comptes Epargnes</button> 
+
    
 
 </form>

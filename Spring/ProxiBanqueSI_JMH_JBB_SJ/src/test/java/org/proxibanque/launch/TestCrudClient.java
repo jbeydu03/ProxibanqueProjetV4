@@ -13,10 +13,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.proxibanque.config.Config;
 import org.proxibanque.model.Client;
+import org.proxibanque.model.Compte;
 import org.proxibanque.model.Conseiller;
 import org.proxibanque.persistence.DaoClient;
 import org.proxibanque.service.ServiceClient;
+import org.proxibanque.service.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -46,7 +51,7 @@ public class TestCrudClient {
 	}
 	
 	@Test
-	public void deleteClientShouldDeleteAClient() {
+	public void deleteClientShouldDeleteAClient() throws Exception{
 		Conseiller conseiller = new Conseiller("Darth","Vador","dvador","force");
 		Client client = new Client("Racine", "Jean", "Rue du Chene", "75000", "Paris", "0102030405", conseiller);
 		service.deleteClient(client.getId());

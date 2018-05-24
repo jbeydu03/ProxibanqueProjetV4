@@ -23,7 +23,7 @@ public interface ServiceClient {
 
 	public Client selectClient(long idClient);
 
-	public void deleteClient(long idClient);
+	public boolean deleteClient(long idClient)  throws Exception;
 
 	public Client createClient(Client client, long idConseiller);
 
