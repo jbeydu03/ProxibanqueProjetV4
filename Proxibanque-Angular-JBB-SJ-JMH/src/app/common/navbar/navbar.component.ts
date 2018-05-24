@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   userCookie: string;
 
   // Attributes
-  logo = "/assets/logo-PB.jpg";
+  logo = "/assets/logo1.PNG";
   navItems: NavItem[] = [
     { text: 'Liste des clients', path: 'clients' },
     { text: 'Opérations bancaires', path: 'operations' },

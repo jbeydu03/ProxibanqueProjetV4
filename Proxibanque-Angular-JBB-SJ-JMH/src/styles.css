@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-     background: url(/assets/images/banner.jpg)  no-repeat;
+    background: url(/assets/images/ville1.jpg)  no-repeat;
     background-size: 100%;
     background-color:white;
     color: white;
@@ -24,7 +24,7 @@ body{
 }
 
 #banner {
-    padding: 8em 0 9em 0;
+    padding: 0 0 7em 0;
     background-size: cover; 
     background-position: bottom;
     background-attachment: fixed; 
@@ -35,20 +35,22 @@ body{
 }
 
 #banner ul li a{
-    font-size: 1.8em;
+    margin-top:1.5em;
+    font-size: 1.0em;
     color : white; 
 }
 #banner ul li a:hover{
-    font-size: 2.2em;
+    font-size: 1.2em;
     color : grey; 
     position: relative; z-index: 1;
 }
 
 #banner a img{
-    height: 125px;
-    width: 125px;
+    height: 66px;
+    width: 79px;
+    border-radius: 10px;
     position: relative; z-index: 1;
-    margin-top : -50px;
+    margin-top : 0px;
 }
 
   
@@ -93,10 +95,27 @@ body{
 
     footer {
 		
-		background:  rgba(75, 75, 93, 0.85);
-		color: #fff;
+		
         text-align: center;
+    }
+
+    #copyright{
+      
+       
+        padding: 1em;
+
         
+        
+        
+        
+
+       
+        background: rgba(75, 75, 93, 0.85);
+        height: 3em;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom:0;
     
     }
 
@@ -112,4 +131,6 @@ body{
     td{
         color:black
    }
+
+
 
