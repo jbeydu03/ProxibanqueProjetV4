@@ -3,6 +3,7 @@ package org.proxibanque.launch;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class TestCrudClient {
 	}
 	
 	@Test
-	public void deleteClientShouldDeleteAClient() throws Exception{
+	public void deleteClientShould_throw_an_exception_onDelete() throws Exception{
 		Conseiller conseiller = new Conseiller("Darth","Vador","dvador","force");
 		Client client = new Client("Racine", "Jean", "Rue du Chene", "75000", "Paris", "0102030405", conseiller);
 		service.deleteClient(client.getId());
