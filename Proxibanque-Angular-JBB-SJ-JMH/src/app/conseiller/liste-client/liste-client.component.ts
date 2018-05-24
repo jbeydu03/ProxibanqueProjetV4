@@ -28,14 +28,14 @@ export class ListeClientComponent implements OnInit {
 
 
   loadClients(): void {
-    this.conseillerService.loadClients().subscribe(clients => this.listeClients = clients)
+    this.conseillerService.loadClientsConseiller().subscribe(clients => this.listeClients = clients)
 
 
   }
 
 
   addClient() {
-    this.router.navigate(['new']);
+    this.router.navigate(['/new']);
   }
 
   deleteClient(client: Client): boolean {

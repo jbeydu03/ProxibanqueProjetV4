@@ -1,3 +1,16 @@
-<p>
-  audit works!
-</p>
+<p>coucoucoucoucoucou</p><p>coucoucoucoucoucou</p><p>coucoucoucoucoucou</p>
+
+<form  [formGroup]="auditForm" (ngSubmit)="lancerForm()">
+
+  <div class="form-group">
+      <input  class="form-control"  aria-describedby="basic-addon1" formControlName="montant">
+  </div>
+
+  <ul>
+    <li *ngFor="let current of compteAll" [ngClass]="submitClass(current)">{{current.numero}} - {{current.solde}}</li>
+  </ul>
+ 
+  <button type="submit" class="btn btn-primary"> Lancer</button> 
+   
+
+</form>

@@ -8,7 +8,7 @@
       </div>
       <div class="col-md-6">
       <select class=form-control formControlName="compteDebiteur">
-          <option value={{currentCompteDebiteur.numero}} *ngFor="let currentCompteDebiteur of listeCompteDebiteur" >{{currentCompteDebiteur.numero}}</option>
+          <option value={{currentCompteDebiteur.id}} *ngFor="let currentCompteDebiteur of listeCompteDebiteur" >{{currentCompteDebiteur.numero}}</option>
        </select>
       </div>
   </div>
@@ -21,7 +21,7 @@
       </div>
       <div class="col-md-6">
       <select class=form-control formControlName="compteCrediteur">
-        <option value={{currentCompte.numero}} *ngFor="let currentCompte of listeCompteCrediteur" >{{currentCompte.numero}}</option>
+        <option value={{currentCompte.id}} *ngFor="let currentCompte of listeCompteCrediteur" >{{currentCompte.numero}}</option>
 
 
        </select>

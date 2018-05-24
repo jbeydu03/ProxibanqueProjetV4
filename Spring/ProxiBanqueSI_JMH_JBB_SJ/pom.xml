@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.springframework.samples</groupId>
-  <artifactId>ProxiBanqueSI_JMH_JBB_SJ</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.springframework.samples</groupId>
+	<artifactId>ProxiBanqueSI_JMH_JBB_SJ</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
 
 		<!-- Generic properties -->
 		<java.version>1.8</java.version>
@@ -20,51 +22,50 @@
 		<hibernate.version>4.2.1.Final</hibernate.version>
 		<spring.jpa.data.version>1.9.2.RELEASE</spring.jpa.data.version>
 		<mysql-connector.version>5.1.10</mysql-connector.version>
-		
+
 		<!-- Logging -->
 		<logback.version>1.1.7</logback.version>
 		<slf4j.version>1.7.21</slf4j.version>
 
 		<!-- Test -->
 		<junit.version>4.12</junit.version>
-		<mockito.version>2.18.0</mockito.version>
-		
+
 		<!-- Web -->
 		<servlet-api.version>3.1.0</servlet-api.version>
 		<jsp.version>2.2</jsp.version>
 		<jstl.version>1.2</jstl.version>
 		<jackson.version>2.8.7</jackson.version>
-		
-		<!--  Security -->
+
+		<!-- Security -->
 		<spring-security>4.2.3.RELEASE</spring-security>
-		
+
 		<!-- Spring AOP + AspectJ -->
 		<aspectj.version>1.6.11</aspectj.version>
 		<cglib.version>2.2.2</cglib.version>
-		
+
 	</properties>
-	
+
 	<dependencies>
-	
-		<!--  Security -->
+
+		<!-- Security -->
 		<dependency>
-	    	<groupId>org.springframework.security</groupId>
-	    	<artifactId>spring-security-config</artifactId>
-	    	<version>${spring-security}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security}</version>
 		</dependency>
-		
+
 		<dependency>
-	    	<groupId>org.springframework.security</groupId>
-	    	<artifactId>spring-security-web</artifactId>
-	    	<version>${spring-security}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security}</version>
 		</dependency>
-	
+
 		<dependency>
-	    	<groupId>org.springframework.security</groupId>
-	    	<artifactId>spring-security-core</artifactId>
-	    	<version>${spring-security}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security}</version>
 		</dependency>
-	
+
 		<!-- Servlet 3.1 API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -72,7 +73,7 @@
 			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Other Servlet Web dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -91,7 +92,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-			
+
 		<!-- Spring and Transactions -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -105,7 +106,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -119,7 +120,7 @@
 			<version>${slf4j.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -133,32 +134,32 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring.jpa.data.version}</version>
 		</dependency>
-		
+
 		<!-- MySQL Database Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector.version}</version>
 		</dependency>
-		
+
 		<!-- Test Artifacts -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -166,20 +167,19 @@
 			<version>${spring-framework.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>${mockito.version}</version>
+			<version>2.18.0</version>
 			<scope>test</scope>
-
 		</dependency>
 
 		<!-- Jackson API for JSON -->
@@ -188,39 +188,39 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		
+
 		<!-- Spring AOP + AspectJ -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
-		
+
 		<dependency>
-   			 <groupId>cglib</groupId>
-   			 <artifactId>cglib-nodep</artifactId>
-   			 <version>${cglib.version}</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>${cglib.version}</version>
 		</dependency>
 
-	</dependencies>	
-	
-	
-	<!--  Maven -->
+	</dependencies>
+
+
+	<!-- Maven -->
 	<build>
 		<plugins>
-		
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -229,7 +229,7 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -244,8 +244,8 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	
-	
+
+
+
 	<packaging>war</packaging>
 </project>

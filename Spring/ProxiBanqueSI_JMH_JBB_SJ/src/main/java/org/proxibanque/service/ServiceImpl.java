@@ -38,6 +38,11 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 	@Autowired
 	private DaoVirement daoVirement;
 
+	// Setter pour le test Mockito
+	public void setClientDao(DaoClient daoClient) {
+		this.daoClient = daoClient;
+	}
+
 	@Override
 	public List<Client> selectAllClient() {
 

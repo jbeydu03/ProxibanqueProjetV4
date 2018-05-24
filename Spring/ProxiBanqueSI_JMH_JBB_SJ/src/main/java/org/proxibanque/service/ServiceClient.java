@@ -5,6 +5,8 @@ import java.util.List;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.model.Virement;
+import org.proxibanque.model.CompteEpargne;
+import org.proxibanque.persistence.DaoClient;
 
 /**
  * Interface imposant les méthodes à implémenter pour les actions sur les
@@ -35,4 +37,6 @@ public interface ServiceClient {
 
 	public Compte selectCompte(long idCompte);
 
+	public void setClientDao(DaoClient dao);
+	
 }
