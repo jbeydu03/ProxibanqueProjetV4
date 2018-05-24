@@ -4,6 +4,7 @@ import { Client } from '../../model/client';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Virement } from '../../model/virement';
+import { OperationsService } from '../../operations/operations.service';
 
 @Component({
   selector: 'app-virement',
@@ -17,8 +18,8 @@ export class VirementComponent implements OnInit {
   listeCompteDebiteur: Compte[] = [];
   clientId: number;
   clientNom: string;
-  
-  constructor(private fb: FormBuilder, private conseillerService: ConseillerService, private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private fb: FormBuilder, private conseillerService: ConseillerService, private operationsService: OperationsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.clientForm = this.fb.group({
@@ -78,15 +79,15 @@ export class VirementComponent implements OnInit {
 
   validerVirement() {
     alert("ok");
-    
+
     const dCompteDebiteur = this.clientForm.get('compteDebiteur').value;
     const dCompteCrediteur = this.clientForm.get('compteCrediteur').value;
     const dMontant = this.clientForm.get('montant').value;
 
     const virementValide = new Virement(dCompteDebiteur, dCompteCrediteur, dMontant);
+    this.operationsService.sendVirement(virementValide).subscribe();
     console.log(virementValide);
 
-    
   }
 }
 
