@@ -68,8 +68,6 @@ body{
   
     }
 
-
-
     #banner h1 {
         font-size: 3.5em;
         font-weight: 400;
@@ -94,30 +92,11 @@ body{
     }
 
 
-    footer {
-		
-		
-        text-align: center;
-    }
 
     #copyright{
-      
-       
-        padding: 1em;
-
-        
-        
-        
-        
-
-       
-        background: rgba(75, 75, 93, 0.85);
-        height: 3em;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        bottom:0;
-    
+        padding-top: 2em;
+        color:white; 
+        text-align: center;
     }
 
 
@@ -139,10 +118,13 @@ body{
         background-color:rgba(240, 240, 240, 0.7);
          color:black;
          margin : 10px;
+         padding-top: 30px;
+         padding-bottom: 30px;
+         border-radius: 20px;
     }
-    .liste h1{
+    .liste h2{
         text-align: center;
-        margin : 40px 0px 20px 0px;
+        margin : 30px 0px 60px 0px;
 
 
     }
@@ -154,7 +136,11 @@ body{
     .validation{
         margin : 350px 0px 40px 0px;
     }
-    
+
+    legend{
+        padding-bottom: 20px;
+    }
+
 
 
 
