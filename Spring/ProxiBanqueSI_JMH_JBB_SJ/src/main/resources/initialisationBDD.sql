@@ -121,5 +121,12 @@ INSERT INTO CLIENT (id, nom, prenom, adresse, codePostal, ville, telephone, comp
 
 
 -- ================= 7°) Création des virements ================= 
-
--- INSERT INTO VIREMENT (id, date, comptedebit_id, comptecredit_id, montant) VALUES ('1', '2018-08-01', '1', '11', '4000');
+INSERT INTO `virement` (`id`, `clientCreditId`, `clientCreditInfo`, `clientDebitId`, `clientDebitInfo`, `compteCreditInfo`, `compteDebitInfo`, `date`, `montant`) VALUES
+(1, 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', 1, '(1) AVCI | Ozlem | 1 rue du soleil | 1000 | BOURG EN BRESSE', '(2) 2345678901 | Nouveau solde : 2400.0', '(1) 1234567890 | Nouveau solde : 600.0', '2018-05-24', 400),
+(2, 3, '(3) HILTBRUNNER | Jean-Michel | 3 rue du ciel | 3000 | AVERMES', 1, '(1) AVCI | Ozlem | 1 rue du soleil | 1000 | BOURG EN BRESSE', '(3) 3456789012 | Nouveau solde : 3400.0', '(1) 1234567890 | Nouveau solde : 200.0', '2018-05-24', 400),
+(3, 3, '(3) HILTBRUNNER | Jean-Michel | 3 rue du ciel | 3000 | AVERMES', 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', '(3) 3456789012 | Nouveau solde : 4000.0', '(2) 2345678901 | Nouveau solde : 1800.0', '2018-05-24', 600),
+(4, 6, '(6) LE MENTEC | Sandrine | 6 rue de la constellation | 6000 | NICE', 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', '(6) 6789012345 | Nouveau solde : -5400.0', '(2) 2345678901 | Nouveau solde : 1200.0', '2018-05-24', 600),
+(5, 8, '(8) RENARD | Arnaud | 8 rue de la naine rouge | 8000 | LA FRANCHEVILLE', 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', '(8) 8901234567 | Nouveau solde : 8600.0', '(2) 2345678901 | Nouveau solde : 600.0', '2018-05-24', 600),
+(6, 8, '(8) RENARD | Arnaud | 8 rue de la naine rouge | 8000 | LA FRANCHEVILLE', 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', '(8) 8901234567 | Nouveau solde : 8609.0', '(2) 2345678901 | Nouveau solde : 591.0', '2018-05-24', 9),
+(7, 6, '(6) LE MENTEC | Sandrine | 6 rue de la constellation | 6000 | NICE', 2, '(2) BLANC | Jean-Baptiste | 2 rue du nuage | 2000 | AULNOIS SOUS LAON', '(6) 6789012345 | Nouveau solde : -5391.0', '(2) 2345678901 | Nouveau solde : 582.0', '2018-05-24', 9),
+(8, 6, '(6) LE MENTEC | Sandrine | 6 rue de la constellation | 6000 | NICE', 4, '(4) JOUMARD | Sebastien | 4 rue de l etoile | 4000 | DIGNE LES BAINS', '(6) 6789012345 | Nouveau solde : -5346.0', '(4) 4567890123 | Nouveau solde : 3955.0', '2018-05-24', 45);
