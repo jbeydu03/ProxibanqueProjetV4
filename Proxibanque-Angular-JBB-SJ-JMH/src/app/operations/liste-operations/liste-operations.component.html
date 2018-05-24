@@ -1,16 +1,21 @@
-<h1>Liste des opérations bancaires disponibles</h1>
 
 
-<div class="row">
+<div class= "container liste">
+
+    <h2>Liste des opérations bancaires disponibles</h2>
+
+  <div class="row">
 
 
-  <!-- Boucle sur la liste des opérations en appelant une boucle sur la variable opérationsList -->
-  <div class="col-sm-6" *ngFor="let operation of operationsList">
-    <div class="well">
-      <h2>{{operation.titre}}</h2>
-      <p class="lead">{{operation.description}}</p>
-      <div class="text-right">
-        <a [routerLink]="['/operations', operation.lien]" class="btn btn-info btn-lg">Accéder</a>
+    <!-- Boucle sur la liste des opérations en appelant une boucle sur la variable opérationsList -->
+    <div class="col-sm-3 col col-sm-offset-2" *ngFor="let operation of operationsList">
+      
+      <div class="operation">
+        <!-- <h2>{{operation.titre}}</h2> -->
+        <!-- <p class="lead">{{operation.description}}</p> -->
+        <div class="text-center">
+          <a [routerLink]="['/operations', operation.lien]" class="btn btn-info btn-lg btn-block">{{operation.titre}}</a>
+        </div>
       </div>
     </div>
   </div>

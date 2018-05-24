@@ -30,6 +30,8 @@
       <tr>
         <th>Prénom</th>
         <th>Nom</th>
+        <th>Ville</th>
+        <th>Téléphone</th>
         <th>Opérations</th>
       </tr>
     </thead>
@@ -37,6 +39,8 @@
       <tr *ngFor="let currentClient of listeClients">
         <td>{{ currentClient.prenom}}</td>
         <td>{{ currentClient.nom}}</td>
+        <td>{{ currentClient.ville}}</td>
+        <td>{{ currentClient.telephone}}</td>
         <td>
           <a [routerLink]="[currentClient.id]" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Éditer

@@ -79,7 +79,7 @@ export class VirementComponent implements OnInit {
   }
 
   validerVirement() {
-    alert("ok");
+    // alert("Virement effectué");
 
     const dCompteDebiteur = this.clientForm.get('compteDebiteur').value;
     const dCompteCrediteur = this.clientForm.get('compteCrediteur').value;
