@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { DOCUMENT } from '@angular/common';
+import { IdentificationCookie } from '../model/identificationCookie';
 
 @Injectable()
 export class AuthService {
@@ -36,7 +37,14 @@ export class AuthService {
     }
 
   }
+
+
+  deleteCookie() {
+
+  }
 }
+
+
 
 
 
@@ -62,7 +70,5 @@ export class AuthService {
     }
   }
 
-  deleteClient(clientId: number): Observable<any> {
-    return this.http.delete('http://localhost:3004/clients/' + clientId);
   }*/
 

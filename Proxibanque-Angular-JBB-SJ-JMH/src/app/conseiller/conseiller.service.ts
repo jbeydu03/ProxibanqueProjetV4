@@ -8,6 +8,8 @@ import { Client } from '../model/client';
 import { DOCUMENT } from '@angular/common';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { catchError } from 'rxjs/operators';
+import { Virement } from '../model/virement';
+import { HistoriqueVirement } from '../model/historiqueVirement';
 
 
 
@@ -20,6 +22,12 @@ export class ConseillerService {
     @Inject('JSON_SERVER_URL') private baseUrl: string, private httpErrorHandler: HttpErrorHandler) {
       this.errorHandler=httpErrorHandler.createHandleError('ConseillerService');
     }
+
+    historiqueVirementClient(): Observable<HistoriqueVirement[]> {
+      // TODO: afficher la liste de tous les clients
+      return this.http.get<HistoriqueVirement[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/all');
+    }
+
 
   loadClients(): Observable<Client[]> {
     // TODO: afficher la liste de tous les clients
