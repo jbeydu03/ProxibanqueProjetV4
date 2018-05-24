@@ -10,6 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Classe permettant de tracer chaque tentative de connection aux Web Services
+ * 
+ * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
+ *
+ */
 @Component
 @Aspect
 public class WebService_AOP {

@@ -5,7 +5,7 @@ import java.util.List;
 import org.proxibanque.model.Virement;
 
 /**
- * Interface imposant les méthodes à implémenter pour les opérations banquaires
+ * Interface imposant les méthodes Opération à implémenter
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *

@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
 }
 deconnexion(){
   console.log(this.user);
-  this.authService.deleteCookie(this.user);
+  this.authService.deleteCookie();
 
  // this.router.navigate(['/login']);
 }

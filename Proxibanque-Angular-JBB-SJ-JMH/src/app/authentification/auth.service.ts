@@ -8,11 +8,14 @@ import 'rxjs/add/operator/mergeMap';
 import { DOCUMENT } from '@angular/common';
 import { IdentificationCookie } from '../model/identificationCookie';
 
+
 @Injectable()
 export class AuthService {
 
+  
   constructor(private http: HttpClient,
-    @Inject('JSON_SERVER_URL') private baseUrl: string, @Inject(DOCUMENT) private document) { }
+    @Inject('JSON_SERVER_URL') private baseUrl: string, @Inject(DOCUMENT) private document) { 
+    }
 
     login(userLog: string, userMDP: string): Observable<Conseiller> {
     // TODO: afficher un client à partir de son Id
