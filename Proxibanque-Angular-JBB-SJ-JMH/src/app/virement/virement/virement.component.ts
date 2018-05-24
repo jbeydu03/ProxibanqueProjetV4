@@ -28,8 +28,8 @@ export class VirementComponent implements OnInit {
       compteDebiteur: ['', Validators.required],
       nomCrediteur: [''],
       compteCrediteur: ['', Validators.required],
-      montant: ['', Validators.required],
-
+      montant: ['', [Validators.required, Validators.min(0)]],
+   
     });
 
 

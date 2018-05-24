@@ -25,7 +25,7 @@ export class ConseillerService {
   }
 
     historiqueVirementClient(): Observable<HistoriqueVirement[]> {
-      // TODO: afficher la liste de tous les clients
+      // TODO: afficher la liste de tous les clients avec comptes
       return this.http.get<HistoriqueVirement[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/all');
     }
 

@@ -1,6 +1,10 @@
 <div class="container liste">
   <h2>Historique des virement bancaire</h2>
-  <h3>Client : </h3>
+  <!-- <a type="button" class="btn btn-default" routerLink="..">Retour</a>
+  <br/> -->
+  
+
+  <h3>Client : {{infoClient.prenom}}  {{infoClient.nom}} </h3>
   <h2>Historique des débits </h2>
   <table class="table table-striped">
     <thead>
@@ -12,7 +16,7 @@
     <tbody>
         <tr *ngFor="let debit of virementsDebiteurClient">
         <td>{{debit.date| date : "dd.MM.y" }} </td>
-        <td>{{debit.clientDebitInfo }} </td>
+        <td>{{debit.clientCreditInfo}} </td>
         </tr>
     </tbody>
   </table>
@@ -33,7 +37,7 @@
     <tbody>
       <tr *ngFor="let credit of virementsCrediteurClient">
         <td>{{credit.date | date : "dd.MM.y" }}</td>
-        <td>{{credit.clientCreditInfo }} </td>
+        <td>{{credit.clientDebitInfo }} </td>
       </tr>
     </tbody>
   </table>
