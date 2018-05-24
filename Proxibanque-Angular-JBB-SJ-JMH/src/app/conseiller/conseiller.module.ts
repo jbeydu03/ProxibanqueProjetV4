@@ -30,7 +30,6 @@ const routes: Routes = [
   ],
   providers: [
     ConseillerService,
-    HttpErrorHandler
   ],
   exports: [
     ReactiveFormsModule

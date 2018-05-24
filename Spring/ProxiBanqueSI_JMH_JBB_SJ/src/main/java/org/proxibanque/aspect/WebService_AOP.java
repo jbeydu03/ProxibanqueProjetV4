@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class AOP {
+public class WebService_AOP {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(AOP.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(WebService_AOP.class);
 
 	@Pointcut("within(org.proxibanque.controller.*)")
 	public void pointCutCalled() {

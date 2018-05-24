@@ -1,3 +1,5 @@
+import { Compte } from "./compte";
+
 export class CompteEpargne extends Compte{
     id: number;
     numero: number;

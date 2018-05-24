@@ -1,3 +1,5 @@
+import { Compte } from "./compte";
+
 export class Virement{
     compteDebiteur : Compte;
     compteCrediteur : Compte;

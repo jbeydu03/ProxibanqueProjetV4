@@ -1,4 +1,4 @@
-abstract class Compte {
+export abstract class Compte {
     id: number;
     numero: number;
     solde: number;
