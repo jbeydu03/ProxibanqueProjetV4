@@ -6,6 +6,7 @@ import { ConseillerService } from './conseiller.service';
 import { FormClientComponent } from './form-client/form-client.component';
 import { FieldComponent } from './field/field.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpErrorHandler } from '../http-error-handler.service';
 
 const routes: Routes = [
   { path: 'clients', component: ListeClientComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     FieldComponent
   ],
   providers: [
-    ConseillerService
+    ConseillerService,
+    HttpErrorHandler
   ],
   exports: [
     ReactiveFormsModule
