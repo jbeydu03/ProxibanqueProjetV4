@@ -29,10 +29,11 @@ export class FormClientComponent implements OnInit {
       clientAdresse: ['', [Validators.required, Validators.maxLength(60)]],
       clientVille: ['', [Validators.required, Validators.maxLength(30)]],
       clientCodePostal: ['', [Validators.maxLength(5)]],
-      clientTelephone: ['', [Validators.maxLength(10)]]
+      clientTelephone: ['', [Validators.maxLength(14)]]
     });
 
     this.clientCompteCourant=this.fb.group({
+      idCompteCourant: [''],
       numeroCompteCourant: [''],
       soldeCompteCourant: [''],
       dateCompteCourant: [''],
@@ -40,6 +41,7 @@ export class FormClientComponent implements OnInit {
     });
 
     this.clientCompteEpargne=this.fb.group({
+      idCompteEpargne: [''],
       numeroCompteEpargne: [''],
       soldeCompteEpargne: [0],
       dateCompteEpargne: [''],
@@ -60,14 +62,16 @@ export class FormClientComponent implements OnInit {
           this.clientForm.get('clientTelephone').setValue(client.telephone);
           
           // Champs compte courant client
-          this.clientCompteCourant.get('numeroCompteCourant').setValue(client.compteCourant.id);
+          this.clientCompteCourant.get('idCompteCourant').setValue(client.compteCourant.id);
+          this.clientCompteCourant.get('numeroCompteCourant').setValue(client.compteCourant.numero);
           this.clientCompteCourant.get('soldeCompteCourant').setValue(client.compteCourant.solde);
           this.clientCompteCourant.get('dateCompteCourant').setValue(client.compteCourant.date);
           this.clientCompteCourant.get('decouvertCompteCourant').setValue(client.compteCourant.decouvert);
 
           //Champs compte Epargne client
           if(client.compteEpargne){
-            this.clientCompteEpargne.get('numeroCompteEpargne').setValue(client.compteEpargne.id);
+            this.clientCompteEpargne.get('idCompteEpargne').setValue(client.compteEpargne.id);
+            this.clientCompteEpargne.get('numeroCompteEpargne').setValue(client.compteEpargne.numero);
             this.clientCompteEpargne.get('soldeCompteEpargne').setValue(client.compteEpargne.solde);
             this.clientCompteEpargne.get('dateCompteEpargne').setValue(client.compteEpargne.date);
             this.clientCompteEpargne.get('tauxCompteEpargne').setValue(client.compteEpargne.taux);
@@ -79,7 +83,7 @@ export class FormClientComponent implements OnInit {
 
   saveClient(){
     const compteCourantSave: CompteCourant = new CompteCourant({
-      id: this.clientCompteCourant.get('numeroCompteCourant').value,
+      id: this.clientCompteCourant.get('idCompteCourant').value,
       numero: this.clientCompteCourant.get('numeroCompteCourant').value,
       solde: this.clientCompteCourant.get('soldeCompteCourant').value,
       date: this.clientCompteCourant.get('dateCompteCourant').value,
@@ -87,11 +91,11 @@ export class FormClientComponent implements OnInit {
     });
 
     const compteEpargneSave: CompteEpargne = new CompteEpargne({
-      id: this.clientCompteCourant.get('numeroCompteEpargne').value,
-      numero: this.clientCompteCourant.get('numeroCompteEpargne').value,
-      solde: this.clientCompteCourant.get('soldeCompteEpargne').value,
-      date: this.clientCompteCourant.get('dateCompteEpargne').value,
-      taux: this.clientCompteCourant.get('tauxCompteEpargne').value,
+      id: this.clientCompteEpargne.get('idCompteEpargne').value,
+      numero: this.clientCompteEpargne.get('numeroCompteEpargne').value,
+      solde: this.clientCompteEpargne.get('soldeCompteEpargne').value,
+      date: this.clientCompteEpargne.get('dateCompteEpargne').value,
+      taux: this.clientCompteEpargne.get('tauxCompteEpargne').value,
     });
     
     const client = new Client({
