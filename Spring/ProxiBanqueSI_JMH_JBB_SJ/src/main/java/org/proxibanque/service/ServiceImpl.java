@@ -62,9 +62,22 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 	}
 
 	@Override
-	public void deleteClient(long idClient) {
+	public boolean deleteClient(long idClient) throws Exception {
+
+		if (daoClient.findOne(idClient).getCompteCourant() != null) {
+			if (daoClient.findOne(idClient).getCompteCourant().getSolde() != 0) {
+				return false;
+			}
+		}
+		if (daoClient.findOne(idClient).getCompteEpargne() != null) {
+			if (daoClient.findOne(idClient).getCompteEpargne().getSolde() != 0) {
+				return false;
+			}
+		}
 
 		daoClient.delete(idClient);
+		return true;
+
 	}
 
 	@Override
@@ -182,8 +195,9 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 			compteCredit.setSolde(compteCredit.getSolde() + montant);
 			daoCompte.save(compteCredit);
 
-			Virement virement = new Virement(generateDate(), clientDebit.toString(), compteDebit.toString(),
-					clientCredit.toString(), compteCredit.toString(), montant);
+			Virement virement = new Virement(generateDate(), clientDebit.getId(), clientDebit.toString(),
+					compteDebit.toString(), clientCredit.getId(), clientCredit.toString(), compteCredit.toString(),
+					montant);
 			daoVirement.save(virement);
 			return virement;
 

@@ -14,6 +14,8 @@ import { AuthentificationModule } from './authentification/authentification.modu
 import { VirementModule } from './virement/virement.module';
 import { OperationsModule } from './operations/operations.module';
 import { AuditComponent } from './operations/audit/audit.component';
+import { HttpErrorHandler } from './http-error-handler.service';
+import { MessageService } from './message.service';
 
 const routes: Routes= [
   {path: 'home', component: HomeComponent},
@@ -38,7 +40,11 @@ const routes: Routes= [
     VirementModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [{provide: 'JSON_SERVER_URL', useValue: 'http://localhost:8080'}],
+  providers: [
+    {provide: 'JSON_SERVER_URL', useValue: 'http://localhost:8080'},
+    HttpErrorHandler,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

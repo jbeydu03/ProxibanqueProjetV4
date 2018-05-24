@@ -133,8 +133,12 @@ public class WebServiceController {
 	public ResponseEntity deleteClient(@PathVariable("idClient") long idClient) {
 
 		try {
-			serviceClient.deleteClient(idClient);
-			return new ResponseEntity(HttpStatus.OK);
+			if (serviceClient.deleteClient(idClient)) {
+				return new ResponseEntity(HttpStatus.OK);
+			} else {
+				return new ResponseEntity(HttpStatus.FORBIDDEN);
+			}
+
 		} catch (Exception e) {
 			return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 		}

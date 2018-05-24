@@ -23,9 +23,11 @@ public class Virement {
 
 	private String date;
 
+	private long clientDebitId;
 	private String clientDebitInfo;
 	private String compteDebitInfo;
 
+	private long clientCreditId;
 	private String clientCreditInfo;
 	private String compteCreditInfo;
 
@@ -35,19 +37,39 @@ public class Virement {
 	public Virement() {
 	}
 
-	public Virement(String date, String clientDebitInfo, String compteDebitInfo, String clientCreditInfo,
-			String compteCreditInfo, double montant) {
+	public Virement(String date, long clientDebitId, String clientDebitInfo, String compteDebitInfo,
+			long clientCreditId, String clientCreditInfo, String compteCreditInfo, double montant) {
 		this.date = date;
+
+		this.clientDebitId = clientDebitId;
 		this.clientDebitInfo = clientDebitInfo;
 		this.compteDebitInfo = compteDebitInfo;
+		this.clientCreditId = clientCreditId;
 		this.clientCreditInfo = clientCreditInfo;
 		this.compteCreditInfo = compteCreditInfo;
 		this.montant = montant;
 	}
 
 	// *** Getters & Setters ***
+
 	public long getId() {
 		return id;
+	}
+
+	public long getClientDebitId() {
+		return clientDebitId;
+	}
+
+	public void setClientDebitId(long clientDebitId) {
+		this.clientDebitId = clientDebitId;
+	}
+
+	public long getClientCreditId() {
+		return clientCreditId;
+	}
+
+	public void setClientCreditId(long clientCreditId) {
+		this.clientCreditId = clientCreditId;
 	}
 
 	public void setId(long id) {
