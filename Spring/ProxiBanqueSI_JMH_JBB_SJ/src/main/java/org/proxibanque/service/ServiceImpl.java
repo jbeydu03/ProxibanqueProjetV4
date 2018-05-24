@@ -206,6 +206,12 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 			return null;
 		}
 	}
+	
+	@Override
+	public List<Virement> selectAllVirement() {
+
+		return daoVirement.findAll();
+	}
 	// ----------------------------------------------------
 
 	private String generateNumero() {
@@ -224,5 +230,7 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 
 		return date.toString();
 	}
+
+
 
 }

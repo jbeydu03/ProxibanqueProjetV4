@@ -1,5 +1,7 @@
 package org.proxibanque.service;
 
+import java.util.List;
+
 import org.proxibanque.model.Virement;
 
 /**
@@ -11,4 +13,6 @@ import org.proxibanque.model.Virement;
 public interface ServiceOperation {
 
 	public Virement faireVirement(long idCompteDebit, long idCompteCredit, double montant);
+	
+	public List<Virement> selectAllVirement();
 }
