@@ -1,4 +1,5 @@
 import { Carte } from "./carte";
+import { Compte } from "./compte";
 
 export class CompteCourant extends Compte {
     id: number;

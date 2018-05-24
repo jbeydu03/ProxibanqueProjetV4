@@ -4,7 +4,7 @@
 <div class="row">
 
   
-  <!-- Affichage dynamique si aucun quiz est affiché -->
+  
   <h2 *ngIf="listeClients.length === 0">
     Aucun client affecté à ce conseiller
   </h2>
@@ -44,10 +44,8 @@
     </tbody>
   </table>
   
-  <!-- Ajout de boutons pour dynamiser le tableau -->
-  <p>
-    <button class="btn btn-default" (click)="addClient()" [disabled]="listeClients.length>=10">Ajouter</button>
-    <!-- Methode quick & dirty 
-      <button class="btn btn-default" (click)="quizList.push({title:'Dummy Quiz'})">Ajouter</button>-->
-  </p>
+  
+  <div class="text-right">
+    <a [routerLink]="['/clients/new']" class="btn btn-success btn-lg">Ajouter Client</a>
+  </div>
 </div>

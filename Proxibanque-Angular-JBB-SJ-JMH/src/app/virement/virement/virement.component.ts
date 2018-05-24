@@ -4,6 +4,7 @@ import { Client } from '../../model/client';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Virement } from '../../model/virement';
+import { Compte } from '../../model/compte';
 
 @Component({
   selector: 'app-virement',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations.service';
+import { Compte } from '../../model/compte';
 
 @Component({
   selector: 'app-audit',
