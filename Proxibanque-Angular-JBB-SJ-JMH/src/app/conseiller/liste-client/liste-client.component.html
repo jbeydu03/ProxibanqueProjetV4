@@ -2,8 +2,9 @@
 <h1>Liste des Clients de l'agence Proxibanque d'Aurillac ({{listeClients.length}})</h1>
 
 
-<div class="row">
 
+<div class="row">
+  
   
   
   <h2 *ngIf="listeClients.length === 0">
@@ -12,6 +13,8 @@
   
   <!-- Boucle sur la liste des clients en appelant une boucle sur la variable listeClients -->
 
+  
+  
   <table class="table table-striped">
     <thead>
       <tr>
@@ -45,6 +48,7 @@
     </tbody>
   </table>
   
+  <h3>Nombre de clients gérés : {{listeClients.length}}</h3>
   
   <div class="text-right">
     <a [routerLink]="['/clients/new']" class="btn btn-success btn-lg">Ajouter Client</a>

@@ -268,7 +268,7 @@ public class WebServiceController {
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/all
 	// @Secured("ROLE_USER")
 	@GetMapping(value = "/comptes/virement/all", produces = "application/json")
-	public ResponseEntity<List<Virement>> addCompteEpargne() {
+	public ResponseEntity<List<Virement>> selectAllVirement() {
 
 		List<Virement> listeVirement = serviceOperation.selectAllVirement();
 
