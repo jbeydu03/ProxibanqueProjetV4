@@ -35,7 +35,7 @@ export class ListeClientComponent implements OnInit {
 
 
   addClient() {
-    this.router.navigate(['new']);
+    this.router.navigate(['/new']);
   }
 
   deleteClient(client: Client): boolean {
