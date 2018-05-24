@@ -1,11 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
 import { Compte } from '../model/compte';
-=======
 import { Virement } from '../model/virement';
->>>>>>> af786ca223bde8e43475d44e3238cf910c10966d
 
 
 @Injectable()
