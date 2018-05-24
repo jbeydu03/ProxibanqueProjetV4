@@ -8,8 +8,8 @@ import org.proxibanque.model.Conseiller;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Interface permettant la sauvegarde en base de données des clients de la
- * société Proxibanque
+ * Interface permettant la gestion en base de données des clients de la société
+ * Proxibanque
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *

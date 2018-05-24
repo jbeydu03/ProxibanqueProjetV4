@@ -26,11 +26,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+/**
+ * Classe de test permettant de vérifier les fonctionnalités du service Client
+ * 
+ * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { Config.class })
 @WebAppConfiguration
 public class TestCrudClient {
 	
+
 	@Mock
 	private DaoClient dao;
 	

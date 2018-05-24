@@ -3,8 +3,7 @@ package org.proxibanque.service;
 import org.proxibanque.model.Conseiller;
 
 /**
- * Interface imposant les méthodes à implémenter pour les actions sur les
- * conseillers en base de données
+ * Interface imposant les méthodes Conseiller à implémenter
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *

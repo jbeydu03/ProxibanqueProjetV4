@@ -1,0 +1,7 @@
+org.proxibanque.aspect
+org.proxibanque.config
+org.proxibanque.controller
+org.proxibanque.launch
+org.proxibanque.model
+org.proxibanque.persistence
+org.proxibanque.service

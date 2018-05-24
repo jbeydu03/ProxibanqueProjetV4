@@ -9,8 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 /**
- * Classe abstraite représentant les cartes des clients de la société
- * Proxibanque
+ * Classe représentant les cartes des clients de la société Proxibanque
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *
