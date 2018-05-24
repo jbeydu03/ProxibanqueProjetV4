@@ -1,15 +1,24 @@
 <div class="container liste">
-<h1>Liste des Clients de l'agence Proxibanque d'Aurillac ({{listeClients.length}})</h1>
+<h1>Liste des Clients de l'agence Proxibanque d'Aurillac</h1>
 
 
 
-<div class="row">
+<div class="col-sm-offset-1 col-sm-10">
   
   
   
-  <h2 *ngIf="listeClients.length === 0">
+  <h2 *ngIf="listeClients.length === 0; else clients">
     Aucun client affecté à ce conseiller
   </h2>
+  <ng-template #clients>
+      <h3>Nombre de clients gérés : {{listeClients.length}}</h3>
+   </ng-template>
+  
+
+    
+  <div class="text-left">
+      <a [routerLink]="['/clients/new']" class="btn btn-default btn-lg">Ajouter Client</a>
+  </div>
   
   <!-- Boucle sur la liste des clients en appelant une boucle sur la variable listeClients -->
 
@@ -28,13 +37,10 @@
         <td>{{ currentClient.prenom}}</td>
         <td>{{ currentClient.nom}}</td>
         <td>
-          <a [routerLink]="[currentClient.id]" class="btn btn-default btn-sm">
+          <a [routerLink]="[currentClient.id]" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Éditer
           </a>
-          <a [routerLink]="['/clients', currentClient.id]" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Liste des comptes
-          </a>
-          <a [routerLink]="['/clients', currentClient.id, 'virement']" class="btn btn-default btn-sm">
+          <a [routerLink]="['/clients', currentClient.id, 'virement']" class="btn btn-success btn-sm">
             <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Virement
           </a>
           <a [routerLink]="['/clients', currentClient.id, 'historique']" class="btn btn-default btn-sm">
@@ -48,10 +54,7 @@
     </tbody>
   </table>
   
-  <h3>Nombre de clients gérés : {{listeClients.length}}</h3>
-  
-  <div class="text-right">
-    <a [routerLink]="['/clients/new']" class="btn btn-success btn-lg">Ajouter Client</a>
-  </div>
+
+
 </div>
 </div>

@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
        // this.user = new IdentificationCookie(userCookie);
         console.log(userCookie);
        });
-        this.router.navigate(['/clients']);
+        this.router.navigate(['/home']);
     }
     
 

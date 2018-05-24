@@ -1,165 +1,169 @@
-<h2>Informations sur le client</h2>
+<div class="container liste">
+  <h2>Informations sur le client</h2>
 
-<form novalidate [formGroup]="clientForm" (ngSubmit)="saveClient()">
+  <form novalidate [formGroup]="clientForm" (ngSubmit)="saveClient()">
 
-  <app-field label="Nom" [control]="clientForm.get('clientNom')">
-    <input type="text" class="form-control" placeholder="Nom" formControlName="clientNom">
-  </app-field>
+    <app-field label="Nom" [control]="clientForm.get('clientNom')">
+      <input type="text" class="form-control" placeholder="Nom" formControlName="clientNom">
+    </app-field>
 
-  <app-field label="Prenom" [control]="clientForm.get('clientPrenom')">
-    <input type="text" class="form-control" placeholder="Prénom" formControlName="clientPrenom">
-  </app-field>
+    <app-field label="Prenom" [control]="clientForm.get('clientPrenom')">
+      <input type="text" class="form-control" placeholder="Prénom" formControlName="clientPrenom">
+    </app-field>
 
-  <app-field label="Adresse" [control]="clientForm.get('clientAdresse')">
-    <input type="text" class="form-control" placeholder="Adresse" formControlName="clientAdresse">
-  </app-field>
+    <app-field label="Adresse" [control]="clientForm.get('clientAdresse')">
+      <input type="text" class="form-control" placeholder="Adresse" formControlName="clientAdresse">
+    </app-field>
 
-  <app-field label="Ville" [control]="clientForm.get('clientVille')">
-    <input type="text" class="form-control" placeholder="Ville" formControlName="clientVille">
-  </app-field>
+    <app-field label="Ville" [control]="clientForm.get('clientVille')">
+      <input type="text" class="form-control" placeholder="Ville" formControlName="clientVille">
+    </app-field>
 
-  <app-field label="Code Postal" [control]="clientForm.get('clientCodePostal')">
-    <input type="text" class="form-control" placeholder="Code Postal" formControlName="clientCodePostal">
-  </app-field>
+    <app-field label="Code Postal" [control]="clientForm.get('clientCodePostal')">
+      <input type="text" class="form-control" placeholder="Code Postal" formControlName="clientCodePostal">
+    </app-field>
 
-  <app-field label="Telephone" [control]="clientForm.get('clientTelephone')">
-    <input type="text" class="form-control" placeholder="Telephone" formControlName="clientTelephone">
-  </app-field>
+    <app-field label="Telephone" [control]="clientForm.get('clientTelephone')">
+      <input type="text" class="form-control" placeholder="Telephone" formControlName="clientTelephone">
+    </app-field>
 
-  <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
-  <a routerLink=".." class="btn btn-danger">Annuler</a>
 
-</form>
 
-<br>
-<br>
-<h2> Comptes associés à ce client </h2>
-<div class="col-sm-6">
-  <form [formGroup]="clientCompteCourant">
-    <fieldset>
-      <legend>
-        <b>Compte courant</b>
-      </legend>
-      <table>
-        <tr>
-          <td class="col-sm-2">
-            <b>Identifiant de compte :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="idCompte" formControlName="idCompteCourant" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Numéro du compte :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Num" formControlName="numeroCompteCourant" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Solde :</b>
-          </td>
-          <td class="col-sm-4">
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="soldeCompteCourant" disabled="true" aria-describedby="basic-addon1">
-              <span class="input-group-addon" id="basic-addon1">€</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Date d'ouverture :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" formControlName="dateCompteCourant" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Découvert autorisé :</b>
-          </td>
-          <td class="col-sm-4">
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="decouvertCompteCourant" aria-describedby="basic-addon1">
-              <span class="input-group-addon" id="basic-addon1">€</span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </fieldset>
   </form>
-</div>
 
-<div class="col-sm-6">
-  <form [formGroup]="clientCompteEpargne" (ngSubmit)="addCompteEpargne()">
-    <fieldset>
-      <legend>
-        <b>Compte épargne</b>
-      </legend>
-      <table>
-        <tr>
-          <td class="col-sm-2">
-            <b>Identifiant de compte :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Non affecté" formControlName="idCompteEpargne" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Numéro de compte :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Non affecté" formControlName="numeroCompteEpargne" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Solde :</b>
-          </td>
-          <td class="col-sm-4">
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="soldeCompteEpargne" disabled="true" aria-describedby="basic-addon1">
-              <span class="input-group-addon" id="basic-addon1">€</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Date d'ouverture :</b>
-          </td>
-          <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Non affecté" formControlName="dateCompteEpargne" disabled="true">
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-            <b>Taux d'interêts</b>
-          </td>
-          <td class="col-sm-4">
-            <div class="input-group">
-              <input type="text" class="form-control" formControlName="tauxCompteEpargne" aria-describedby="basic-addon1">
-              <span class="input-group-addon" id="basic-addon1">%</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-sm-2">
-          </td>
-          <td class="col-sm-4">
+  <br>
+  <br>
+  <h2> Comptes associés à ce client </h2>
+  <div class="col-sm-6">
+    <form [formGroup]="clientCompteCourant">
+      <fieldset>
+        <legend>
+          <b>Compte courant</b>
+        </legend>
+        <table>
+          <tr>
+            <td class="col-sm-2">
+              <b>Identifiant de compte :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" placeholder="idCompte" formControlName="idCompteCourant" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Numéro du compte :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Num" formControlName="numeroCompteCourant" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Solde :</b>
+            </td>
+            <td class="col-sm-4">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="soldeCompteCourant" disabled="true" aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1">€</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Date d'ouverture :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" formControlName="dateCompteCourant" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Découvert autorisé :</b>
+            </td>
+            <td class="col-sm-4">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="decouvertCompteCourant" aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1">€</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="col-sm-6">
+    <form [formGroup]="clientCompteEpargne" (ngSubmit)="addCompteEpargne()">
+      <fieldset>
+        <legend>
+          <b>Compte épargne</b>
+        </legend>
+        <table>
+          <tr>
+            <td class="col-sm-2">
+              <b>Identifiant de compte :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Non affecté" formControlName="idCompteEpargne" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Numéro de compte :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Non affecté" formControlName="numeroCompteEpargne" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Solde :</b>
+            </td>
+            <td class="col-sm-4">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="soldeCompteEpargne" disabled="true" aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1">€</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Date d'ouverture :</b>
+            </td>
+            <td class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Non affecté" formControlName="dateCompteEpargne" disabled="true">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+              <b>Taux d'interêts</b>
+            </td>
+            <td class="col-sm-4">
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="tauxCompteEpargne" aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1">%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-2">
+            </td>
+            <td class="col-sm-4">
               <button type="submit" class="btn btn-primary">Ajouter compte épargne</button>
               <button class="btn btn-danger btn-sm" (click)="deleteCompteEpargne()">
-                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer compte
-                </button>
-          </td>
-        </tr>
-      </table>
-    </fieldset>
-  </form>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer compte
+              </button>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+  </div>
+
+
+    <div class="text-center validation">
+      <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
+      <a routerLink=".." class="btn btn-danger">Annuler</a>
+    </div>
+
 </div>
-
-
-<br>
-<br>

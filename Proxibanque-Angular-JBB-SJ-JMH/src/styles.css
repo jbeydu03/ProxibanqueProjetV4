@@ -4,7 +4,8 @@ body{
     background-size: 100%;
     background-color:white;
     color: white;
-    height: 100%;  
+    height: 100%; 
+    color:black; 
     
 }
 
@@ -120,17 +121,42 @@ body{
     }
 
 
-
-
-
-
-
-    .container .liste h1{
-         color:black
+    .login{
+        border: 1px solid whitesmoke;
+        padding : 30px;
+        color:white; 
+    
     }
-    td{
-        color:black
-   }
+
+    .login h1{
+        text-align: center;
+        padding-bottom : 40px;
+        font-size : 4em;
+    }
+
+
+    .liste{
+        background-color:rgba(240, 240, 240, 0.7);
+         color:black;
+         margin : 10px;
+    }
+    .liste h1{
+        text-align: center;
+        margin : 40px 0px 20px 0px;
+
+
+    }
+
+    .container .home{
+        background-color:rgba(240, 240, 240, 0.7);
+    }
+
+    .validation{
+        margin : 350px 0px 40px 0px;
+    }
+    
+
+
 
 
 
