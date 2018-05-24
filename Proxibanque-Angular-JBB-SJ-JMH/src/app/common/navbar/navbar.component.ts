@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   navItems: NavItem[] = [
     { text: 'Liste des clients', path: 'clients' },
     { text: 'Opérations bancaires', path: 'operations' },
-    { text: 'Gestion agence', path: 'gerant' },
+   /* { text: 'Gestion agence', path: 'gerant' }, */
 
   ];
 

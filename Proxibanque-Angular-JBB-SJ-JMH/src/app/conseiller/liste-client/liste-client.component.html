@@ -1,5 +1,5 @@
 <div class="container liste">
-<h1>Liste des Clients de l'agence Proxibanque d'Aurillac</h1>
+<h2>Liste des Clients de l'agence Proxibanque d'Aurillac</h2>
 
 
 
@@ -7,9 +7,9 @@
   
   
   
-  <h2 *ngIf="listeClients.length === 0; else clients">
+  <h1 *ngIf="listeClients.length === 0; else clients">
     Aucun client affecté à ce conseiller
-  </h2>
+  </h1>
   <ng-template #clients>
       <h3>Nombre de clients gérés : {{listeClients.length}}</h3>
    </ng-template>
