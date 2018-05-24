@@ -9,8 +9,7 @@ import org.proxibanque.model.CompteEpargne;
 import org.proxibanque.persistence.DaoClient;
 
 /**
- * Interface imposant les méthodes à implémenter pour les actions sur les
- * clients en base de données
+ * Interface imposant les méthodes client à implémenter
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *

@@ -203,6 +203,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
 	// @Secured("ROLE_USER")
+
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
 	public ResponseEntity<Compte> addCompteEpargne(@PathVariable("idClient") long idClient) {
@@ -249,7 +250,7 @@ public class WebServiceController {
 	// @Secured("ROLE_USER")
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/comptes/virement/{idCompteDebit}/{idCompteCredit}/{montant}", produces = "application/json")
-	public ResponseEntity<Virement> addCompteEpargne(@PathVariable("idCompteDebit") long idCompteDebit,
+	public ResponseEntity<Virement> faireVirement(@PathVariable("idCompteDebit") long idCompteDebit,
 			@PathVariable("idCompteCredit") long idCompteCredit, @PathVariable("montant") double montant) {
 
 		Virement virement = serviceOperation.faireVirement(idCompteDebit, idCompteCredit, montant);
@@ -258,6 +259,23 @@ public class WebServiceController {
 			return new ResponseEntity(virement, HttpStatus.OK);
 		} else {
 			return new ResponseEntity(HttpStatus.FORBIDDEN);
+		}
+	}
+
+	// ==============================================================================
+	// RECUPERER HISTORIQUE VIREMENT
+	// ==============================================================================
+	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/all
+	// @Secured("ROLE_USER")
+	@GetMapping(value = "/comptes/virement/all", produces = "application/json")
+	public ResponseEntity<List<Virement>> addCompteEpargne() {
+
+		List<Virement> listeVirement = serviceOperation.selectAllVirement();
+
+		if (listeVirement != null) {
+			return new ResponseEntity(listeVirement, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 	}
 

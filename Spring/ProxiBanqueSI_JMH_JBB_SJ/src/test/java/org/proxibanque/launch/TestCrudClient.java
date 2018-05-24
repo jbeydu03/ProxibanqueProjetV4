@@ -3,6 +3,7 @@ package org.proxibanque.launch;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +27,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+/**
+ * Classe de test permettant de vérifier les fonctionnalités du service Client
+ * 
+ * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { Config.class })
 @WebAppConfiguration
 public class TestCrudClient {
 	
+
 	@Mock
 	private DaoClient dao;
 	
@@ -51,7 +59,7 @@ public class TestCrudClient {
 	}
 	
 	@Test
-	public void deleteClientShouldDeleteAClient() throws Exception{
+	public void deleteClientShould_throw_an_exception_onDelete() throws Exception{
 		Conseiller conseiller = new Conseiller("Darth","Vador","dvador","force");
 		Client client = new Client("Racine", "Jean", "Rue du Chene", "75000", "Paris", "0102030405", conseiller);
 		client.setId(1L);
