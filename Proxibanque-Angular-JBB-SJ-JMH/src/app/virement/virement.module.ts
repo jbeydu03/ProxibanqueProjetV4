@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VirementComponent } from './virement/virement.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { FieldComponent } from './field/field.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     
   ],
-  declarations: [VirementComponent],
+  declarations: [VirementComponent,
+    FieldComponent],
   exports: [
     ReactiveFormsModule
   ]

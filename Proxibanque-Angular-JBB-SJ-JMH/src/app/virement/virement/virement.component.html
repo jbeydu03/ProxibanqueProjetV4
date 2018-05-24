@@ -1,50 +1,53 @@
-<br/><br/><br/>
+<br/>
+<br/>
+<br/>
 <form novalidate [formGroup]="clientForm" (ngSubmit)="validerVirement()">
-<div class="col-md-6">
+    <div class="col-md-6">
 
-  <div class="row">
-      <div class="col-md-6">
-    <input type="text" class="form-control" formControlName="clientNom">
-      </div>
-      <div class="col-md-6">
-      <select class=form-control formControlName="compteDebiteur">
-          <option value={{currentCompteDebiteur.id}} *ngFor="let currentCompteDebiteur of listeCompteDebiteur" >{{currentCompteDebiteur.numero}}</option>
-       </select>
-      </div>
-  </div>
+        <div class="row">
+            <app-field label="Compte à débiter" [control]="clientForm.get('clientNom')" class="col-md-6">
+                <input type="text" class="form-control" placeholder="Nom" formControlName="clientNom" disabled="true">
+            </app-field>
 
-  <div class="row">
-      <div class="col-md-6">
-          <select class=form-control formControlName="nomCrediteur" >
-              <option  *ngFor="let currentClient of listeClients" (click)="selectCrediteur(currentClient.id)">{{currentClient.nom}}</option>
-          </select>
-      </div>
-      <div class="col-md-6">
-      <select class=form-control formControlName="compteCrediteur">
-        <option value={{currentCompte.id}} *ngFor="let currentCompte of listeCompteCrediteur" >{{currentCompte.numero}}</option>
+            <div class="col-md-6">
+                <select class=form-control formControlName="compteDebiteur">
+                    <option value={{currentCompteDebiteur.id}} *ngFor="let currentCompteDebiteur of listeCompteDebiteur">{{currentCompteDebiteur.numero}}</option>
+                </select>
+            </div>
+        </div>
 
-
-       </select>
-      </div>
-  </div>
-
-  <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <select class=form-control formControlName="nomCrediteur">
+                    <option *ngFor="let currentClient of listeClients" (click)="selectCrediteur(currentClient.id)">{{currentClient.nom}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select class=form-control formControlName="compteCrediteur">
+                    <option value={{currentCompte.id}} *ngFor="let currentCompte of listeCompteCrediteur">{{currentCompte.numero}}</option>
 
 
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Somme à virer" aria-describedby="basic-addon1" formControlName="montant">
-      <span class="input-group-addon" id="basic-addon1">€</span>
-    </div>
-    <br/>
-    <p>
-        <button class="btn btn-success">Valider</button>
-        <!-- Methode quick & dirty 
+                </select>
+            </div>
+        </div>
+
+        <br/>
+
+
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Somme à virer" aria-describedby="basic-addon1" formControlName="montant">
+            <span class="input-group-addon" id="basic-addon1">€</span>
+        </div>
+        <br/>
+        <p>
+            <button class="btn btn-success">Valider</button>
+            <!-- Methode quick & dirty 
           <button class="btn btn-default" (click)="quizList.push({title:'Dummy Quiz'})">Ajouter</button>-->
-      </p>
+        </p>
 
 
 
 
 
-</div>
+    </div>
 </form>

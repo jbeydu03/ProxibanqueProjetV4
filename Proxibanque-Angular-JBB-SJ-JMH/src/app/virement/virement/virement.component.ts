@@ -24,11 +24,11 @@ export class VirementComponent implements OnInit {
 
   ngOnInit() {
     this.clientForm = this.fb.group({
-      clientNom: [''],
+      clientNom: ['', Validators.required],
       compteDebiteur: ['', Validators.required],
-      nomCrediteur: [''],
+      nomCrediteur: ['', Validators.required],
       compteCrediteur: ['', Validators.required],
-      montant: ['', Validators.required],
+      montant: ['', [Validators.required, Validators.min(0)]]
 
     });
 
