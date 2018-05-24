@@ -1,3 +1,7 @@
+<div class="container liste">
+    <h1>Historique des virement bancaire</h1>
+    <h2>Client : </h2>
+
 <h2>Historique des débits </h2>
 <ul>
   <li *ngFor="let debit of virementsDebiteurClient"> 
@@ -13,3 +17,5 @@
       {{credit.date | date :  "dd.MM.y" }}  : {{credit.clientCreditInfo }} 
   </li>
 </ul>
+</div>
+
