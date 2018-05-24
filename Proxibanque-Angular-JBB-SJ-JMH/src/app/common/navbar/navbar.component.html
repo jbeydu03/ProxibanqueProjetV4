@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" *ngIf="isLogin">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -16,6 +16,10 @@
       <ul class="nav navbar-nav">
         <li *ngFor="let item of navItems">
           <a [routerLink]="item.path">{{item.text}}</a>
+          
+        </li>
+        <li>
+            <a (click)="deconnexion()">Deconnexion</a>
         </li>
       </ul>
       <p class="navbar-text navbar-right">Identifié comme

@@ -27,7 +27,7 @@
   </app-field>
 
   <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
-  <a routerLink="..">Annuler</a>
+  <a routerLink=".." class="btn btn-danger">Annuler</a>
 
 </form>
 
@@ -43,7 +43,15 @@
       <table>
         <tr>
           <td class="col-sm-2">
-            <b>Numéro de compte :</b>
+            <b>Identifiant de compte :</b>
+          </td>
+          <td class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Nom" formControlName="idCompteCourant" disabled="true">
+          </td>
+        </tr>
+        <tr>
+          <td class="col-sm-2">
+            <b>Numéro du compte :</b>
           </td>
           <td class="col-sm-4">
             <input type="text" class="form-control" placeholder="Nom" formControlName="numeroCompteCourant" disabled="true">
@@ -85,20 +93,32 @@
 </div>
 
 <div class="col-sm-6">
-  <form [formGroup]="clientCompteEpargne">
+  <form [formGroup]="clientCompteEpargne" (ngSubmit)="addCompteEpargne()">
     <fieldset>
       <legend>
         <b>Compte épargne</b>
       </legend>
       <table>
         <tr>
-          <td class="col-sm-2"><b>Numéro de compte :</b></td>
+          <td class="col-sm-2">
+            <b>Identifiant de compte :</b>
+          </td>
           <td class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Non affecté" formControlName="numeroCompteEpargne" disabled="true">
+            <input type="text" class="form-control" placeholder="Non affecté" formControlName="idCompteEpargne" disabled="true">
           </td>
         </tr>
         <tr>
-          <td class="col-sm-2"><b>Solde :</b></td>
+          <td class="col-sm-2">
+            <b>Numéro de compte :</b>
+          </td>
+          <td class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Nom" formControlName="numeroCompteEpargne" disabled="true">
+          </td>
+        </tr>
+        <tr>
+          <td class="col-sm-2">
+            <b>Solde :</b>
+          </td>
           <td class="col-sm-4">
             <div class="input-group">
               <input type="text" class="form-control" formControlName="soldeCompteEpargne" disabled="true" aria-describedby="basic-addon1">
@@ -107,13 +127,17 @@
           </td>
         </tr>
         <tr>
-          <td class="col-sm-2"><b>Date d'ouverture :</b></td>
+          <td class="col-sm-2">
+            <b>Date d'ouverture :</b>
+          </td>
           <td class="col-sm-4">
             <input type="text" class="form-control" placeholder="Non affecté" formControlName="dateCompteEpargne" disabled="true">
           </td>
         </tr>
         <tr>
-          <td class="col-sm-2"><b>Taux d'interêts</b></td>
+          <td class="col-sm-2">
+            <b>Taux d'interêts</b>
+          </td>
           <td class="col-sm-4">
             <div class="input-group">
               <input type="text" class="form-control" formControlName="tauxCompteEpargne" aria-describedby="basic-addon1">
@@ -121,13 +145,21 @@
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="col-sm-2">
+          </td>
+          <td class="col-sm-4">
+              <button type="submit" class="btn btn-primary">Ajouter compte épargne</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCompteEpargne()">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer compte
+                </button>
+          </td>
+        </tr>
       </table>
     </fieldset>
   </form>
 </div>
 
-<div class="text-right" *ngIf="">
-  <a [routerLink]="['/clients/new']" class="btn btn-success btn-lg">Ajouter Compte Epargne</a>
-</div>
+
 <br>
 <br>

@@ -62,6 +62,7 @@ public class TestCrudClient {
 	public void deleteClientShould_throw_an_exception_onDelete() throws Exception{
 		Conseiller conseiller = new Conseiller("Darth","Vador","dvador","force");
 		Client client = new Client("Racine", "Jean", "Rue du Chene", "75000", "Paris", "0102030405", conseiller);
+		client.setId(1L);
 		service.deleteClient(client.getId());
 	}
 	
