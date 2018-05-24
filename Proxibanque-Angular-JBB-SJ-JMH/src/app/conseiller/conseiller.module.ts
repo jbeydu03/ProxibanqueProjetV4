@@ -6,11 +6,13 @@ import { ConseillerService } from './conseiller.service';
 import { FormClientComponent } from './form-client/form-client.component';
 import { FieldComponent } from './field/field.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HistoriqueComponent } from './historique/historique.component';
 
 const routes: Routes = [
   { path: 'clients', component: ListeClientComponent },
   { path: 'clients/new', component: FormClientComponent },
-  { path: 'clients/:clientid', component: FormClientComponent }
+  { path: 'clients/:clientid', component: FormClientComponent },
+  { path: 'clients/:clientid/historique', component: HistoriqueComponent }
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Routes = [
   declarations: [
     ListeClientComponent,
     FormClientComponent,
-    FieldComponent
+    FieldComponent,
+    HistoriqueComponent
   ],
   providers: [
     ConseillerService
