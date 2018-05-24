@@ -93,7 +93,7 @@
 </div>
 
 <div class="col-sm-6">
-  <form [formGroup]="clientCompteEpargne">
+  <form [formGroup]="clientCompteEpargne" (ngSubmit)="addCompteEpargne()">
     <fieldset>
       <legend>
         <b>Compte épargne</b>
@@ -145,13 +145,21 @@
             </div>
           </td>
         </tr>
+        <tr>
+          <td class="col-sm-2">
+          </td>
+          <td class="col-sm-4">
+              <button type="submit" class="btn btn-primary">Ajouter compte épargne</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCompteEpargne()">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer compte
+                </button>
+          </td>
+        </tr>
       </table>
     </fieldset>
   </form>
 </div>
 
-<div class="text-right" *ngIf="">
-  <a [routerLink]="['/clients/new']" class="btn btn-success btn-lg">Ajouter Compte Epargne</a>
-</div>
+
 <br>
 <br>

@@ -186,6 +186,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/2
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/comptes/all", produces = "application/json")
 	public ResponseEntity<List<Compte>> selectAllCompte() {
 
@@ -202,7 +203,8 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
 	// @Secured("ROLE_USER")
-	@PostMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
+	@CrossOrigin(origins = "*")
+	@GetMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
 	public ResponseEntity<Compte> addCompteEpargne(@PathVariable("idClient") long idClient) {
 
 		Client client = serviceClient.selectClient(idClient);
@@ -224,6 +226,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@DeleteMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
 	public ResponseEntity deleteCompteEpargne(@PathVariable("idClient") long idClient) {
 
@@ -244,6 +247,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/1/2/10
 	// @Secured("ROLE_USER")
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/comptes/virement/{idCompteDebit}/{idCompteCredit}/{montant}", produces = "application/json")
 	public ResponseEntity<Virement> addCompteEpargne(@PathVariable("idCompteDebit") long idCompteDebit,
 			@PathVariable("idCompteCredit") long idCompteCredit, @PathVariable("montant") double montant) {
