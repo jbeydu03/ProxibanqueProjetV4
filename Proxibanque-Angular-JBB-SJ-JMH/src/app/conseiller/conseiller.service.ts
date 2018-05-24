@@ -37,7 +37,7 @@ export class ConseillerService {
   }
 
   loadClientsConseiller(): Observable<Client[]> {
-    const idConseiller = this.getCookie();
+    const idConseiller = this.getCookie('user');
     // TODO: afficher la liste de tous les clients
     return this.http.get<Client[]>('http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/conseiller/' + idConseiller).pipe(catchError(this.errorHandler('loadClientsConseiller', [])));
   }
@@ -49,7 +49,7 @@ export class ConseillerService {
   }
 
   saveClient(client: Client): Observable<Client> {
-    const idConseiller = this.getCookie();
+    const idConseiller = this.getCookie('user');
     // Si le client existe => Update et sinon => Create
     if (client.id) { // UPDATE
       // TODO: Ne pas oublier de modifier l'Id conseiller

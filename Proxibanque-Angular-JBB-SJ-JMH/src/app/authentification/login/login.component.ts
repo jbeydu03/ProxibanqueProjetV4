@@ -53,12 +53,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(log, mdp).subscribe(conseiller => 
        {this.conseiller = conseiller;
         this.authService.setCookie('user', JSON.stringify(this.conseiller.id));
-        const userCookie = this.authService.getCookie();
-        this.user = new IdentificationCookie(JSON.parse(userCookie));
+        const userCookie = this.authService.getCookie('user');
+       // this.user = new IdentificationCookie(userCookie);
+        console.log(userCookie);
        });
- 
-
-       this.router.navigate(['/clients']);
+        this.router.navigate(['/clients']);
     }
     
 

@@ -42,9 +42,9 @@ export class AuthService {
   }
 
 
-  deleteCookie() {
-
-  }
+  //  deleteCookie() {
+  //  this.document.cookie = `${name}=0`;
+  //  }
 }
 
 

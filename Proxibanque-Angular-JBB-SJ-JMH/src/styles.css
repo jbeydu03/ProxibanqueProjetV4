@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+     background: url(/assets/images/banner.jpg)  no-repeat;
+    background-size: 100%;
+    background-color:white;
+    color: white;
+    height: 100%;  
+    
+}
+
+
+
+
+
+
+
+
 .error {
     color : red;
 }
@@ -6,3 +22,94 @@
 .succes{
     color : green;
 }
+
+#banner {
+    padding: 8em 0 9em 0;
+    background-size: cover; 
+    background-position: bottom;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    text-align: center; 
+    position: relative;
+    height: 10px;
+}
+
+#banner ul li a{
+    font-size: 1.8em;
+    color : white; 
+}
+#banner ul li a:hover{
+    font-size: 2.2em;
+    color : grey; 
+    position: relative; z-index: 1;
+}
+
+#banner a img{
+    height: 125px;
+    width: 125px;
+    position: relative; z-index: 1;
+    margin-top : -50px;
+}
+
+  
+
+
+    #banner:before {
+        content: '';
+        background: rgba(75, 75, 93, 0.85);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+  
+    }
+
+
+
+    #banner h1 {
+        font-size: 3.5em;
+        font-weight: 400;
+        color: #fff;
+        line-height: 1em;
+        margin: 0 0 1em 0;
+        padding: 0;
+    }
+
+    #banner h3 {
+        font-weight: 400;
+        color: #fff;
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+
+    #banner p {
+        font-size: 1em;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 1.75em;
+    }
+
+
+    footer {
+		
+		background:  rgba(75, 75, 93, 0.85);
+		color: #fff;
+        text-align: center;
+        
+    
+    }
+
+
+
+
+
+
+
+    .container .liste h1{
+         color:black
+    }
+    td{
+        color:black
+   }
+

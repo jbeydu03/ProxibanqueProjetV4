@@ -3,10 +3,10 @@ import { AuthService } from '../../authentification/auth.service';
 import { IdentificationCookie } from '../../model/identificationCookie';
 import { Router } from '@angular/router';
 
-interface NavItem{
+interface NavItem {
   text: string;
   path: string;
-  click ?:string;
+  click?: string;
 }
 
 @Component({
@@ -15,38 +15,37 @@ interface NavItem{
   styles: []
 })
 export class NavbarComponent implements OnInit {
-  isLogin = false;
+  isLogin = true;
   user: IdentificationCookie;
   userCookie: string;
 
   // Attributes
   logo = "/assets/logo-PB.jpg";
   navItems: NavItem[] = [
-    {text:'Liste des clients', path:'clients'},
-    {text:'Opérations bancaires', path:'operations'},
-    {text:'Gestion agence', path:'gerant'},
-  
+    { text: 'Liste des clients', path: 'clients' },
+    { text: 'Opérations bancaires', path: 'operations' },
+    { text: 'Gestion agence', path: 'gerant' },
+
   ];
-  
-  constructor(private authService: AuthService,private router: Router ) { }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
 
-    this.userCookie = this.authService.getCookie();
-    this.user = new IdentificationCookie(JSON.parse(this.userCookie));
-    if(this.user){
-      this.isLogin=true;
+    // this.userCookie = this.authService.getCookie();
+    // this.user = new IdentificationCookie(JSON.parse(this.userCookie));
+    // if (this.user) {
+    //   this.isLogin = true;
 
-    }
+    // }
 
 
-    
-}
-deconnexion(){
-  console.log(this.user);
-  this.authService.deleteCookie();
 
- // this.router.navigate(['/login']);
-}
+  }
+  // deconnexion() {
+  //   console.log(this.user);
+  //   this.authService.deleteCookie();
 
+  //   // this.router.navigate(['/login']);
+  // }
 }
