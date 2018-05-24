@@ -18,7 +18,7 @@ public class CompteCourant extends Compte {
 
 	private double decouvert = -1000;
 
-	@OneToOne(cascade = { CascadeType.MERGE}, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "carte_id")
 	private Carte carte;
 
@@ -29,6 +29,7 @@ public class CompteCourant extends Compte {
 
 	public CompteCourant(String numero, String date) {
 		super(numero, date);
+		carte = new CarteElectron(numero);
 	}
 
 	// *** Getters & Setters
