@@ -139,6 +139,7 @@ body{
         background-color:rgba(240, 240, 240, 0.7);
          color:black;
          margin : 10px;
+         padding-bottom : 50px;
     }
     .liste h1{
         text-align: center;
