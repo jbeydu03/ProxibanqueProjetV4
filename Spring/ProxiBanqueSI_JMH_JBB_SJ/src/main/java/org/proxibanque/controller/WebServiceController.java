@@ -240,7 +240,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/virement/1/2/10
 	// @Secured("ROLE_USER")
-	@PostMapping(value = "/comptes/virement/{idCompteDebit}/{idCompteCredit}/{montant}", produces = "application/json")
+	@GetMapping(value = "/comptes/virement/{idCompteDebit}/{idCompteCredit}/{montant}", produces = "application/json")
 	public ResponseEntity<Virement> addCompteEpargne(@PathVariable("idCompteDebit") long idCompteDebit,
 			@PathVariable("idCompteCredit") long idCompteCredit, @PathVariable("montant") double montant) {
 

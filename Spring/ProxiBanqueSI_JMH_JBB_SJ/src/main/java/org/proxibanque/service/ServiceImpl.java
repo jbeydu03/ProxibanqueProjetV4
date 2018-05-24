@@ -182,7 +182,7 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 			compteCredit.setSolde(compteCredit.getSolde() + montant);
 			daoCompte.save(compteCredit);
 
-			Virement virement = new Virement(generateDate(), clientDebit.toString(), compteDebit.toString(),
+			Virement virement = new Virement(generateDate(),clientDebit.getId(), clientDebit.toString(), compteDebit.toString(),clientCredit.getId(),
 					clientCredit.toString(), compteCredit.toString(), montant);
 			daoVirement.save(virement);
 			return virement;
