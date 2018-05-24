@@ -83,6 +83,7 @@ export class FormClientComponent implements OnInit {
   }
 
   saveClient() {
+    alert('couocu');
     const compteCourantSave: CompteCourant = new CompteCourant({
       id: this.clientCompteCourant.get('idCompteCourant').value,
       numero: this.clientCompteCourant.get('numeroCompteCourant').value,

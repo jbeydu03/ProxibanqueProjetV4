@@ -29,8 +29,6 @@
 
 
 
-  </form>
-
   <br>
   <br>
   <h2> Comptes associés à ce client </h2>
@@ -89,8 +87,16 @@
           </tr>
         </table>
       </fieldset>
+
     </form>
-  </div>
+    </div>
+    <div class="text-center validation">
+        <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
+        <a routerLink=".." class="btn btn-danger">Annuler</a>
+      </div>
+
+  </form>
+
 
   <div class="col-sm-6">
     <form  [formGroup]="clientCompteEpargne" (ngSubmit)="addCompteEpargne()">
@@ -157,13 +163,12 @@
           </tr>
         </table>
       </fieldset>
+
+
     </form>
   </div>
 
 
-    <div class="text-center validation">
-      <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Enregistrer</button>
-      <a routerLink=".." class="btn btn-danger">Annuler</a>
-    </div>
+
 
 </div>
