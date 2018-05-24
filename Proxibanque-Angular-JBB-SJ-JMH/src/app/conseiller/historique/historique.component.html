@@ -1,21 +1,40 @@
 <div class="container liste">
-    <h1>Historique des virement bancaire</h1>
-    <h2>Client : </h2>
+  <h2>Historique des virement bancaire</h2>
+  <h3>Client : </h3>
+  <h2>Historique des débits </h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Opération</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let debit of virementsDebiteurClient">
+        <td>{{debit.date| date : "dd.MM.y" }} </td>
+        <td>{{debit.clientDebitInfo }} </td>
+        </tr>
+    </tbody>
+  </table>
+  
+  <br/>
+<hr>
+<br/>
 
-<h2>Historique des débits </h2>
-<ul>
-  <li *ngFor="let debit of virementsDebiteurClient"> 
 
-      {{debit.date| date :  "dd.MM.y" }}  : {{debit.clientDebitInfo }} 
-  </li>
-</ul>
-
-<h2>Historique des crédits </h2>
-<ul>
-  <li *ngFor="let credit of virementsCrediteurClient"> 
-
-      {{credit.date | date :  "dd.MM.y" }}  : {{credit.clientCreditInfo }} 
-  </li>
-</ul>
+  <h2>Historique des crédits </h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Opération</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let credit of virementsCrediteurClient">
+        <td>{{credit.date | date : "dd.MM.y" }}</td>
+        <td>{{credit.clientCreditInfo }} </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-

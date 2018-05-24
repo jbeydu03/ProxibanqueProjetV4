@@ -60,7 +60,7 @@ export class AuditComponent implements OnInit {
   };
 
       
-  submitClass(compte : Compte, montant = 1000) {
+  submitClass(compte : Compte, montant = 5000) {
     montant = this.auditForm.get('montant').value;
     return  compte.solde > montant ? 'succes' : 'error';
   }
