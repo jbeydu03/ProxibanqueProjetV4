@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Classe permettant de détécter chaque tentative de connection aux Web Services et de les annoter dans un fichier de log
+ * Classe permettant de tracer chaque tentative de connection aux Web Services
  * 
  * @author Jean-Michel HILTBRUNNER, Jean-Baptiste BLANC, Sebastien JOUMARD
  *

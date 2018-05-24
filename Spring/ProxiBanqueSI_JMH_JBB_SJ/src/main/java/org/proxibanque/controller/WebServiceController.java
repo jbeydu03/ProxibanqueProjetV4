@@ -202,7 +202,7 @@ public class WebServiceController {
 	// ==============================================================================
 	// URL => http://localhost:8080/ProxiBanqueSI_JMH_JBB_SJ/comptes/epargne/2
 	// @Secured("ROLE_USER")
-	@PostMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
+	@GetMapping(value = "/comptes/epargne/{idClient}", produces = "application/json")
 	public ResponseEntity<Compte> addCompteEpargne(@PathVariable("idClient") long idClient) {
 
 		Client client = serviceClient.selectClient(idClient);
