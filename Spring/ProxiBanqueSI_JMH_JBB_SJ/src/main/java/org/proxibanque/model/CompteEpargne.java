@@ -34,7 +34,7 @@ public class CompteEpargne extends Compte {
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return " [" + taux + "]";
+		return super.toString();
 	}
 
 }

@@ -33,15 +33,15 @@ public class Client {
 	private String ville;
 	private String telephone;
 
-	@OneToOne(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteCourant_id")
 	private CompteCourant compteCourant;
 
-	@OneToOne(cascade ={ CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "compteEpargne_id")
 	private CompteEpargne compteEpargne;
 
-	@ManyToOne(cascade = {CascadeType.MERGE})
+	@ManyToOne(cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "conseiller_id")
 	@JsonBackReference
 	private Conseiller conseiller;
@@ -151,16 +151,15 @@ public class Client {
 		return conseiller;
 	}
 
-
 	// *** Methods ***
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "(" + id + ") " + nom + prenom + adresse + codePostal + ville + compteCourant.toString()
-				+ compteEpargne.toString() + conseiller.toString();
+		return "(" + id + ") " + nom + " | " + prenom + " | " + adresse + " | " + codePostal + " | " + ville
+				+ " | Identifiant conseiller : " + conseiller.getId();
 	}
 
 }

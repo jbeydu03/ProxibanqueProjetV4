@@ -70,7 +70,7 @@ public abstract class Compte {
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "(" + id + ") " + numero + " (" + solde + ") " + date;
+		return "(" + id + ") " + numero + " | Nouveau solde : " + solde;
 	}
 
 }

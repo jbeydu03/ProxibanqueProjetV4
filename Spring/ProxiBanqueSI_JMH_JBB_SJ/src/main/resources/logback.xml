@@ -38,6 +38,6 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
          
     <root level="warn">
         <appender-ref ref="console"/>
-<!--         <appender-ref ref="file" /> -->
+        <appender-ref ref="file" />
     </root>
 </configuration>

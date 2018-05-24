@@ -23,9 +23,11 @@ public class Virement {
 
 	private String date;
 
-	private long compteDebitId;
+	private String clientDebitInfo;
+	private String compteDebitInfo;
 
-	private long compteCreditId;
+	private String clientCreditInfo;
+	private String compteCreditInfo;
 
 	private double montant;
 
@@ -33,10 +35,13 @@ public class Virement {
 	public Virement() {
 	}
 
-	public Virement(String date, long compteDebitId, long compteCreditId, double montant) {
+	public Virement(String date, String clientDebitInfo, String compteDebitInfo, String clientCreditInfo,
+			String compteCreditInfo, double montant) {
 		this.date = date;
-		this.compteDebitId = compteDebitId;
-		this.compteCreditId = compteCreditId;
+		this.clientDebitInfo = clientDebitInfo;
+		this.compteDebitInfo = compteDebitInfo;
+		this.clientCreditInfo = clientCreditInfo;
+		this.compteCreditInfo = compteCreditInfo;
 		this.montant = montant;
 	}
 
@@ -49,15 +54,45 @@ public class Virement {
 		this.id = id;
 	}
 
+	public String getCompteDebitInfo() {
+		return compteDebitInfo;
+	}
+
+	public void setCompteDebitInfo(String compteDebitInfo) {
+		this.compteDebitInfo = compteDebitInfo;
+	}
+
+	public String getCompteCreditInfo() {
+		return compteCreditInfo;
+	}
+
+	public void setCompteCreditInfo(String compteCreditInfo) {
+		this.compteCreditInfo = compteCreditInfo;
+	}
+
 	public String getDate() {
 		return date;
+	}
+
+	public String getClientDebitInfo() {
+		return clientDebitInfo;
+	}
+
+	public void setClientDebitInfo(String clientDebitInfo) {
+		this.clientDebitInfo = clientDebitInfo;
+	}
+
+	public String getClientCreditInfo() {
+		return clientCreditInfo;
+	}
+
+	public void setClientCreditInfo(String clientCreditInfo) {
+		this.clientCreditInfo = clientCreditInfo;
 	}
 
 	public void setDate(String date) {
 		this.date = date;
 	}
-
-	
 
 	public double getMontant() {
 		return montant;
@@ -67,26 +102,10 @@ public class Virement {
 		this.montant = montant;
 	}
 
-	public long getCompteDebitId() {
-		return compteDebitId;
-	}
-
-	public void setCompteDebitId(long compteDebitId) {
-		this.compteDebitId = compteDebitId;
-	}
-
-	public long getCompteCreditId() {
-		return compteCreditId;
-	}
-
-	public void setCompteCreditId(long compteCreditId) {
-		this.compteCreditId = compteCreditId;
-	}
-
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return "  (" + id + ") " + date + compteDebitId + compteCreditId+ "  (" + montant + ") ";
+		return "  (" + id + ") " + date + "  (" + montant + ") ";
 	}
 
 }

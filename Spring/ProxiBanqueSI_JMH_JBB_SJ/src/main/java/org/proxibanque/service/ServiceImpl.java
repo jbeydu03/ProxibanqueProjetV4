@@ -38,14 +38,6 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 	@Autowired
 	private DaoVirement daoVirement;
 
-	public DaoClient getDaoClient() {
-		return daoClient;
-	}
-
-	public void setDaoClient(DaoClient daoClient) {
-		this.daoClient = daoClient;
-	}
-
 	@Override
 	public List<Client> selectAllClient() {
 
@@ -171,13 +163,22 @@ public class ServiceImpl implements ServiceClient, ServiceConseiller, ServiceOpe
 
 		if (compteDebit != null && compteCredit != null && (compteDebit.getSolde() - montant) >= 0) {
 
+			// Identification du client
+			Client clientDebit = (daoClient.findByCompteCourant_id(idCompteDebit) != null
+					? daoClient.findByCompteCourant_id(idCompteDebit)
+					: daoClient.findByCompteEpargne_id(idCompteDebit));
+			Client clientCredit = (daoClient.findByCompteCourant_id(idCompteCredit) != null
+					? daoClient.findByCompteCourant_id(idCompteCredit)
+					: daoClient.findByCompteEpargne_id(idCompteCredit));
+
 			compteDebit.setSolde(compteDebit.getSolde() - montant);
 			daoCompte.save(compteDebit);
 
 			compteCredit.setSolde(compteCredit.getSolde() + montant);
 			daoCompte.save(compteCredit);
 
-			Virement virement = new Virement(generateDate(), idCompteDebit, idCompteCredit, montant);
+			Virement virement = new Virement(generateDate(), clientDebit.toString(), compteDebit.toString(),
+					clientCredit.toString(), compteCredit.toString(), montant);
 			daoVirement.save(virement);
 			return virement;
 

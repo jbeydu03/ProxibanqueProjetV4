@@ -51,7 +51,7 @@ public class CompteCourant extends Compte {
 	// *** Methods ***
 	@Override
 	public String toString() {
-		return " (" + decouvert + ") " + carte;
+		return super.toString();
 	}
 
 }
