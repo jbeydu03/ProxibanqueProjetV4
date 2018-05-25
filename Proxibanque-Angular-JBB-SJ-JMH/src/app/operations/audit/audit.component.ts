@@ -22,7 +22,7 @@ export class AuditComponent implements OnInit {
 
   ngOnInit() {
     this.auditForm = this.fb.group({
-      montant: [''], 
+      montant: ['',[Validators.min(0)]], 
     });
     this.conseillerService.loadClientsConseiller().subscribe(client=>this.clients = client);
       
