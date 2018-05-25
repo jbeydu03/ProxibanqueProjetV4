@@ -12,12 +12,12 @@ import { IdentificationCookie } from '../model/identificationCookie';
 @Injectable()
 export class AuthService {
 
-  
-  constructor(private http: HttpClient,
-    @Inject('JSON_SERVER_URL') private baseUrl: string, @Inject(DOCUMENT) private document) { 
-    }
 
-    login(userLog: string, userMDP: string): Observable<Conseiller> {
+  constructor(private http: HttpClient,
+    @Inject('JSON_SERVER_URL') private baseUrl: string, @Inject(DOCUMENT) private document) {
+  }
+
+  login(userLog: string, userMDP: string): Observable<Conseiller> {
     // TODO: afficher un client à partir de son Id
     //http://192.168.1.44:8080/ProxiBanqueSI_JMH_JBB_SJ/clients/all
     //const userData =  userLog ;
@@ -42,9 +42,22 @@ export class AuthService {
   }
 
 
-  //  deleteCookie() {
-  //  this.document.cookie = `${name}=0`;
-  //  }
+  deleteCookie(user) {
+    this.document.cookie = `${user}=0`;
+  }
+
+  signIn() {
+    const userCookie = this.getCookie('user');
+    if (userCookie == "0" || userCookie == undefined) {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+
+
 }
 
 

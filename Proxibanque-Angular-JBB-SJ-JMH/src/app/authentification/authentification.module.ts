@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,6 +22,6 @@ const routes: Routes = [
   ],
   declarations: [],
   exports: [ReactiveFormsModule],
-  providers: [AuthService],
+  providers: [AuthService,AuthGuard],
 })
 export class AuthentificationModule { }

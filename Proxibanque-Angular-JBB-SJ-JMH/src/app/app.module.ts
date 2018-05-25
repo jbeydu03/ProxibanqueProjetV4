@@ -16,9 +16,10 @@ import { OperationsModule } from './operations/operations.module';
 import { AuditComponent } from './operations/audit/audit.component';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
+import { AuthGuard } from './authentification/auth.guard';
 
 const routes: Routes= [
-  {path: 'home', component: HomeComponent},
+  {path: 'home', canActivate: [AuthGuard],  component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 

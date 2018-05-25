@@ -8,12 +8,13 @@ import { FieldComponent } from './field/field.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorHandler } from '../http-error-handler.service';
 import { HistoriqueComponent } from './historique/historique.component';
+import { AuthGuard } from '../authentification/auth.guard';
 
 const routes: Routes = [
-  { path: 'clients', component: ListeClientComponent },
-  { path: 'clients/new', component: FormClientComponent },
-  { path: 'clients/:clientid', component: FormClientComponent },
-  { path: 'clients/:clientid/historique', component: HistoriqueComponent }
+  { path: 'clients', canActivate: [AuthGuard], component: ListeClientComponent },
+  { path: 'clients/new', canActivate: [AuthGuard],  component: FormClientComponent },
+  { path: 'clients/:clientid', canActivate: [AuthGuard], component: FormClientComponent },
+  { path: 'clients/:clientid/historique', canActivate: [AuthGuard], component: HistoriqueComponent }
 ];
 
 @NgModule({

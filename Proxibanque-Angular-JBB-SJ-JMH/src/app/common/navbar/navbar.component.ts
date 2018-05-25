@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../authentification/auth.service';
 import { IdentificationCookie } from '../../model/identificationCookie';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 interface NavItem {
   text: string;
@@ -15,8 +16,7 @@ interface NavItem {
   styles: []
 })
 export class NavbarComponent implements OnInit {
-  isLogin = true;
-  user: IdentificationCookie;
+  isLogin = false;
   userCookie: string;
 
   // Attributes
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   navItems: NavItem[] = [
     { text: 'Liste des clients', path: 'clients' },
     { text: 'Opérations bancaires', path: 'operations' },
-   /* { text: 'Gestion agence', path: 'gerant' }, */
+   
 
   ];
 
@@ -32,20 +32,26 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.userCookie = this.authService.getCookie();
-    // this.user = new IdentificationCookie(JSON.parse(this.userCookie));
-    // if (this.user) {
-    //   this.isLogin = true;
-
-    // }
-
-
+      // const counter = Observable.interval(1000);
+      // counter.subscribe(),() => {
+      //     this.isLogin = this.authService.signIn();
+      //   }
+        this.isLogin = this.authService.signIn();
+  
 
   }
-  // deconnexion() {
-  //   console.log(this.user);
-  //   this.authService.deleteCookie();
 
-  //   // this.router.navigate(['/login']);
-  // }
+
+
+
+  deconnexion() {
+    
+    this.authService.setCookie('user', (0).toString());
+    const userCookie2 = this.authService.getCookie('user');
+    this.router.navigate(['/login']);
+  }
+
+  
+
+
 }

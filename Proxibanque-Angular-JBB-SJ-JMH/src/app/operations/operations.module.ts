@@ -7,11 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OperationsService } from './operations.service';
 import { FieldComponent } from '../operations/field/field.component';
+import { AuthGuard } from '../authentification/auth.guard';
 
 const routes: Routes = [
-  { path: 'operations', component: ListeOperationsComponent },
-  { path: 'operations/credit', component: SimulationCreditComponent },
-  { path: 'operations/audit', component: AuditComponent }
+  { path: 'operations', canActivate: [AuthGuard],  component: ListeOperationsComponent },
+  { path: 'operations/credit', canActivate: [AuthGuard],  component: SimulationCreditComponent },
+  { path: 'operations/audit', canActivate: [AuthGuard],  component: AuditComponent }
 ];
 
 @NgModule({
