@@ -18,8 +18,8 @@ export class SimulationCreditComponent implements OnInit {
 
   ngOnInit() {
     this.creditForm = this.fb.group({
-      champMontant: ['', Validators.required],
-      champDuree: ['', Validators.required],
+      champMontant: ['', [Validators.required, Validators.min(0)]],
+      champDuree: ['', [Validators.required,Validators.min(0)]],
       champTaux: ['', [Validators.required, Validators.max(100), Validators.min(0)]]
     })
   }
@@ -31,7 +31,8 @@ export class SimulationCreditComponent implements OnInit {
     this.taux = this.creditForm.get('champTaux').value;
 
     this.menusalite = (this.montant * (1 + this.taux / 100)) / this.duree;
-    alert('Pour un credit de ' + this.montant + ' € sur ' + this.duree + ' mois au taux de ' + this.taux + ' %. La mensualité corrspondante est de ' + Math.round(this.menusalite) + ' € par mois');
+    alert('Pour un credit de ' + this.montant + ' € sur ' + this.duree + ' mois au taux de ' + this.taux + 
+    ' %. La mensualité corrspondante est de ' + Math.round(this.menusalite) + ' € par mois');
   }
 
 }

@@ -2,25 +2,20 @@
   <br>
   <h2>Simulateur de crédit à la consommation ou immobilier</h2>
   <a type="button" class="btn btn-default" routerLink="..">Retour</a>
-<br/>
+  <br/>
 
   <form novalidate [formGroup]="creditForm" (ngSubmit)="calculerCredit()">
-
     <app-field label="Montant" [control]="creditForm.get('champMontant')">
-
       <input type="text" class="form-control" placeholder="Montant" formControlName="champMontant">
     </app-field>
 
     <app-field label="Duree" [control]="creditForm.get('champDuree')">
-   
       <input type="text" class="form-control" placeholder="Duree" formControlName="champDuree">
     </app-field>
 
     <app-field label="Taux" [control]="creditForm.get('champTaux')">
-
       <input type="text" class="form-control" placeholder="Taux" formControlName="champTaux">
     </app-field>
-
 
     <button type="submit" class="btn btn-primary" [disabled]="creditForm.invalid">Simuler un crédit</button>
     <a type="button" class="btn btn-default" routerLink="..">Retour</a>
